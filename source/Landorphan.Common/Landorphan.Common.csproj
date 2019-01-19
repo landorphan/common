@@ -5,6 +5,8 @@
       <CodeAnalysisRuleSet>Landorphan.Common.Std.ruleset</CodeAnalysisRuleSet>
       <RootNamespace>Landorphan.Common</RootNamespace>
       <NoWarn>1701;1702;</NoWarn>
+      <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+      <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
    </PropertyGroup>
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
       <DefineConstants>DEBUG;TRACE</DefineConstants>
