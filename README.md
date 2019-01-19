@@ -1,9 +1,6 @@
-```
-Channel  | Under Development | Released |
--------- | :------------: | :-------------: |
-Build | [![Build Status](https://landorphan.visualstudio.com/Service-Location/_apis/build/status/Common%20PR?branchName=develop)](https://landorphan.visualstudio.com/Service-Location/_build/latest?definitionId=14?branchName=develop) | [![Build Status](https://landorphan.visualstudio.com/Service-Location/_apis/build/status/Common%20PR?branchName=master)](https://landorphan.visualstudio.com/Service-Location/_build/latest?definitionId=14?branchName=master) |
-
-```
+Channel  | Under Development | Released 
+-------- | :------------: | :-------------: 
+Build | [![Build Status](https://landorphan.visualstudio.com/Service-Location/_apis/build/status/Common%20PR?branchName=develop)](https://landorphan.visualstudio.com/Service-Location/_build/latest?definitionId=14?branchName=develop) | [![Build Status](https://landorphan.visualstudio.com/Service-Location/_apis/build/status/Common%20PR?branchName=master)](https://landorphan.visualstudio.com/Service-Location/_build/latest?definitionId=14?branchName=master) 
 
 
 
