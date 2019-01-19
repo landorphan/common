@@ -4,6 +4,11 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+
+[assembly: System.Reflection.AssemblyCompanyAttribute("Landorphan.Common")]
+//[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyProductAttribute("Landorphan.Common")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Landorphan.Common")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(true)]
