@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata>
+      <!-- Required elements-->
+      <id>landorphan.com</id>
+      <version>1.0.0</version>
+      <description>Utilities for use in all landorphan projects.</description>
+      <!-- Need additional nuget.org profile names, mprochaska links to mprochaska@landorphan.org-->
+      <authors>mprochaska</authors>
+
+      <!-- Optional elements -->
+      <title>Landorphan.Common</title>
+      <!-- Need additional nuget.org profile names, mprochaska links to mprochaska@landorphan.org-->
+      <owners>mprochaska</owners>
+      <projectUrl>https://github.com/landorphan/common</projectUrl>
+      <!--verify this is the desired SPDX/license:  see https://spdx.org/licenses/-->
+      <license type="expression">MIT</license>
+      <!-- Not deployed yet
+        <iconUrl>https://github.com/landorphan/common/raw/master/logo.png</iconUrl>
+        -->
+      <requireLicenseAcceptance>true</requireLicenseAcceptance>
+      <developmentDependency>false</developmentDependency>
+      <summary>Utilities for use in all landorphan projects.</summary>
+      <releaseNotes>Initial public release.</releaseNotes>
+      <copyright></copyright>
+      <language></language>
+      <tags></tags>
+      <repository></repository>
+      <minClientVersion></minClientVersion>
+      <packageTypes>
+         <packageType name="Dependency" />
+      </packageTypes>
+      <dependencies>
+         <group targetFramework=".NETStandard2.0">
+            <dependency id="Microsoft.Extensions.Configuration" version="2.2.0" exclude="Build,Analyzers" />
+            <dependency id="System.Collections.Immutable" version="1.5.0" exclude="Build,Analyzers" />
+         </group>
+      </dependencies>
+      <!-- Not Required:
+      <files>
+      </files>
+      -->
+   </metadata>
+   <!-- Optional 'files' node -->
+</package>
