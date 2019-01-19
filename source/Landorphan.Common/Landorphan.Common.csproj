@@ -5,6 +5,7 @@
       <CodeAnalysisRuleSet>Landorphan.Common.Std.ruleset</CodeAnalysisRuleSet>
       <RootNamespace>Landorphan.Common</RootNamespace>
       <NoWarn>1701;1702;</NoWarn>
+      <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
       <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
       <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
    </PropertyGroup>
