@@ -2,7 +2,7 @@
    <PropertyGroup>
       <TargetFramework>netstandard2.0</TargetFramework>
       <LangVersion>7.2</LangVersion>
-      <CodeAnalysisRuleSet>Landorphan.Common.Std.ruleset</CodeAnalysisRuleSet>
+      <CodeAnalysisRuleSet>Landorphan.Common.NetStd.ruleset</CodeAnalysisRuleSet>
       <RootNamespace>Landorphan.Common</RootNamespace>
       <NoWarn>1701;1702;</NoWarn>
       <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -28,19 +28,17 @@
       <DocumentationFile>..\..\bin\release\$(AssemblyName)\$(AssemblyName).XML</DocumentationFile>
    </PropertyGroup>
    <ItemGroup>
-      <None Remove="Landorphan.Common.Std.ruleset" />
+      <None Remove="Landorphan.Common.NetStd.ruleset" />
    </ItemGroup>
    <ItemGroup>
-      <AdditionalFiles Include="Landorphan.Common.Std.ruleset">
-         <SubType>Designer</SubType>
-      </AdditionalFiles>
+     <AdditionalFiles Include="Landorphan.Common.NetStd.ruleset" />
    </ItemGroup>
    <ItemGroup>
-      <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="2.6.2">
+      <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="2.6.3">
          <PrivateAssets>all</PrivateAssets>
          <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Microsoft.CodeQuality.Analyzers" Version="2.6.2">
+      <PackageReference Include="Microsoft.CodeQuality.Analyzers" Version="2.6.3">
          <PrivateAssets>all</PrivateAssets>
          <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       </PackageReference>

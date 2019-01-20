@@ -9,7 +9,6 @@
    // ReSharper disable InconsistentNaming
    // ReSharper disable InvokeAsExtensionMethod
 
-   [TestClass]
    public static class StringExtensions_Tests
    {
       [TestClass]

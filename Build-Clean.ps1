@@ -1,5 +1,5 @@
 ﻿Set-StrictMode -Version Latest
-$ErrorActionPreference = 'SilentlyContinue'
+$ErrorActionPreference = 'Continue'
 
 $started = [DateTime]::UtcNow
 

@@ -8,10 +8,14 @@
 
    <Rules AnalyzerId="Microsoft.NetCore.Analyzers" RuleNamespace="Microsoft.NetCore.Analyzers">
       <!-- Turned off in Test-->
+      <!--CA1034: Nested types should not be visible-->
+      <Rule Id="CA1034" Action="None" />
       <!--CA1305: Specify IFormat provider -->
       <Rule Id="CA1305" Action="None" />
       <!--CA1307: Specify StringComparison -->
       <Rule Id="CA1307" Action="None" />
+      <!--CA1707: Identifiers should not contain underscores -->
+      <Rule Id="CA1707" Action="None" />
 
       <!--CA1304: Specify CultureInfo -->
       <Rule Id="CA1304" Action="Warning" />

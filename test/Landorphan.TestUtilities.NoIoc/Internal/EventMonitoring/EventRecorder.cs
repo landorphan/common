@@ -1,6 +1,7 @@
 namespace Landorphan.TestUtilities.Internal.EventMonitoring
 {
    using System;
+   using System.Diagnostics.CodeAnalysis;
    using System.Reflection;
    using System.Threading;
    using Landorphan.Common;
@@ -32,6 +33,7 @@ namespace Landorphan.TestUtilities.Internal.EventMonitoring
       /// <inheritdoc/>
       public Object ExpectedEventSource { get; }
 
+      [SuppressMessage("SonarLint.CodeSmell", "S4056: Overloads with a CultureInfo or an IFormatProvider parameter should be used")]
       private void AddEventHandler(Delegate handler)
       {
          // System.Reflection.EventInfo.AddEventHandler only works with public events
