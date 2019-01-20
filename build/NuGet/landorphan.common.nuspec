@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata>
       <!-- Required elements-->
-      <id>Landorphan.Common/id>
+      <id>Landorphan.Common</id>
       <version>$version$</version>
       <description>Utilities for use in all landorphan projects.</description>
       <!-- Need additional nuget.org profile names, mprochaska links to mprochaska@landorphan.org-->
