@@ -26,7 +26,6 @@
       <language></language>
       <tags>common, utility</tags>
       <repository type="git" url="https://github.com/landorphan/common"></repository>
-      <minClientVersion></minClientVersion>
       <packageTypes>
          <packageType name="Dependency" />
       </packageTypes>
