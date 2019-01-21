@@ -3,6 +3,7 @@
    using System;
    using FluentAssertions;
    using Landorphan.TestUtilities;
+   using Landorphan.TestUtilities.TestFacilities;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
    // ReSharper disable InconsistentNaming
@@ -88,7 +89,8 @@
       public void It_should_Not_Throw()
       {
          target.ThrowIfReadOnlyInstance();
-         true.Should().BeTrue();
+         
+         TestHardCodes.NoExceptionWasThrown.Should().BeTrue();
       }
    }
 

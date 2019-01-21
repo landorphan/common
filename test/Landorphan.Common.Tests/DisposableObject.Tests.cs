@@ -2,39 +2,66 @@
 {
    using System;
    using System.Collections;
+   using System.Collections.Concurrent;
    using System.Collections.Generic;
+   using System.Collections.Immutable;
+   using System.Collections.ObjectModel;
+   using System.Diagnostics.CodeAnalysis;
+   using System.Threading;
    using FluentAssertions;
+   using Landorphan.Common.Threading;
    using Landorphan.TestUtilities;
+   using Landorphan.TestUtilities.TestFacilities;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
    // ReSharper disable InconsistentNaming
+
+   // NOTE:  Do not create test classes that descend from DisposableArrangeActAssert in this file,
+   // The implementation of DisposableArrangeActAssert is a copy of DisposableObject's implementation.
 
    [TestClass]
    public class DisposableObjectTests : ArrangeActAssert
    {
       [TestMethod]
       [TestCategory(TestTiming.CheckIn)]
-      public void It_should_dispose_of_all_disposable_fields_and_contained_disposables()
+      public void It_should_dispose_of_all_contained_disposables_in_an_enumerable()
       {
-         var target = DisposableHelper.SafeCreate<DisposableEnumerable>();
+         var targetEnumerable = DisposableHelper.SafeCreate<DisposableEnumerable>();
          var contained = DisposableHelper.SafeCreate(() => new DisposableItem());
-         target.AddDisposable(contained);
+         targetEnumerable.AddDisposable(contained);
 
-         target.Dispose();
+         targetEnumerable.Dispose();
 
          contained.IsDisposed.Should().BeTrue();
       }
 
       [TestMethod]
       [TestCategory(TestTiming.CheckIn)]
-      public void It_should_handle_contained_nulls()
+      public void It_should_dispose_of_auto_properties()
       {
-         var target = DisposableHelper.SafeCreate<DisposableEnumerable>();
-         target.AddDisposable(null);
-
+         var target = DisposableHelper.SafeCreate<DisposableItem>();
          target.Dispose();
+         target.DisposableReadOnlyAutoProperty.Should().BeNull();
+      }
 
-         target.IsDisposed.Should().BeTrue();
+      [TestMethod]
+      [TestCategory(TestTiming.CheckIn)]
+      public void It_should_dispose_of_read_only_fields()
+      {
+         var target = DisposableHelper.SafeCreate<DisposableItem>();
+         target.Dispose();
+         target.GetPrivateReadOnlyDisposableField().Should().BeNull();
+      }
+
+      [TestMethod]
+      [TestCategory(TestTiming.CheckIn)]
+      public void It_should_handle_contained_nulls_in_an_enumerable()
+      {
+         var targetEnumerable = DisposableHelper.SafeCreate<DisposableEnumerable>();
+         targetEnumerable.AddDisposable(null);
+         targetEnumerable.Dispose();
+
+         TestHardCodes.NoExceptionWasThrown.Should().BeTrue();
       }
 
       [TestMethod]
@@ -60,10 +87,27 @@
       {
          var target = DisposableHelper.SafeCreate<DisposableEnumerable>();
          target.SetFlatField(null);
-
          target.Dispose();
 
-         true.Should().BeTrue();
+         TestHardCodes.NoExceptionWasThrown.Should().BeTrue();
+      }
+
+      [TestMethod]
+      [TestCategory(TestTiming.CheckIn)]
+      public void It_should_not_dispose_of_auto_properties_attributed_with_do_not_dispose()
+      {
+         var target = DisposableHelper.SafeCreate<DisposableItem>();
+         target.Dispose();
+         target.DoNotDisposeAutoProperty.Should().NotBeNull();
+      }
+
+      [TestMethod]
+      [TestCategory(TestTiming.CheckIn)]
+      public void It_should_not_dispose_of_fields_attributed_with_do_not_dispose()
+      {
+         var target = DisposableHelper.SafeCreate<DisposableItem>();
+         target.Dispose();
+         target.GetDoNotDisposeField().Should().NotBeNull();
       }
 
       [TestMethod]
@@ -76,6 +120,137 @@
          // ReSharper disable once AccessToDisposedClosure
          Action throwingAction = target.Method;
          throwingAction.Should().Throw<ObjectDisposedException>();
+      }
+
+      [TestClass]
+      public class DisposableObject_Dictionary_Tests : ArrangeActAssert
+      {
+         // the target classes implement a variety of IDictionary<,> implementations
+         //  ConcurrentDictionary<T,U>
+         //  Dictionary<T,U>
+         //  ImmutableDictionary<T,U>
+         //  SortedDictionary<T,U>
+
+         [SuppressMessage("SonarLint.CodeSmell", "S3966: Objects should not be disposed more than once")]
+         [TestMethod]
+         [TestCategory(TestTiming.CheckIn)]
+         public void It_should_dispose_a_Dictionary_field_with_a_Disposable_Key()
+         {
+            using (var target = DisposableHelper.SafeCreate<ClassWithDictionaryFieldWithDisposableKey>())
+            {
+               target.Dispose();
+               var actual = target.TestHookGetField();
+               actual.Should().BeNull();
+            }
+         }
+
+         [SuppressMessage("SonarLint.CodeSmell", "S3966: Objects should not be disposed more than once")]
+         [TestMethod]
+         [TestCategory(TestTiming.CheckIn)]
+         public void It_should_dispose_a_Dictionary_field_with_a_Disposable_Value()
+         {
+            using (var target = DisposableHelper.SafeCreate<ClassWithDictionaryFieldWithDisposableValue>())
+            {
+               target.Dispose();
+               var actual = target.TestHookGetField();
+               actual.Should().BeNull();
+            }
+         }
+
+         [SuppressMessage("SonarLint.CodeSmell", "S3966: Objects should not be disposed more than once")]
+         [TestMethod]
+         [TestCategory(TestTiming.CheckIn)]
+         public void It_should_dispose_a_Dictionary_field_with_a_Enumerable_Disposable_Value()
+         {
+            using (var target = DisposableHelper.SafeCreate<ClassWithDictionaryFieldWithEnumerableDisposableValue>())
+            {
+               target.Dispose();
+               var actual = target.TestHookGetField();
+               actual.Should().BeNull();
+            }
+         }
+
+         [SuppressMessage("SonarLint.CodeSmell", "S3966: Objects should not be disposed more than once")]
+         [TestMethod]
+         [TestCategory(TestTiming.CheckIn)]
+         public void It_should_dispose_a_Dictionary_field_with_an_Enumerable_Disposable_Key()
+         {
+            using (var target = DisposableHelper.SafeCreate<ClassWithDictionaryFieldWithEnumerableDisposableKey>())
+            {
+               target.Dispose();
+               var actual = target.TestHookGetField();
+               actual.Should().BeNull();
+            }
+         }
+
+         private class ClassWithDictionaryFieldWithDisposableKey : DisposableObject
+         {
+            private readonly ImmutableDictionary<Mutex, String> _field;
+
+            [SuppressMessage("SonarLint.CodeSmell", "S1144: Unused private types or members should be removed", Justification = "False positive(MWP)")]
+            public ClassWithDictionaryFieldWithDisposableKey()
+            {
+               var builder = ImmutableDictionary<Mutex, String>.Empty.ToBuilder();
+               builder.Add(DisposableHelper.SafeCreate<Mutex>(), "a name");
+               _field = builder.ToImmutable();
+            }
+
+            internal Object TestHookGetField()
+            {
+               return _field;
+            }
+         }
+
+         private class ClassWithDictionaryFieldWithDisposableValue : DisposableObject
+         {
+            private readonly Dictionary<String, Mutex> _field;
+
+            [SuppressMessage("SonarLint.CodeSmell", "S1144: Unused private types or members should be removed", Justification = "False positive(MWP)")]
+            public ClassWithDictionaryFieldWithDisposableValue()
+            {
+               _field = new Dictionary<String, Mutex> {{"name", DisposableHelper.SafeCreate<Mutex>()}};
+            }
+
+            internal Object TestHookGetField()
+            {
+               return _field;
+            }
+         }
+
+         private class ClassWithDictionaryFieldWithEnumerableDisposableKey : DisposableObject
+         {
+            private readonly ConcurrentDictionary<HashSet<Mutex>, String> _field;
+
+            [SuppressMessage("SonarLint.CodeSmell", "S1144: Unused private types or members should be removed", Justification = "False positive(MWP)")]
+            public ClassWithDictionaryFieldWithEnumerableDisposableKey()
+            {
+               var set = new HashSet<Mutex> {new Mutex(), new Mutex(), new Mutex()};
+               _field = new ConcurrentDictionary<HashSet<Mutex>, String>();
+               _field.TryAdd(set, "another name");
+            }
+
+            internal Object TestHookGetField()
+            {
+               return _field;
+            }
+         }
+
+         private class ClassWithDictionaryFieldWithEnumerableDisposableValue : DisposableObject
+         {
+            private readonly SortedDictionary<String, ICollection<Mutex>> _field;
+
+            [SuppressMessage("SonarLint.CodeSmell", "S1144: Unused private types or members should be removed", Justification = "False positive(MWP)")]
+            public ClassWithDictionaryFieldWithEnumerableDisposableValue()
+            {
+               var col = new Collection<Mutex> {new Mutex(), new Mutex(), new Mutex()};
+               _field = new SortedDictionary<String, ICollection<Mutex>> {{"key value", col}};
+            }
+
+            internal Object TestHookGetField()
+            {
+               return _field;
+            }
+         }
       }
 
       private class DisposableDescendant : DisposableEnumerable
@@ -121,6 +296,33 @@
 
       private class DisposableItem : DisposableObject
       {
+         [DoNotDispose]
+         private readonly Mutex _doNotDispose;
+         private readonly Mutex _privateReadOnlyDisposableField;
+
+         public DisposableItem()
+         {
+            _privateReadOnlyDisposableField = new Mutex();
+            _doNotDispose = new Mutex();
+            DisposableReadOnlyAutoProperty = new NonRecursiveLock();
+            DoNotDisposeAutoProperty = new NonRecursiveLock();
+         }
+
+         public NonRecursiveLock DisposableReadOnlyAutoProperty { get; }
+
+         [DoNotDispose]
+         public IDisposable DoNotDisposeAutoProperty { get; }
+
+         public IDisposable GetDoNotDisposeField()
+         {
+            return _doNotDispose;
+         }
+
+         public IDisposable GetPrivateReadOnlyDisposableField()
+         {
+            return _privateReadOnlyDisposableField;
+         }
+
          public void Method()
          {
             ThrowIfDisposed();

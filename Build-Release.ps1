@@ -9,7 +9,7 @@ dotnet build landorphan.common.sln -c release
 
 $completed = [DateTime]::UtcNow
 $elapsed = $completed - $started
-"Build-Debug:"
+"Build-Release:"
 "Elapsed:=        $elapsed"
 "Started (UTC):=  $started"
 "Completed (UTC):=$completed"

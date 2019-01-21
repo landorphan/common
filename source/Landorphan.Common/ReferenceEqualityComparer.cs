@@ -43,6 +43,7 @@
       /// </returns>
       public Int32 GetHashCode(T obj)
       {
+         // ReSharper disable once ConditionIsAlwaysTrueOrFalse
          return ReferenceEquals(obj, null) ? 0 : obj.GetHashCode();
       }
    }

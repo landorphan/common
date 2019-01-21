@@ -4,6 +4,7 @@
    using System.Reflection;
    using FluentAssertions;
    using Landorphan.TestUtilities;
+   using Landorphan.TestUtilities.TestFacilities;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
    // ReSharper disable InconsistentNaming
@@ -19,7 +20,8 @@
          var assembly = Assembly.Load("System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
          assembly.GetTypes();
          assembly.SafeGetTypes();
-         true.Should().BeTrue();
+         
+         TestHardCodes.NoExceptionWasThrown.Should().BeTrue();
       }
    }
 }

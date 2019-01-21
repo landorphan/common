@@ -6,6 +6,7 @@
    using FluentAssertions;
    using Landorphan.Common.Threading;
    using Landorphan.TestUtilities;
+   using Landorphan.TestUtilities.TestFacilities;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
    // ReSharper disable InconsistentNaming
@@ -436,7 +437,8 @@
          public void It_should_not_throw_on_subsequent_calls_to_Dispose()
          {
             exitLock.Dispose();
-            true.Should().BeTrue();
+            
+            TestHardCodes.NoExceptionWasThrown.Should().BeTrue();
          }
 
          [TestMethod]
@@ -476,7 +478,7 @@
          {
             exitLock.Dispose();
 
-            true.Should().BeTrue();
+            TestHardCodes.NoExceptionWasThrown.Should().BeTrue();
          }
 
          [TestMethod]
@@ -516,7 +518,7 @@
          {
             exitLock.Dispose();
 
-            true.Should().BeTrue();
+            TestHardCodes.NoExceptionWasThrown.Should().BeTrue();
          }
 
          [TestMethod]
@@ -580,7 +582,7 @@
          {
             Target.Dispose();
 
-            true.Should().BeTrue();
+            TestHardCodes.NoExceptionWasThrown.Should().BeTrue();
          }
 
          [TestMethod]

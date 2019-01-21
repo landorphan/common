@@ -6,6 +6,7 @@ namespace Landorphan.TestUtilities.Internal.EventMonitoring
    using System.Threading;
    using Landorphan.Common;
 
+   [SuppressMessage("Microsoft.Performance", "CA1812: Avoid uninstantiated internal classes", Justification = "Transitive false positive (MWP)")]
    internal class EventRecorder<TEventArgs> : IEventRecorder where TEventArgs : EventArgs
    {
       private readonly EventInfo _eventInfo;
