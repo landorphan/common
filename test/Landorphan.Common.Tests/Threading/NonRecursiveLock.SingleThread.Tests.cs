@@ -18,7 +18,7 @@
          private static INonRecursiveLock target;
 
          /// <summary>
-         /// Code that executes before any of the tests methods in the test class are executed.
+         ///    Code that executes before any of the tests methods in the test class are executed.
          /// </summary>
          [ClassInitialize]
          public static void ThisTestClassInitialize(TestContext context)
@@ -30,7 +30,7 @@
          }
 
          /// <summary>
-         /// Code that executes after all of the test methods in the test class are executed.
+         ///    Code that executes after all of the test methods in the test class are executed.
          /// </summary>
          [ClassCleanup]
          public static void ThisTestClassCleanup()
@@ -413,13 +413,6 @@
       {
          private IDisposable exitLock;
 
-         [TestMethod]
-         [TestCategory(TestTiming.CheckIn)]
-         public void It_should_not_throw_on_subsequent_calls_to_Dispose()
-         {
-            exitLock.Dispose();
-         }
-
          protected override void TeardownTestMethod()
          {
             if (exitLock.IsNotNull())
@@ -440,6 +433,14 @@
 
          [TestMethod]
          [TestCategory(TestTiming.CheckIn)]
+         public void It_should_not_throw_on_subsequent_calls_to_Dispose()
+         {
+            exitLock.Dispose();
+            true.Should().BeTrue();
+         }
+
+         [TestMethod]
+         [TestCategory(TestTiming.CheckIn)]
          public void It_should_release_the_lock()
          {
             TargetDiagnostic.IsReadLockHeld.Should().BeFalse();
@@ -450,13 +451,6 @@
       public class When_a_thread_releases_a_write_lock : NonRecursiveLockContext
       {
          private IDisposable exitLock;
-
-         [TestMethod]
-         [TestCategory(TestTiming.CheckIn)]
-         public void It_should_not_throw_on_subsequent_calls_to_Dispose()
-         {
-            exitLock.Dispose();
-         }
 
          protected override void TeardownTestMethod()
          {
@@ -478,6 +472,15 @@
 
          [TestMethod]
          [TestCategory(TestTiming.CheckIn)]
+         public void It_should_not_throw_on_subsequent_calls_to_Dispose()
+         {
+            exitLock.Dispose();
+
+            true.Should().BeTrue();
+         }
+
+         [TestMethod]
+         [TestCategory(TestTiming.CheckIn)]
          public void It_should_release_the_lock()
          {
             TargetDiagnostic.IsWriteLockHeld.Should().BeFalse();
@@ -488,13 +491,6 @@
       public class When_a_thread_releases_an_upgradeable_read_lock : NonRecursiveLockContext
       {
          private IDisposable exitLock;
-
-         [TestMethod]
-         [TestCategory(TestTiming.CheckIn)]
-         public void It_should_not_throw_on_subsequent_calls_to_Dispose()
-         {
-            exitLock.Dispose();
-         }
 
          protected override void TeardownTestMethod()
          {
@@ -512,6 +508,15 @@
             base.ActMethod();
             exitLock = Target.EnterUpgradeableReadLock();
             exitLock.Dispose();
+         }
+
+         [TestMethod]
+         [TestCategory(TestTiming.CheckIn)]
+         public void It_should_not_throw_on_subsequent_calls_to_Dispose()
+         {
+            exitLock.Dispose();
+
+            true.Should().BeTrue();
          }
 
          [TestMethod]
@@ -556,13 +561,6 @@
       [TestClass]
       public class When_I_dispose_a_NonRecursiveLock : NonRecursiveLockContext
       {
-         [TestMethod]
-         [TestCategory(TestTiming.CheckIn)]
-         public void It_should_not_throw_on_Dispose()
-         {
-            Target.Dispose();
-         }
-
          protected override void ActMethod()
          {
             base.ActMethod();
@@ -574,6 +572,15 @@
          public void It_should_indicate_it_is_disposed()
          {
             Target.IsDisposed.Should().BeTrue();
+         }
+
+         [TestMethod]
+         [TestCategory(TestTiming.CheckIn)]
+         public void It_should_not_throw_on_Dispose()
+         {
+            Target.Dispose();
+
+            true.Should().BeTrue();
          }
 
          [TestMethod]

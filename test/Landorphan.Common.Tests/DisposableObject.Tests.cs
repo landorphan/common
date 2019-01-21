@@ -33,6 +33,8 @@
          target.AddDisposable(null);
 
          target.Dispose();
+
+         target.IsDisposed.Should().BeTrue();
       }
 
       [TestMethod]
@@ -60,6 +62,8 @@
          target.SetFlatField(null);
 
          target.Dispose();
+
+         true.Should().BeTrue();
       }
 
       [TestMethod]

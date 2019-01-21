@@ -7,7 +7,7 @@
    using Landorphan.Common.Threading;
 
    /// <summary>
-   /// Base implementation for classes implementing <see cref="IDisposable"/>.
+   ///    Base implementation for classes implementing <see cref="IDisposable" />.
    /// </summary>
    [SuppressMessage("Microsoft.", "CA1063: Implement IDisposable Correctly", Justification = "Reviewed (MWP)")]
    public abstract class DisposableObject : INotifyingQueryDisposable
@@ -16,7 +16,7 @@
       private InterlockedBoolean _isDisposed = new InterlockedBoolean(false);
       private InterlockedBoolean _isDisposing = new InterlockedBoolean(false);
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public void Dispose()
       {
          if (_isDisposed)
@@ -38,10 +38,11 @@
       }
 
       /// <summary>
-      /// Releases the unmanaged resources used by the <see cref="DisposableObject"/> and optionally releases the managed resources.
+      ///    Releases the unmanaged resources used by the <see cref="DisposableObject" /> and optionally releases the managed
+      ///    resources.
       /// </summary>
       /// <param name="disposing">
-      /// <c> true </c> to release both managed and unmanaged resources; <c> false </c> to release only unmanaged resources.
+      ///    <c> true </c> to release both managed and unmanaged resources; <c> false </c> to release only unmanaged resources.
       /// </param>
       protected virtual void Dispose(Boolean disposing)
       {
@@ -59,19 +60,12 @@
       }
 
       /// <summary>
-      /// Throws an <see cref="ObjectDisposedException"/> if this instance has been disposed.
+      ///    Finds and releases all managed resources.
       /// </summary>
-      protected void ThrowIfDisposed()
-      {
-         if (_isDisposed)
-         {
-            throw new ObjectDisposedException(GetType().Name);
-         }
-      }
-
-      /// <summary>
-      /// Finds and releases all managed resources.
-      /// </summary>
+      [SuppressMessage(
+         "SonarLint.CodeSmell",
+         "S134: Control flow statements 'if', 'switch', 'for', 'foreach', 'while', 'do'  and 'try' should not be nested too deeply",
+         Justification = "Reviewed (MWP)")]
       [SuppressMessage("SonarLint.CodeSmell", "S1696:NullReferenceException should not be caught", Justification = "Eats the exception in a race condition (MWP)")]
       [SuppressMessage(
          "SonarLint.CodeSmell",
@@ -137,39 +131,51 @@
       }
 
       /// <summary>
-      /// Releases the unmanaged resources.
+      ///    Releases the unmanaged resources.
       /// </summary>
       protected virtual void ReleaseUnmanagedResources()
       {
       }
 
       /// <summary>
-      /// Ensures that resources are freed and other cleanup operations are performed when the garbage collector reclaims the <see cref="DisposableObject"/>.
+      ///    Ensures that resources are freed and other cleanup operations are performed when the garbage collector reclaims the
+      ///    <see cref="DisposableObject" />.
       /// </summary>
       ~DisposableObject()
       {
          Dispose(false);
       }
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public event EventHandler<EventArgs> Disposing
       {
          add => _listenersDisposing.Add(value);
          remove => _listenersDisposing.Remove(value);
       }
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public Boolean IsDisposed => _isDisposed;
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public Boolean IsDisposing => _isDisposing;
 
       /// <summary>
-      /// Notifies all listeners that this instance is being disposed.
+      ///    Notifies all listeners that this instance is being disposed.
       /// </summary>
       protected virtual void OnDisposing()
       {
          _listenersDisposing.Invoke(this, EventArgs.Empty);
+      }
+
+      /// <summary>
+      ///    Throws an <see cref="ObjectDisposedException" /> if this instance has been disposed.
+      /// </summary>
+      protected void ThrowIfDisposed()
+      {
+         if (_isDisposed)
+         {
+            throw new ObjectDisposedException(GetType().Name);
+         }
       }
    }
 }

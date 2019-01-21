@@ -10,24 +10,24 @@
    /// <remarks>
    /// Intended to be aggregated.
    /// </remarks>
-   public sealed class SupportsReadOnlyHelper : IQueryReadOnly, IConvertsToReadOnly
+   public sealed class SupportsReadOnlyHelper : IConvertsToReadOnly
    {
       private InterlockedBoolean _isReadOnly = new InterlockedBoolean(false);
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public Boolean IsReadOnly => _isReadOnly.GetValue();
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public void MakeReadOnly()
       {
          _isReadOnly.SetValue(true);
       }
 
       /// <summary>
-      /// Throws a <see cref="NotSupportedException"/> if the current instance is a read-only instance.
+      ///    Throws a <see cref="NotSupportedException" /> if the current instance is a read-only instance.
       /// </summary>
       /// <exception cref="NotSupportedException">
-      /// Thrown when the requested operation is not supported.
+      ///    Thrown when the requested operation is not supported.
       /// </exception>
       public void ThrowIfReadOnlyInstance()
       {

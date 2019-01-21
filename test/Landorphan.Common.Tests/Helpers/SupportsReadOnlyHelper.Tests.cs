@@ -88,6 +88,7 @@
       public void It_should_Not_Throw()
       {
          target.ThrowIfReadOnlyInstance();
+         true.Should().BeTrue();
       }
    }
 

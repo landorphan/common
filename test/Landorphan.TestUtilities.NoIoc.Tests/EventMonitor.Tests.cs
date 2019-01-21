@@ -2,6 +2,7 @@ namespace Landorphan.TestUtilities.NoIoc.Tests
 {
    using System;
    using System.Diagnostics;
+   using System.Diagnostics.CodeAnalysis;
    using System.IO;
    using System.Linq;
    using FluentAssertions;
@@ -187,6 +188,7 @@ namespace Landorphan.TestUtilities.NoIoc.Tests
          internal Guid Value { get; }
       }
 
+      [SuppressMessage("SonarLint.CodeSmell", "S1144: Unused private types or members should be removed")]
       private class TestClassSourcingAnEventArgsDerivedEvent
       {
          private readonly SourceWeakEventHandlerSet<TestClassAdditionalDataEventArgs> _eventListeners =

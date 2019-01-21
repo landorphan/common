@@ -124,7 +124,7 @@
          &lt;Entry.Match&gt;&#xD;
             &lt;And&gt;&#xD;
                &lt;Kind Is="Method" /&gt;&#xD;
-               &lt;Name Is="Clone" /&gt;&#xD;
+               &lt;Name Is="^Clone$" /&gt;&#xD;
             &lt;/And&gt;&#xD;
          &lt;/Entry.Match&gt;&#xD;
          &lt;Entry.SortBy&gt;&#xD;
@@ -136,7 +136,7 @@
          &lt;Entry.Match&gt;&#xD;
             &lt;And&gt;&#xD;
                &lt;Kind Is="Method" /&gt;&#xD;
-               &lt;Name Is="Dispose" /&gt;&#xD;
+               &lt;Name Is="^Dispose$" /&gt;&#xD;
             &lt;/And&gt;&#xD;
          &lt;/Entry.Match&gt;&#xD;
          &lt;Entry.SortBy&gt;&#xD;
@@ -148,7 +148,7 @@
          &lt;Entry.Match&gt;&#xD;
             &lt;And&gt;&#xD;
                &lt;Kind Is="Method" /&gt;&#xD;
-               &lt;Name Is="ReleaseManagedResources" /&gt;&#xD;
+               &lt;Name Is="^ReleaseManagedResources$" /&gt;&#xD;
             &lt;/And&gt;&#xD;
          &lt;/Entry.Match&gt;&#xD;
          &lt;Entry.SortBy&gt;&#xD;
@@ -160,7 +160,7 @@
          &lt;Entry.Match&gt;&#xD;
             &lt;And&gt;&#xD;
                &lt;Kind Is="Method" /&gt;&#xD;
-               &lt;Name Is="ReleaseUnmanagedResources" /&gt;&#xD;
+               &lt;Name Is="^ReleaseUnmanagedResources$" /&gt;&#xD;
             &lt;/And&gt;&#xD;
          &lt;/Entry.Match&gt;&#xD;
          &lt;Entry.SortBy&gt;&#xD;
@@ -181,7 +181,7 @@
          &lt;Entry.Match&gt;&#xD;
             &lt;And&gt;&#xD;
                &lt;Kind Is="Method" /&gt;&#xD;
-               &lt;Name Is="GetObjectData" /&gt;&#xD;
+               &lt;Name Is="^GetObjectData$" /&gt;&#xD;
             &lt;/And&gt;&#xD;
          &lt;/Entry.Match&gt;&#xD;
          &lt;Entry.SortBy&gt;&#xD;
@@ -226,7 +226,7 @@
             &lt;And&gt;&#xD;
                &lt;Static /&gt;&#xD;
                &lt;Kind Is="Method" /&gt;&#xD;
-               &lt;Name Is="\bCreate" /&gt;&#xD;
+               &lt;Name Is="^Create$" /&gt;&#xD;
             &lt;/And&gt;&#xD;
          &lt;/Entry.Match&gt;&#xD;
          &lt;Entry.SortBy&gt;&#xD;
@@ -499,15 +499,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="Dispose" /&gt;&#xD;
-                  &lt;Not&gt;&#xD;
-                     &lt;!-- &#xD;
-                     Resharper was treating event handlers for INotifyDisposed.OnDisposed&#xD;
-                     as if they were dispose methods, ignoring the Name constraint above.&#xD;
-                     This kludge fixes the problem.&#xD;
-                     --&gt;&#xD;
-                     &lt;HandlesEvent/&gt;&#xD;
-                  &lt;/Not&gt;&#xD;
+                  &lt;Name Is="^Dispose$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -525,7 +517,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="ReleaseManagedResources" /&gt;&#xD;
+                  &lt;Name Is="^ReleaseManagedResources$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -543,7 +535,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="ReleaseUnmanagedResources" /&gt;&#xD;
+                  &lt;Name Is="^ReleaseUnmanagedResources$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -577,7 +569,7 @@
                &lt;And&gt;&#xD;
                   &lt;Static /&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="\bCreate*" /&gt;&#xD;
+                  &lt;Name Is="^Create$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -596,12 +588,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="Clone" /&gt;&#xD;
-                  &lt;Not&gt;&#xD;
-                     &lt;!-- Bug in R#, Name Is ="" means contains, not equals in 2018.1.4 --&gt;&#xD;
-                     &lt;!-- Adding this condition to exclude tests of clone methods --&gt;&#xD;
-                     &lt;HasAttribute Name="Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute" /&gt;&#xD;
-                  &lt;/Not&gt;&#xD;
+                  &lt;Name Is="^Clone$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -619,7 +606,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="GetObjectData" /&gt;&#xD;
+                  &lt;Name Is="^GetObjectData$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -738,7 +725,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="InitializeTestMethod" /&gt;&#xD;
+                  &lt;Name Is="^InitializeTestMethod$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
          &lt;/Entry&gt;&#xD;
@@ -752,7 +739,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="TeardownTestMethod" /&gt;&#xD;
+                  &lt;Name Is="^TeardownTestMethod$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
          &lt;/Entry&gt;&#xD;
@@ -808,12 +795,12 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="ArrangeContext" /&gt;&#xD;
+                  &lt;Name Is="^ArrangeContext$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
          &lt;/Entry&gt;&#xD;
       &lt;!--&lt;/Region&gt;--&gt;&#xD;
-    &#xD;
+&#xD;
       &lt;!--&lt;Region Name="${0} TEST J" Priority="60"&gt;&#xD;
          &lt;Region.GroupBy&gt;&#xD;
             &lt;Name /&gt;&#xD;
@@ -822,7 +809,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="ActContext" /&gt;&#xD;
+                  &lt;Name Is="^ActContext$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
          &lt;/Entry&gt;&#xD;
@@ -836,7 +823,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="ArrangeMethod" /&gt;&#xD;
+                  &lt;Name Is="^ArrangeMethod$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
          &lt;/Entry&gt;&#xD;
@@ -850,7 +837,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="ActMethod" /&gt;&#xD;
+                  &lt;Name Is="^ActMethod$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
          &lt;/Entry&gt;&#xD;
@@ -1090,7 +1077,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="Dispose" /&gt;&#xD;
+                  &lt;Name Is="^Dispose$" /&gt;&#xD;
                   &lt;Not&gt;&#xD;
                      &lt;!-- &#xD;
                      Resharper was treating event handlers for INotifyDisposed.OnDisposed&#xD;
@@ -1118,7 +1105,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="ReleaseManagedResources" /&gt;&#xD;
+                  &lt;Name Is="^ReleaseManagedResources$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -1137,7 +1124,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="ReleaseUnmanagedResources" /&gt;&#xD;
+                  &lt;Name Is="^ReleaseUnmanagedResources$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -1173,7 +1160,7 @@
                &lt;And&gt;&#xD;
                   &lt;Static /&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="\bCreate*" /&gt;&#xD;
+                  &lt;Name Is="^Create$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -1193,7 +1180,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="Clone" /&gt;&#xD;
+                  &lt;Name Is="^Clone$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -1212,7 +1199,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="GetObjectData" /&gt;&#xD;
+                  &lt;Name Is="^GetObjectData$" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;
@@ -1379,7 +1366,7 @@
             &lt;Entry.Match&gt;&#xD;
                &lt;And&gt;&#xD;
                   &lt;Kind Is="Method" /&gt;&#xD;
-                  &lt;Name Is="\bTestHook*" /&gt;&#xD;
+                  &lt;Name Is="^TestHook*" /&gt;&#xD;
                &lt;/And&gt;&#xD;
             &lt;/Entry.Match&gt;&#xD;
             &lt;Entry.SortBy&gt;&#xD;

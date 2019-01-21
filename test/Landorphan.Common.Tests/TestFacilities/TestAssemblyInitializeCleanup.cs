@@ -2,6 +2,7 @@
 {
    using System.Collections.Immutable;
    using System.Reflection;
+   using Landorphan.TestUtilities;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
    [TestClass]
@@ -18,6 +19,9 @@
       [AssemblyInitialize]
       public static void AssemblyInitialize(TestContext context)
       {
+         // quieting intermittent code analysis warning
+         TestHelp.DoNothing(context);
+
          // acquire assemblies under test
          var assemblies = ImmutableHashSet<Assembly>.Empty.ToBuilder();
 
