@@ -1,4 +1,4 @@
-﻿namespace Landorphan.TestUtilities.Tests.TestFacilities
+﻿namespace Landorphan.TestUtilities.NoIoc.Tests.TestFacilities
 {
    using System.Collections.Immutable;
    using System.Reflection;
@@ -10,28 +10,28 @@
       internal static IImmutableSet<Assembly> AssembliesUnderTest { get; private set; }
 
       /// <summary>
-      /// Performs assembly level initialization.
+      ///    Performs assembly level initialization.
       /// </summary>
       /// <remarks>
-      /// Executes once, before any tests to be executed are run.
+      ///    Executes once, before any tests to be executed are run.
       /// </remarks>
       [AssemblyInitialize]
       public static void AssemblyInitialize(TestContext context)
       {
-         // acquire assemblies under test
+         // Quieting intermittent code analysis warning
+         TestHelp.DoNothing(context);
+
+         // acquire assemblies under test: Landorphan.TestUtilities
          var assemblies = ImmutableHashSet<Assembly>.Empty.ToBuilder();
-
-         // Landorphan.TestUtilities
          assemblies.Add(typeof(EventMonitor).Assembly);
-
          AssembliesUnderTest = assemblies.ToImmutable();
       }
 
       /// <summary>
-      /// Frees resources obtained by the test assembly.
+      ///    Frees resources obtained by the test assembly.
       /// </summary>
       /// <remarks>
-      /// Executes once, after all tests to be executed are run.
+      ///    Executes once, after all tests to be executed are run.
       /// </remarks>
       [AssemblyCleanup]
       public static void AssemblyCleanup()

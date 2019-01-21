@@ -51,6 +51,9 @@ namespace Landorphan.TestUtilities
       [ClassInitialize]
       public static void TestClassInitialize(TestContext context)
       {
+         // Quieting intermittent code analysis warning
+         TestHelp.DoNothing(context);
+
          // currently empty
       }
 

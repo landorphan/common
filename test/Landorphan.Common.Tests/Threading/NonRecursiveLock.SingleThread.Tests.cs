@@ -23,6 +23,9 @@
          [ClassInitialize]
          public static void ThisTestClassInitialize(TestContext context)
          {
+            // quieting intermittent code analysis warning
+            TestHelp.DoNothing(context);
+
             target = new NonRecursiveLock();
          }
 

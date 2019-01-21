@@ -1,4 +1,4 @@
-namespace Landorphan.TestUtilities.Tests
+namespace Landorphan.TestUtilities.NoIoc.Tests
 {
    using System;
    using System.Diagnostics;

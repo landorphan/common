@@ -1,6 +1,5 @@
-﻿namespace Landorphan.TestUtilities.Tests.Architecture
+﻿namespace Landorphan.TestUtilities.NoIoc.Tests.Architecture
 {
-   using System.Diagnostics.CodeAnalysis;
    using System.Reflection;
    using Landorphan.TestUtilities.ReusableTestImplementations;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
