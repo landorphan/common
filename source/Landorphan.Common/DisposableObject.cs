@@ -62,10 +62,6 @@
       /// <summary>
       ///    Finds and releases all managed resources.
       /// </summary>
-      [SuppressMessage(
-         "SonarLint.CodeSmell",
-         "S134: Control flow statements 'if', 'switch', 'for', 'foreach', 'while', 'do'  and 'try' should not be nested too deeply",
-         Justification = "Reviewed (MWP)")]
       [SuppressMessage("SonarLint.CodeSmell", "S1696:NullReferenceException should not be caught", Justification = "Eats the exception in a race condition (MWP)")]
       [SuppressMessage(
          "SonarLint.CodeSmell",

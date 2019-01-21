@@ -1,15 +1,15 @@
-﻿namespace Landorphan.TestUtilities.NoIoc.Tests.Architecture
+﻿namespace Landorphan.Common.Tests.Architecture
 {
    using System;
    using System.Collections.Immutable;
    using System.Reflection;
-   using Landorphan.Common;
-   using Landorphan.TestUtilities.NoIoc.Tests.TestFacilities;
+   using Landorphan.Common.Tests.TestFacilities;
+   using Landorphan.TestUtilities;
    using Landorphan.TestUtilities.ReusableTestImplementations;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
    [TestClass]
-   public class ExceptionTests : ExceptionValidityRequirements
+   public class Exception_Tests : ExceptionValidityRequirements
    {
       [TestMethod]
       [TestCategory(TestTiming.CheckIn)]

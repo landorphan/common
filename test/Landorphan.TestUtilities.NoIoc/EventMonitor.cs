@@ -72,7 +72,6 @@
       /// <returns>
       /// <c>true</c> if the event source is added; otherwise <c>false</c> (the instance was previously added).
       /// </returns>
-      [SuppressMessage("SonarLint.CodeSmell", "S125: Sections of code should not be commented out")]
       [SuppressMessage("SonarLint.CodeSmell", "S4056:Overloads with a 'CultureInfo' or an 'IFormatProvider' parameter should be used", Justification = "reflection (MWP)")]
       public Boolean AddEventSource(Object eventSource)
       {

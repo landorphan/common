@@ -8,7 +8,7 @@
    // ReSharper disable InconsistentNaming
 
    [TestClass]
-   public class TestArchitectureTests : TestArchitecturalRequirements
+   public class TestArchitecture_Tests : TestArchitecturalRequirements
    {
       [SuppressMessage("SonarLint.CodeSmell", "S2699: Tests should include assertions", Justification = "Base implementation has assertion (MWP)")]
       [TestMethod]

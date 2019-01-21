@@ -14,14 +14,14 @@
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
    /// <summary>
-   ///    Test implementations for exception validity requirements.
+   /// Test implementations for exception validity requirements.
    /// </summary>
    public abstract class ExceptionValidityRequirements : TestBase
    {
       private static readonly Random t_random = new Random();
 
       /// <summary>
-      ///    Evaluates each exception to ensure that it is NOT decorated with [Serializable].
+      /// Evaluates each exception to ensure that it is NOT decorated with [Serializable].
       /// </summary>
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Exceptions_In_DotNet_Core_Should_Not_Be_Marked_As_Serializable_Implementation()
@@ -40,7 +40,7 @@
       }
 
       /// <summary>
-      ///    Evaluates each exception to ensure that it is either abstract or sealed.
+      /// Evaluates each exception to ensure that it is either abstract or sealed.
       /// </summary>
       /// <exception cref="AssertFailedException" />
       [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "AbstractOr", Justification = "Years old bug.")]
@@ -61,7 +61,7 @@
       }
 
       /// <summary>
-      ///    Evaluates each exception to ensure that it is public.
+      /// Evaluates each exception to ensure that it is public.
       /// </summary>
       /// <exception cref="AssertFailedException" />
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
@@ -86,11 +86,11 @@
       }
 
       /// <summary>
-      ///    Evaluates each exception to ensure it is descended from an acceptable base exception.
+      /// Evaluates each exception to ensure it is descended from an acceptable base exception.
       /// </summary>
       /// <remarks>
-      ///    Acceptable base classes are specified by the concrete test class by overriding
-      ///    <see cref="GetAcceptableBaseExceptionTypes" />
+      /// Acceptable base classes are specified by the concrete test class by overriding
+      /// <see cref="GetAcceptableBaseExceptionTypes" />
       /// </remarks>
       /// <exception cref="AssertFailedException" />
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
@@ -110,7 +110,7 @@
       }
 
       /// <summary>
-      ///    Evaluates each exception to ensure that has a default constructor.
+      /// Evaluates each exception to ensure that has a default constructor.
       /// </summary>
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Exceptions_Should_Have_A_Default_Constructor_Implementation()
@@ -130,7 +130,7 @@
       }
 
       /// <summary>
-      ///    Evaluates each exception to ensure that has message and inner exception constructor.
+      /// Evaluates each exception to ensure that has message and inner exception constructor.
       /// </summary>
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Exceptions_Should_Have_A_Message_And_Inner_Exception_Constructor_Implementation()
@@ -149,7 +149,7 @@
       }
 
       /// <summary>
-      ///    Evaluates each exception to ensure that has a message constructor.
+      /// Evaluates each exception to ensure that has a message constructor.
       /// </summary>
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Exceptions_Should_Have_A_Message_Constructor_Implementation()
@@ -168,7 +168,7 @@
       }
 
       /// <summary>
-      ///    Evaluates each exception to ensure that has an serialization constructor.
+      /// Evaluates each exception to ensure that has an serialization constructor.
       /// </summary>
       // WHAT IS THE BP?  [Serializable] is deprecated but BCL classes have this .ctor as well as 
       // GetObjectData
@@ -189,7 +189,7 @@
       }
 
       /// <summary>
-      ///    Evaluates each exception to ensure that has a inner exception constructor.
+      /// Evaluates each exception to ensure that has a inner exception constructor.
       /// </summary>
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Exceptions_Should_Have_An_Inner_Exception_Constructor_Implementation()
@@ -208,9 +208,9 @@
       }
 
       /// <summary>
-      ///    Evaluates each exception to ensure that valid constructors excluding the default constructor, the inner exception
-      ///    constructor,
-      ///    the message constructor and the serialization constructor.
+      /// Evaluates each exception to ensure that valid constructors excluding the default constructor, the inner exception
+      /// constructor,
+      /// the message constructor and the serialization constructor.
       /// </summary>
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Exceptions_Should_Have_Valid_Other_Public_Constructors_When_Present_Implementation()
@@ -229,57 +229,57 @@
       }
 
       /// <summary>
-      ///    Gets the type or types from which all exceptions must descend.
+      /// Gets the type or types from which all exceptions must descend.
       /// </summary>
       /// <returns>
-      ///    The acceptable base exception types.
+      /// The acceptable base exception types.
       /// </returns>
       protected abstract IImmutableSet<Type> GetAcceptableBaseExceptionTypes();
 
       /// <summary>
-      ///    Gets the assemblies to be evaluated.
+      /// Gets the assemblies to be evaluated.
       /// </summary>
       /// <returns>
-      ///    The assemblies to be evaluated.
+      /// The assemblies to be evaluated.
       /// </returns>
       protected abstract IImmutableSet<Assembly> GetAssembliesUnderTest();
 
       /// <summary>
-      ///    Gets a default test value for the given parameter type.
+      /// Gets a default test value for the given parameter type.
       /// </summary>
       /// <param name="parameterType">
-      ///    Type of the parameter.
+      /// Type of the parameter.
       /// </param>
       /// <param name="defaultValue">
-      ///    The default value to use in the test.
+      /// The default value to use in the test.
       /// </param>
       /// <returns>
-      ///    <c>true</c> if the type is known, and a defaultValue is provided; otherwise <c>false</c>.
+      /// <c>true</c> if the type is known, and a defaultValue is provided; otherwise <c>false</c>.
       /// </returns>
       /// <remarks>
-      ///    The base class, ExceptionValidityRequirements, "knows" how to instantiate values for the following types:
-      ///    Boolean              Guid?                   SByte?
-      ///    Boolean?             IEnumerable{String}     String
-      ///    Byte                 IEnumerable{type}       Timespan
-      ///    Byte?                Int16                   Timespan?
-      ///    DateTime             Int16?                  Type
-      ///    DateTime?            Int32                   UInt16
-      ///    DateTimeOffset       Int32?                  UInt16?
-      ///    DateTimeOffset?      Int64                   UInt32
-      ///    Enums                Int64?                  UInt32?
-      ///    Exception            Object                  UInt64
-      ///    Guid                 SByte                   UInt64?
-      ///    If your assembly uses exception constructor parameters or fields of another type, override this method and provide a
-      ///    default value for each type used in your assembly that is
-      ///    not in the list.
-      ///    Code Example
-      ///    <code>
+      /// The base class, ExceptionValidityRequirements, "knows" how to instantiate values for the following types:
+      /// Boolean              Guid?                   SByte?
+      /// Boolean?             IEnumerable{String}     String
+      /// Byte                 IEnumerable{type}       Timespan
+      /// Byte?                Int16                   Timespan?
+      /// DateTime             Int16?                  Type
+      /// DateTime?            Int32                   UInt16
+      /// DateTimeOffset       Int32?                  UInt16?
+      /// DateTimeOffset?      Int64                   UInt32
+      /// Enums                Int64?                  UInt32?
+      /// Exception            Object                  UInt64
+      /// Guid                 SByte                   UInt64?
+      /// If your assembly uses exception constructor parameters or fields of another type, override this method and provide a
+      /// default value for each type used in your assembly that is
+      /// not in the list.
+      /// Code Example
+      /// <code>
       /// protected override GetDefaultValueForParameterType(Type parameterType, out Object defaultValue)
       /// {
       ///   if(parameterType == typeof(IMyObject))
       ///   {
-      ///      defaultValue = new MyObject(Guid.NewGuid());
-      ///      return true;
+      ///   defaultValue = new MyObject(Guid.NewGuid());
+      ///   return true;
       ///   }
       /// 
       ///   defaultValue = null;
@@ -416,10 +416,6 @@
       }
 
       [SuppressMessage("SonarLint.CodeSmell", "S4056:Overloads with a 'CultureInfo' or an 'IFormatProvider' parameter should be used", Justification = "reflection (MWP)")]
-      [SuppressMessage(
-         "SonarLint.CodeSmell",
-         "S134: Control flow statements 'if', 'switch', 'for', 'foreach', 'while', 'do'  and 'try' should not be nested too deeply",
-         Justification = "Reviewed (MWP)")]
       [SuppressMessage("Microsoft.Design", "CA1031: Do not catch general exception types", Justification = "Appropriate in this case.")]
       private static IEnumerable<String> ValidatePublicInnerExceptionConstructor(Type exceptionType)
       {
@@ -482,10 +478,6 @@
 
       [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
       [SuppressMessage("SonarLint.CodeSmell", "S3776: Cognitive Complexity of methods should not be too high", Justification = "Test code (MWP)")]
-      [SuppressMessage(
-         "SonarLint.CodeSmell",
-         "S134: Control flow statements 'if', 'switch', 'for', 'foreach', 'while', 'do'  and 'try' should not be nested too deeply",
-         Justification = "Needed (MWP)")]
       [SuppressMessage("SonarLint.CodeSmell", "S4056: Overloads with a CultureInfo or an IFormatProvider parameter should be used", Justification = "reflection (MWP)")]
       private static IEnumerable<String> ValidatePublicMessageAndInnerExceptionConstructor(Type exceptionType)
       {
@@ -561,10 +553,6 @@
 
       [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
       [SuppressMessage("SonarLint.CodeSmell", "S4056:Overloads with a 'CultureInfo' or an 'IFormatProvider' parameter should be used", Justification = "reflection (MWP)")]
-      [SuppressMessage(
-         "SonarLint.CodeSmell",
-         "S134: Control flow statements 'if', 'switch', 'for', 'foreach', 'while', 'do'  and 'try' should not be nested too deeply",
-         Justification = "Needed (MWP)")]
       private static IEnumerable<String> ValidatePublicMessageConstructor(Type exceptionType)
       {
          var rv = new List<String>();
@@ -734,10 +722,6 @@
          "SonarLint.CodeSmell",
          "S3776: Cognitive Complexity of methods should not be too high",
          Justification = "Known issue (MWP)")]
-      [SuppressMessage(
-         "SonarLint.CodeSmell",
-         "S134: Control flow statements 'if', 'switch', 'for', 'foreach', 'while', 'do'  and 'try' should not be nested too deeply",
-         Justification = "Needed (MWP)")]
       [SuppressMessage("SonarLint.CodeSmell", "S4056: Overloads with a CultureInfo or an IFormatProvider parameter should be used")]
       private IEnumerable<String> ValidateOtherPublicConstructors(Type exceptionType)
       {

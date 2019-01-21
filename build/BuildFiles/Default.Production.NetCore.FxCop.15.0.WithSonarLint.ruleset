@@ -4,97 +4,228 @@
          ToolsVersion="15.0">
    <IncludeAll Action="Warning" />
 
-   <!--Beware of duplicate Rule ID values, it can fail code analysis.-->
-
    <!-- Updated 2019.01.20:  
-      <PackageReference Include="SonarAnalyzer.CSharp" Version="7.10.0.7896">
-      <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="2.6.3">
-      <PackageReference Include="Microsoft.CodeQuality.Analyzers" Version="2.6.3">
+      <PackageReference Include="Microsoft.CodeQuality.Analyzers" Version="2.6.3"/>
+      <PackageReference Include="Microsoft.NetCore.Analyzers" Version="2.6.3"/>
+      <PackageReference Include="Microsoft.NetFramework.Analyzers" Version="2.6.3"/>
+      <PackageReference Include="Text.Analyzers" Version="2.6.3"/>
+      <PackageReference Include="SonarAnalyzer.CSharp" Version="7.10.0.7896"/>
    -->
 
-   <!--Microsoft.CodeQuality.Analyzers-->
+   <!-- ************************************* -->
+   <!-- Explicitly referenced analyzers/rules -->
+   <!-- ************************************* -->
+
+   <!--Microsoft.CodeQuality.Analyzers From "Microsoft.CodeQuality.Analyzers" Version="2.6.3"-->
    <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
+      <!-- *************************** -->
+      <!-- Disabled In Source Projects -->
+      <!-- *************************** -->
+      <!--CA1024: Use properties where appropriate -->
+      <Rule Id="CA1024" Action="None" />
+      <!--CA1040: Avoid empty interfaces -->
+      <Rule Id="CA1040" Action="None" />
+      <!--CA1822: Mark members as static -->
+      <Rule Id="CA1822" Action="None" />
+
+      <!-- ************************* -->
+      <!-- Disabled In Test Projects -->
+      <!-- ************************* -->
+      <!-- (Change "Warning" to "None" in Test projects) -->
+      <!--CA1014: Mark assemblies with CLSCompliantAttribute -->
+      <Rule Id="CA1014" Action="Warning" />
+      <!--CA1034: Nested types should not be visible -->
+      <Rule Id="CA1034" Action="Warning" />
+      <!--CA1051: Do not declare visible instance fields -->
+      <Rule Id="CA1051" Action="Warning" />
+      <!--CA1501: Avoid excessive inheritance -->
+      <Rule Id="CA1501" Action="Warning" />
+      <!--CA1506: Avoid excessive class coupling -->
+      <Rule Id="CA1506" Action="Warning" />
+      <!--CA1707: Identifiers should not contain underscores -->
+      <Rule Id="CA1707" Action="Warning" />
+      <!--CA1711: Identifiers should not have incorrect suffix -->
+      <Rule Id="CA1711" Action="Warning" />
+      <!--CA1720: Identifiers should not contain type names -->
+      <Rule Id="CA1720" Action="Warning" />
+      <!--CA1801: Review unused parameters -->
+      <Rule Id="CA1801" Action="Warning" />
+      <!--CA1806: Do not ignore method results -->
+      <Rule Id="CA1806" Action="Warning" />
+      <!--CA1812: Avoid uninstantiated internal classes -->
+      <Rule Id="CA1812" Action="Warning" />
+      <!--CA1823: Avoid unused private fields -->
+      <Rule Id="CA1823" Action="Warning" />
+      <!--CA2211: Non-constant fields should not be visible -->
+      <Rule Id="CA2211" Action="Warning" />
+
+      <!-- Remaining Rules-->
       <Rule Id="CA1000" Action="Warning" />
       <Rule Id="CA1008" Action="Warning" />
       <Rule Id="CA1010" Action="Warning" />
-      <Rule Id="CA1014" Action="Warning" />
+      <Rule Id="CA1012" Action="Warning" />
+      <Rule Id="CA1016" Action="Warning" />
       <Rule Id="CA1017" Action="Warning" />
       <Rule Id="CA1018" Action="Warning" />
-      <Rule Id="CA1024" Action="Warning" />
+      <Rule Id="CA1027" Action="Warning" />
       <Rule Id="CA1028" Action="Warning" />
       <Rule Id="CA1030" Action="Warning" />
       <Rule Id="CA1033" Action="Warning" />
-      <Rule Id="CA1040" Action="Warning" />
+      <Rule Id="CA1036" Action="Warning" />
       <Rule Id="CA1041" Action="Warning" />
       <Rule Id="CA1043" Action="Warning" />
       <Rule Id="CA1044" Action="Warning" />
       <Rule Id="CA1050" Action="Warning" />
-      <Rule Id="CA1051" Action="Warning" />
+      <Rule Id="CA1052" Action="Warning" />
       <Rule Id="CA1054" Action="Warning" />
       <Rule Id="CA1055" Action="Warning" />
       <Rule Id="CA1056" Action="Warning" />
       <Rule Id="CA1060" Action="Warning" />
+      <Rule Id="CA1061" Action="Warning" />
+      <Rule Id="CA1063" Action="Warning" />
       <Rule Id="CA1064" Action="Warning" />
       <Rule Id="CA1066" Action="Warning" />
       <Rule Id="CA1067" Action="Warning" />
-      <Rule Id="CA1501" Action="Warning" />
+      <Rule Id="CA1068" Action="Warning" />
       <Rule Id="CA1502" Action="Warning" />
       <Rule Id="CA1505" Action="Warning" />
-      <Rule Id="CA1506" Action="Warning" />
+      <Rule Id="CA1507" Action="Warning" />
       <Rule Id="CA1509" Action="Warning" />
-      <Rule Id="CA1707" Action="Warning" />
       <Rule Id="CA1708" Action="Warning" />
       <Rule Id="CA1710" Action="Warning" />
-      <Rule Id="CA1711" Action="Warning" />
       <Rule Id="CA1714" Action="Warning" />
       <Rule Id="CA1715" Action="Warning" />
       <Rule Id="CA1716" Action="Warning" />
       <Rule Id="CA1717" Action="Warning" />
-      <Rule Id="CA1720" Action="Warning" />
       <Rule Id="CA1721" Action="Warning" />
       <Rule Id="CA1724" Action="Warning" />
       <Rule Id="CA1725" Action="Warning" />
-      <Rule Id="CA1801" Action="Warning" />
-      <Rule Id="CA1806" Action="Warning" />
-      <Rule Id="CA1812" Action="Warning" />
+      <Rule Id="CA1802" Action="Warning" />
       <Rule Id="CA1814" Action="Warning" />
-      <Rule Id="CA1823" Action="Warning" />
+      <Rule Id="CA1815" Action="Warning" />
+      <Rule Id="CA1819" Action="Warning" />
       <Rule Id="CA2007" Action="Warning" />
       <Rule Id="CA2119" Action="Warning" />
-      <Rule Id="CA2211" Action="Warning" />
+      <Rule Id="CA2214" Action="Warning" />
+      <Rule Id="CA2217" Action="Warning" />
+      <Rule Id="CA2219" Action="Warning" />
       <Rule Id="CA2222" Action="Warning" />
       <Rule Id="CA2225" Action="Warning" />
       <Rule Id="CA2226" Action="Warning" />
       <Rule Id="CA2227" Action="Warning" />
+      <Rule Id="CA2231" Action="Warning" />
+      <Rule Id="CA2244" Action="Warning" />
+      <!-- Commented out to avoid duplicates, still brought in by <IncludeAll Action="Warning" />
+         <Rule Id="CA9999" Action="Warning" /> 
+      -->
    </Rules>
 
-   <!--Microsoft.CodeQuality.CSharp.Analyzers-->
+   <!--Microsoft.CodeQuality.CSharp.Analyzers From "Microsoft.CodeQuality.Analyzers" Version="2.6.3"-->
    <Rules AnalyzerId="Microsoft.CodeQuality.CSharp.Analyzers" RuleNamespace="Microsoft.CodeQuality.CSharp.Analyzers">
+      <!-- *************************** -->
+      <!-- Disabled In Source Projects -->
+      <!-- *************************** -->
+      <!--CA1500: Variable names should not match field names -->
+      <Rule Id="CA1500" Action="None" />
+
+      <!-- Remaining Rules-->
       <Rule Id="Async001" Action="Warning" />
       <Rule Id="Async002" Action="Warning" />
       <Rule Id="Async003" Action="Warning" />
       <Rule Id="Async004" Action="Warning" />
       <Rule Id="Async005" Action="Warning" />
       <Rule Id="Async006" Action="Warning" />
+      <Rule Id="CA1001" Action="Warning" />
       <Rule Id="CA1003" Action="Warning" />
       <Rule Id="CA1019" Action="Warning" />
+      <Rule Id="CA1032" Action="Warning" />
+      <Rule Id="CA1065" Action="Warning" />
       <Rule Id="CA1200" Action="Warning" />
-      <Rule Id="CA1500" Action="Warning" />
+      <!--Duplicates Microsoft.CodeQuality.Analyzers
+      <Rule Id="CA1507" Action="Warning" />
+      -->
       <Rule Id="CA1726" Action="Warning" />
+      <Rule Id="CA1821" Action="Warning" />
       <Rule Id="CA2000" Action="Warning" />
       <Rule Id="CA2001" Action="Warning" />
       <Rule Id="CA2109" Action="Warning" />
+      <Rule Id="CA2200" Action="Warning" />
       <Rule Id="CA2234" Action="Warning" />
+   </Rules>
+
+   <!--Microsoft.NetCore.Analyzers From "Microsoft.NetCore.Analyzers" Version="2.6.3"-->
+   <Rules AnalyzerId="Microsoft.NetCore.Analyzers" RuleNamespace="Microsoft.NetCore.Analyzers">
+      <!-- ************************* -->
+      <!-- Disabled In Test Projects -->
+      <!-- ************************* -->
+      <!-- (Change "Warning" to "None" in Test projects) -->
+      <!--CA1305: Specify IFormat provider -->
+      <Rule Id="CA1305" Action="Warning" />
+      <!--CA1307: Specify StringComparison -->
+      <Rule Id="CA1307" Action="Warning" />
+
+
+      <!-- Remaining Rules-->
+      <Rule Id="CA1304" Action="Warning" />
+      <Rule Id="CA1308" Action="Warning" />
+      <Rule Id="CA1401" Action="Warning" />
+      <Rule Id="CA1813" Action="Warning" />
+      <Rule Id="CA1816" Action="Warning" />
+      <Rule Id="CA1820" Action="Warning" />
+      <Rule Id="CA1826" Action="Warning" />
+      <Rule Id="CA2002" Action="Warning" />
+      <Rule Id="CA2008" Action="Warning" />
+      <Rule Id="CA2009" Action="Warning" />
+      <Rule Id="CA2101" Action="Warning" />
+      <Rule Id="CA2208" Action="Warning" />
+      <Rule Id="CA2216" Action="Warning" />
+      <Rule Id="CA2241" Action="Warning" />
+      <Rule Id="CA2242" Action="Warning" />
+      <Rule Id="CA2243" Action="Warning" />
+      <Rule Id="CA5358" Action="Warning" />
+      <!-- Commented out to avoid duplicates, still brought in by <IncludeAll Action="Warning" />
+         <Rule Id="CA9999" Action="Warning" /> 
+      -->
+   </Rules>
+
+   <!--Microsoft.NetCore.CSharp.Analyzers From "Microsoft.NetCore.Analyzers" Version="2.6.3"-->
+   <Rules AnalyzerId="Microsoft.NetCore.CSharp.Analyzers" RuleNamespace="Microsoft.NetCore.CSharp.Analyzers">
+      <Rule Id="CA1309" Action="Warning" />
+      <Rule Id="CA1414" Action="Warning" />
+      <Rule Id="CA1601" Action="Warning" />
+      <Rule Id="CA1810" Action="Warning" />
+      <Rule Id="CA1824" Action="Warning" />
+      <Rule Id="CA1825" Action="Warning" />
+      <Rule Id="CA2010" Action="Warning" />
+      <Rule Id="CA2201" Action="Warning" />
+      <Rule Id="CA2205" Action="Warning" />
+      <Rule Id="CA2207" Action="Warning" />
+      <Rule Id="CA2215" Action="Warning" />
+      <Rule Id="CA5350" Action="Warning" />
+      <Rule Id="CA5351" Action="Warning" />
+   </Rules>
+
+   <!--Text.CSharp.Analyzers From "Text.Analyzers" Version="2.6.3" -->
+   <Rules AnalyzerId="Text.CSharp.Analyzers" RuleNamespace="Text.CSharp.Analyzers">
+      <!-- ************************* -->
+      <!-- Disabled In Test Projects -->
+      <!-- ************************* -->
+      <!-- (Change "Warning" to "None" in Test projects) -->
+      <!--CA1704: Identifiers should be spelled correctly-->
+      <Rule Id="CA1704" Action="Warning" />
    </Rules>
 
    <!--SonarAnalyzer.CSharp-->
    <Rules AnalyzerId="SonarAnalyzer.CSharp" RuleNamespace="SonarAnalyzer.CSharp">
+
       <!-- Generated this list by creating a .NetFX application, enabling all rules, grabbing rule ids
       then disabling all rules and grabbing rule ids (defaults are not written to ruleset files)
       unfortunately, I have yet to find a way to get generate categories, descriptions, these are done by hand, 
       one at a time....-->
 
-      <!--Disabled in Production -->
+      <!-- ********************** -->
+      <!-- Disabled in Production -->
+      <!-- ********************** -->
       <!--S113: Files should contain an empty newline at the end.  Justification, one or more tools are stripping the end-newline.  
       The rule is fine, but I am tired of chasing my tail for now.  If you have a fix, please update the Visual Studio and Resharper settings,
       the enable this rule (MWP).-->
@@ -105,8 +236,10 @@
       <Rule Id="S125" Action="None" />
       <!--S126:  Add the missing else clause.  This just doesn't work in today's code, the trailing else is often empty and optimized away by R#-->
       <Rule Id="S126" Action="None" />
+      <!--S134:  Control flow statements "if", "switch", "for", "foreach", "while", "do" and "try" should not be nested too deeply.  Justification:  configured to 3 which is too tight(MWP)-->
+      <Rule Id="S134" Action="None" />
       <!--S1135 Code.Smell Track uses of Roundtuit (not the real name) tags,  We treat warnings as errors on build, we have "Roundtuit explorer" and search, this rule is not needed -->
-      <!-- Note: Avoiding the real name of the "Roundtuit" tag, because it shows up in "Roundtuit" explorer -->
+      <!-- Avoiding the real name of the "Roundtuit" tag, because it shows up in "Roundtuit" explorer -->
       <Rule Id="S1135" Action="None" />
       <!--s1227: break statements should not be used except for switch cases
       Disagree with implementation, in light of Lint there are lots un unindexed collections, no need to continue to enumerate
@@ -153,8 +286,18 @@
       "CompareTo", disabling until the issue is resolved.-->
       <Rule Id="S4069" Action="None" />
 
-      <Rule Id="S100" Action="Warning" />
+      <!-- ************************* -->
+      <!-- Disabled In Test Projects -->
+      <!-- ************************* -->
+      <!-- (Change "Warning" to "None" in Test projects) -->
+      <!--S101: Types should be named in PascalCase -->
       <Rule Id="S101" Action="Warning" />
+      <!--S4056: Overloads with a "CultureInfo" or an "IFormatProvider" parameter should be used-->
+      <Rule Id="S4056" Action="Warning" />
+
+
+      <!-- Remaining Rules-->
+      <Rule Id="S100" Action="Warning" />
       <Rule Id="S103" Action="Warning" />
       <Rule Id="S104" Action="Warning" />
       <Rule Id="S105" Action="Warning" />
@@ -168,7 +311,6 @@
       <Rule Id="S122" Action="Warning" />
       <Rule Id="S127" Action="Warning" />
       <Rule Id="S131" Action="Warning" />
-      <Rule Id="S134" Action="Warning" />
       <Rule Id="S138" Action="Warning" />
       <Rule Id="S818" Action="Warning" />
       <Rule Id="S881" Action="Warning" />
@@ -178,7 +320,7 @@
       <Rule Id="S1048" Action="Warning" />
       <Rule Id="S1066" Action="Warning" />
       <Rule Id="S1067" Action="Warning" />
-      <Rule Id="S1104" Action="Warning" />
+      <Rule Id="S1075" Action="Warning" />
       <Rule Id="S1109" Action="Warning" />
       <Rule Id="S1110" Action="Warning" />
       <Rule Id="S1116" Action="Warning" />
@@ -440,7 +582,6 @@
       <Rule Id="S4047" Action="Warning" />
       <Rule Id="S4050" Action="Warning" />
       <Rule Id="S4052" Action="Warning" />
-      <Rule Id="S4056" Action="Warning" />
       <Rule Id="S4057" Action="Warning" />
       <Rule Id="S4058" Action="Warning" />
       <Rule Id="S4059" Action="Warning" />

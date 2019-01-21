@@ -14,7 +14,6 @@
    /// <remarks>
    /// Used when <see cref="IDisposable"/> fields are present.
    /// </remarks>
-   [SuppressMessage("SonarLint.CodeSmell", "S3881:IDisposable should be implemented correctly", Justification = "Reviewed (MWP)")]
    [TestClass]
    public abstract class DisposableArrangeActAssert : ArrangeActAssert, INotifyingQueryDisposable
    {
@@ -76,7 +75,6 @@
       /// <summary>
       /// Finds and releases all managed resources.
       /// </summary>
-      [SuppressMessage("SonarLint.CodeSmell", "S134: Control flow statements if, switch, for, foreach, while, do  and try should not be nested too deeply")]
       [SuppressMessage("SonarLint.CodeSmell", "S3776: Cognitive Complexity of methods should not be too high")]
       [SuppressMessage("SonarLint.CodeSmell", "S4056: Overloads with a CultureInfo or an IFormatProvider parameter should be used")]
       protected virtual void ReleaseManagedResources()

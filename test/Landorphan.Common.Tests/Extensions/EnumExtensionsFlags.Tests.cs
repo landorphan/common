@@ -219,7 +219,6 @@
          Fifth = 0x10
       }
 
-      //[SuppressMessage("SonarLint.Naming", "S101:Types should be named in PascalCase", Justification = "Test code (MWP)")]
       [SuppressMessage("Microsoft.Design", "CA1034:Nested types should not be visible", Justification = "Test code (MWP)")]
       [SuppressMessage("Microsoft.Naming", "CA1726: Use preferred terms")]
       [TestClass]
@@ -375,7 +374,6 @@
 
       [SuppressMessage("Microsoft.Naming", "CA1726: Use preferred terms")]
       [SuppressMessage("Microsoft.Design", "CA1034:Nested types should not be visible", Justification = "Test code (MWP)")]
-      [SuppressMessage("SonarLint.Naming", "S101:Types should be named in PascalCase", Justification = "Test code (MWP)")]
       [TestClass]
       public class When_I_call_FlagsEnumExtensions_IsFlagSet : TestBase
       {
@@ -467,7 +465,6 @@
 
       [SuppressMessage("Microsoft.Naming", "CA1726: Use preferred terms")]
       [SuppressMessage("Microsoft.Design", "CA1034:Nested types should not be visible", Justification = "Test code (MWP)")]
-      [SuppressMessage("SonarLint.Naming", "S101:Types should be named in PascalCase", Justification = "Test code (MWP)")]
       [TestClass]
       public class When_I_call_FlagsEnumExtensions_IsValidFlagsValue : TestBase
       {

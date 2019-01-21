@@ -8,7 +8,6 @@
 
    // ReSharper disable InconsistentNaming
 
-   [SuppressMessage("SonarLint.Naming", "S101:Types should be named in PascalCase", Justification = "Test code (MWP)")]
    [TestClass]
    public class When_I_call_SafeGetTypes : ArrangeActAssert
    {

@@ -53,7 +53,6 @@
       /// </summary>
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       [SuppressMessage("SonarLint.CodeSmell", "S3776: Control flow statements if, switch, for, foreach, while, do and try should not be nested too deeply")]
-      [SuppressMessage("SonarLint.CodeSmell", "S134: Control flow statements if, switch, for, foreach, while, do  and try should not be nested too deeply")]
       protected void All_Tests_Not_Ignored_Have_Exactly_One_Timing_Category_Implementation()
       {
          var failureMessages = new List<String>();

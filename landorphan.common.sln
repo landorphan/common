@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{2B05C482
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildFiles", "BuildFiles", "{F4EC09B2-5F75-407D-AD71-4527BE778A49}"
 	ProjectSection(SolutionItems) = preProject
-		build\BuildFiles\All.NetFx.FxCopy.15.0.WithSonarLint.ruleset = build\BuildFiles\All.NetFx.FxCopy.15.0.WithSonarLint.ruleset
+		build\BuildFiles\All.NetFx.15.0.WithSonarLint.ruleset = build\BuildFiles\All.NetFx.15.0.WithSonarLint.ruleset
 		build\BuildFiles\CustomDictionary.xml = build\BuildFiles\CustomDictionary.xml
 		build\BuildFiles\Default.Production.NetCore.FxCop.15.0.WithSonarLint.ruleset = build\BuildFiles\Default.Production.NetCore.FxCop.15.0.WithSonarLint.ruleset
 		build\BuildFiles\Default.Production.NetFx.FxCop.15.0.WithSonarLint.ruleset = build\BuildFiles\Default.Production.NetFx.FxCop.15.0.WithSonarLint.ruleset
@@ -26,6 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildFiles", "BuildFiles", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResharperLayout", "ResharperLayout", "{982D60AF-AA0E-4BAF-A541-0BB9F80D385D}"
 	ProjectSection(SolutionItems) = preProject
+		KnownTags.txt = KnownTags.txt
 		build\ResharperLayout\ResharperLayout.Current.xml = build\ResharperLayout\ResharperLayout.Current.xml
 		build\ResharperLayout\ResharperLayout.Editing.xml = build\ResharperLayout\ResharperLayout.Editing.xml
 		build\ResharperLayout\ResharperLayout_1_NonReorderableTypes.xml = build\ResharperLayout\ResharperLayout_1_NonReorderableTypes.xml

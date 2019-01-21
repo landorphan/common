@@ -1,6 +1,7 @@
 ﻿namespace Landorphan.Common
 {
    using System;
+   using System.Diagnostics.CodeAnalysis;
    using Landorphan.Common.Resources;
    using Landorphan.Common.Threading;
 
@@ -10,6 +11,7 @@
    /// <remarks>
    /// Intended to be aggregated.
    /// </remarks>
+   [SuppressMessage("SonarLint.CodeSmell", "S2933: Fields that are only assigned in the constructor should be readonly", Justification = "Field is modified through impure methods(MWP)")]
    public sealed class SupportsReadOnlyHelper : IConvertsToReadOnly
    {
       private InterlockedBoolean _isReadOnly = new InterlockedBoolean(false);

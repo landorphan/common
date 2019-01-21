@@ -66,7 +66,6 @@
       /// </exception>
       // Constraint type 'System.IConvertible' is not CLS-compliant
       [CLSCompliant(false)]
-      [SuppressMessage("SonarLint.CodeSmell", "S126: 'if ... else if' constructs should end with 'else' clauses", Justification = "The chain is exhaustive (MWP)")]
       [SuppressMessage("SonarLint.CodeSmell", "S3776: Cognitive Complexity of methods should not be too high")]
       [SuppressMessage("SonarLint.CodeSmell", "S1541: Methods and properties should not be too complex")]
       public static Boolean IsValidEnumValue<T>(this T value) where T : struct, IComparable, IFormattable, IConvertible

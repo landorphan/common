@@ -228,7 +228,6 @@
       }
 
       /// <inheritdoc/>
-      [SuppressMessage("SonarLint.CodeSmell", "S3874: 'out' and 'ref' parameters should not be used", Justification = "Appropriate use (MWP)")]
       public IDisposable TryEnterReadLock(TimeSpan timeout, out Boolean obtainedLock)
       {
          ThrowIfDisposed();
@@ -250,7 +249,6 @@
       }
 
       /// <inheritdoc/>
-      [SuppressMessage("SonarLint.CodeSmell", "S3874: 'out' and 'ref' parameters should not be used", Justification = "Appropriate use (MWP)")]
       public IDisposable TryEnterUpgradeableReadLock(TimeSpan timeout, out Boolean obtainedLock)
       {
          ThrowIfDisposed();
@@ -262,7 +260,6 @@
       }
 
       /// <inheritdoc/>
-      [SuppressMessage("SonarLint.CodeSmell", "S3874: 'out' and 'ref' parameters should not be used", Justification = "Appropriate use (MWP)")]
       public IDisposable TryEnterWriteLock(TimeSpan timeout, out Boolean obtainedLock)
       {
          ThrowIfDisposed();

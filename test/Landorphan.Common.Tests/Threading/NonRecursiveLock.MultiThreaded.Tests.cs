@@ -25,7 +25,6 @@
       protected IDiagnosticNonRecursiveLock TargetDiagnostic => _target;
 
       [SuppressMessage("SonarLint", "S3776:Cognitive Complexity of methods should not be too high")]
-      [SuppressMessage("SonarLint", "S134: Control flow statements if, switch, for, foreach, while, do  and try should not be nested too deeply")]
       protected override void TeardownTestMethod()
       {
          ReleaseWriteLock();

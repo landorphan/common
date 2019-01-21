@@ -96,7 +96,6 @@
       [SuppressMessage("SonarLint.CodeSmell", "S3776: Cognitive Complexity of methods should not be too high")]
       [SuppressMessage("SonarLint.CodeSmell", "S1541: Methods and properties should not be too complex")]
       [SuppressMessage("SonarLint.CodeSmell", "S138: Functions should not have too many lines of code")]
-      [SuppressMessage("SonarLint.CodeSmell", "S126: 'if ... else if' constructs should end with 'else' clauses", Justification = "The chain is exhaustive (MWP)")]
       public static Boolean IsValidFlagsValue<T>(this T value) where T : struct, IComparable, IFormattable, IConvertible
       {
          var t = typeof(T);
