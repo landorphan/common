@@ -27,6 +27,15 @@
          All_Tests_Not_Ignored_Have_Exactly_One_Timing_Category_Implementation();
       }
 
+      [SuppressMessage("SonarLint.CodeSmell", "S2699: Tests should include assertions", Justification = "This 'Test' outputs trace information in the IDE")]
+      [TestMethod]
+      [TestCategory(TestTiming.IdeOnly)]
+      public void Find_Ignored_Tests()
+      {
+         var asm = typeof(TestArchitecture_Tests).Assembly;
+         Find_ignored_tests_in_assembly(asm);
+      }
+
       protected override Assembly GetTestAssembly()
       {
          return GetType().Assembly;

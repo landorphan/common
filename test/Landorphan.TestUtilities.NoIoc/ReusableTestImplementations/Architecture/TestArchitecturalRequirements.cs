@@ -124,6 +124,44 @@
       }
 
       /// <summary>
+      /// Searches the given <paramref name="assembly"/> for ignored tests.
+      /// </summary>
+      /// <param name="assembly">
+      /// The assembly to inspect.
+      /// </param>
+      /// <remarks>
+      /// Trace output enumerates the ignored tests, if any.
+      /// </remarks>
+      [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
+      protected void Find_ignored_tests_in_assembly(Assembly assembly)
+      {
+         assembly.ArgumentNotNull(nameof(assembly));
+         Trace.WriteLine($"Examining {assembly.GetName().Name} looking for ignored test methods...");
+         var types = assembly.SafeGetTypes();
+         foreach (var t in types)
+         {
+            var isMSTestClass = (
+                  from attributeObjects in t.GetCustomAttributes(true)
+                  where attributeObjects.GetType() == typeof(TestClassAttribute)
+                  select attributeObjects)
+               .Any();
+
+            if (isMSTestClass)
+            {
+               var publicMethods = t.GetMethods();
+               foreach (var mi in publicMethods)
+               {
+                  var ignoreAttribute = mi.GetCustomAttribute<IgnoreAttribute>();
+                  if (ignoreAttribute != null)
+                  {
+                     Trace.WriteLine($"{mi.DeclaringType}.{mi.Name} is ignored.");
+                  }
+               }
+            }
+         }
+      }
+
+      /// <summary>
       /// Gets the test assembly to be evaluated.
       /// </summary>
       /// <returns>
