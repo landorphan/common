@@ -1,6 +1,5 @@
 ﻿namespace Landorphan.Common.Tests.Extensions
 {
-   using System.Diagnostics.CodeAnalysis;
    using System.Reflection;
    using FluentAssertions;
    using Landorphan.TestUtilities;
@@ -20,7 +19,7 @@
          var assembly = Assembly.Load("System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
          assembly.GetTypes();
          assembly.SafeGetTypes();
-         
+
          TestHardCodes.NoExceptionWasThrown.Should().BeTrue();
       }
    }

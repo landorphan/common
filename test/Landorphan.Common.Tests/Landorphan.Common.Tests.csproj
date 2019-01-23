@@ -59,6 +59,5 @@
    </ItemGroup>
    <ItemGroup>
      <ProjectReference Include="..\..\source\Landorphan.Common\Landorphan.Common.csproj" />
-     <ProjectReference Include="..\Landorphan.TestUtilities.NoIoc\Landorphan.TestUtilities.NoIoc.csproj" />
    </ItemGroup>
 </Project>

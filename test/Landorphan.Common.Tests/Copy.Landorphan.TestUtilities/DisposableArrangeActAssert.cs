@@ -1,4 +1,5 @@
-﻿namespace Landorphan.TestUtilities
+﻿// ReSharper disable once CheckNamespace
+namespace Landorphan.TestUtilities
 {
    using System;
    using System.Collections;
@@ -34,7 +35,6 @@
    [SuppressMessage("Microsoft.", "CA1063: Implement IDisposable Correctly", Justification = "Reviewed, deviates to be thread-safe and handle mutiple disposals (MWP)")]
    [SuppressMessage("SonarLint.CodeSmell", "S3881: IDisposable should be implemented correctly", Justification = "Reviewed, deviates to be thread-safe and handle mutiple disposals (MWP)")]
    public abstract class DisposableArrangeActAssert : ArrangeActAssert, INotifyingQueryDisposable
-#pragma warning restore S3881 // "IDisposable" should be implemented correctly
    {
       // eases maintenance
       private static readonly Type t_stopAtImplementationInheritanceType = typeof(DisposableArrangeActAssert);
