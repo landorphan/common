@@ -51,7 +51,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Landorphan", "Landorphan", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Landorphan.Common", "source\Landorphan.Common\Landorphan.Common.csproj", "{FE5437AB-EDC3-4CEB-A337-BF87A5A27A5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Landorphan.Common.Tests", "test\Landorphan.Common.Tests\Landorphan.Common.Tests.csproj", "{B8A9CD3C-B9DB-4A95-BC63-D12A999966A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Landorphan.Common.Tests", "test\Landorphan.Common.Tests\Landorphan.Common.Tests.csproj", "{B8A9CD3C-B9DB-4A95-BC63-D12A999966A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "help", "help", "{E3AF39DD-6C0E-4734-9C7A-CB20816F0C7A}"
 EndProject
