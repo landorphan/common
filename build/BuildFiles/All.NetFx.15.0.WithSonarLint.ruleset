@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Rules for WindowsConsole" Description="Code analysis rules for WindowsConsole.csproj." ToolsVersion="15.0">
+<RuleSet Name="All Rules for .Net Framework Projects including Sonar.Lint"
+         Description="Working template for building Landorphan.ruleset files"
+         ToolsVersion="15.0">
    <IncludeAll Action="Warning" />
 
    <!-- Updated 2019.01.20:  
@@ -650,7 +652,7 @@
       <Rule Id="S4586" Action="Warning" />
    </Rules>
 
-
+   
    <!-- *********************************************** -->
    <!-- .Net Framework Project Injected analyzers/rules -->
    <!-- *********************************************** -->
@@ -768,7 +770,6 @@
       -->
       <Rule Id="CA1038" Action="Warning" />
       <Rule Id="CA1039" Action="Warning" />
-      -->
       <!--Duplicates Microsoft.CodeQuality.Analyzers
       <Rule Id="CA1040" Action="Warning" />
       -->
@@ -958,10 +959,10 @@
       <!--Duplicates Microsoft.NetCore.Analyzers
       <Rule Id="CA1813" Action="Warning" />
       -->
-      <!--Duplictes Microsoft.CodeQuality.Analyzers
+      <!--Duplicates Microsoft.CodeQuality.Analyzers
       <Rule Id="CA1814" Action="Warning" />
       -->
-      <!--Duplictes Microsoft.CodeQuality.Analyzers
+      <!--Duplicates Microsoft.CodeQuality.Analyzers
       <Rule Id="CA1815" Action="Warning" />
       -->
       <!--Duplicates Microsoft.NetCore.Analyzers
@@ -1068,7 +1069,7 @@
       <!--Duplicates Microsoft.CodeQuality.Analyzers
       <Rule Id="CA2211" Action="Warning" />
       -->
-      <!--Duplictes Microsoft.NetFramework.CSharp.Analyzers
+      <!--Duplicates Microsoft.NetFramework.CSharp.Analyzers
       <Rule Id="CA2212" Action="Warning" />
       -->
       <Rule Id="CA2213" Action="Warning" />
@@ -1145,7 +1146,7 @@
       <Rule Id="CA5122" Action="Warning" />
    </Rules>
 
-   <!--Microsoft.CodeAnalysis.CSharp-->
+      <!--Microsoft.CodeAnalysis.CSharp-->
    <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
       <!-- Remaining Rules-->
       <Rule Id="AD0001" Action="Warning" />

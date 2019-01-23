@@ -769,7 +769,6 @@
       -->
       <Rule Id="CA1038" Action="Warning" />
       <Rule Id="CA1039" Action="Warning" />
-      -->
       <!--Duplicates Microsoft.CodeQuality.Analyzers
       <Rule Id="CA1040" Action="Warning" />
       -->
