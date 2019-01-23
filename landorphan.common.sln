@@ -26,7 +26,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildFiles", "BuildFiles", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResharperLayout", "ResharperLayout", "{982D60AF-AA0E-4BAF-A541-0BB9F80D385D}"
 	ProjectSection(SolutionItems) = preProject
-		KnownTags.txt = KnownTags.txt
 		build\ResharperLayout\ResharperLayout.Current.xml = build\ResharperLayout\ResharperLayout.Current.xml
 		build\ResharperLayout\ResharperLayout.Editing.xml = build\ResharperLayout\ResharperLayout.Editing.xml
 		build\ResharperLayout\ResharperLayout_1_NonReorderableTypes.xml = build\ResharperLayout\ResharperLayout_1_NonReorderableTypes.xml
@@ -63,11 +62,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Landorphan.Common.Tests", "test\Landorphan.Common.Tests\Landorphan.Common.Tests.csproj", "{B8A9CD3C-B9DB-4A95-BC63-D12A999966A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "help", "help", "{E3AF39DD-6C0E-4734-9C7A-CB20816F0C7A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "help", "help", "{9B49852E-D4AE-4BA8-97A5-D8DF37D549CB}"
-	ProjectSection(SolutionItems) = preProject
-		build\Help\InstallingHelpAndTools.MD = build\Help\InstallingHelpAndTools.MD
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Landorphan", "Landorphan", "{DB9B0C1C-FD43-4974-83BE-7CA822F6B561}"
 	ProjectSection(SolutionItems) = preProject
@@ -111,7 +105,6 @@ Global
 		{86F6B3D5-3D6D-4BDC-A45D-CAE58458722C} = {C450B6BA-0F4A-4740-A87B-DB0D9A7B7AFE}
 		{144E8D0F-44C6-48AB-89BF-F1B41CD37F6F} = {E41656BF-9C7B-4244-AFCD-933C8F157D8B}
 		{B8A9CD3C-B9DB-4A95-BC63-D12A999966A2} = {4CE1F226-F1FD-4C62-B936-260E822CF5BA}
-		{9B49852E-D4AE-4BA8-97A5-D8DF37D549CB} = {2B05C482-3783-4E78-B382-561792F5197B}
 		{DB9B0C1C-FD43-4974-83BE-7CA822F6B561} = {E3AF39DD-6C0E-4734-9C7A-CB20816F0C7A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

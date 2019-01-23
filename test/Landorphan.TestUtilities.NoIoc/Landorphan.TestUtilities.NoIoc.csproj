@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
    <PropertyGroup>
-      <TargetFramework>netcoreapp2.2</TargetFramework>
+      <TargetFramework>netstandard2.0</TargetFramework>
       <LangVersion>7.2</LangVersion>
-      <CodeAnalysisRuleSet>Landorphan.TestUtilities.NoIoc.NetCore.ruleset</CodeAnalysisRuleSet>
+      <CodeAnalysisRuleSet>Landorphan.TestUtilities.NoIoc.NetStd.ruleset</CodeAnalysisRuleSet>
       <RootNamespace>Landorphan.TestUtilities</RootNamespace>
+      <AssemblyName>Landorphan.TestUtilities</AssemblyName>
       <NoWarn>1701;1702</NoWarn>
       <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
       <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
       <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-      <AssemblyName>Landorphan.TestUtilities</AssemblyName>
    </PropertyGroup>
    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
       <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -29,10 +29,10 @@
       <DocumentationFile>..\..\bin\release\$(AssemblyName)\$(AssemblyName).XML</DocumentationFile>
    </PropertyGroup>
    <ItemGroup>
-      <None Remove="Landorphan.TestUtilities.NoIoc.NetCore.ruleset" />
+      <None Remove="Landorphan.TestUtilities.NoIoc.NetStd.ruleset" />
    </ItemGroup>
    <ItemGroup>
-      <AdditionalFiles Include="Landorphan.TestUtilities.NoIoc.NetCore.ruleset">
+      <AdditionalFiles Include="Landorphan.TestUtilities.NoIoc.NetStd.ruleset">
          <SubType>Designer</SubType>
       </AdditionalFiles>
    </ItemGroup>

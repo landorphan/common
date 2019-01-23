@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Default Production Code Analysis Rules for .Net Core projects including SonarLint rules"
-         Description="Rules for Landorphan .Net Core source"
+<RuleSet Name="Default Production Code Analysis Rules for .Net Standard projects including SonarLint rules"
+         Description="Rules for Landorphan .Net Standard source."
          ToolsVersion="15.0">
    <IncludeAll Action="Warning" />
+
+   <!--
+      The code analysis team does not have specific analyzers for .Net Standard
+      For now, I'm using all explicit analyzers for both .Net Framework and .Net Core, but
+      excluding all of the .Net Framework injected rules
+   -->
 
    <!-- Updated 2019.01.20:  
       <PackageReference Include="Microsoft.CodeQuality.Analyzers" Version="2.6.3"/>
@@ -10,6 +16,9 @@
       <PackageReference Include="Microsoft.NetFramework.Analyzers" Version="2.6.3"/>
       <PackageReference Include="Text.Analyzers" Version="2.6.3"/>
       <PackageReference Include="SonarAnalyzer.CSharp" Version="7.10.0.7896"/>
+   -->
+   <!--
+   Additional rules are added to .Net Framework projects by the environment and are not in the dependencies/analyzers:
    -->
 
    <!-- ************************************* -->
@@ -205,6 +214,37 @@
       <Rule Id="CA5351" Action="Warning" />
    </Rules>
 
+   <!--Microsoft.NetFramework.Analyzers From "Microsoft.NetFramework.Analyzers" Version="2.6.3" -->
+   <Rules AnalyzerId="Microsoft.NetFramework.Analyzers" RuleNamespace="Microsoft.NetFramework.Analyzers">
+      <Rule Id="CA1058" Action="Warning" />
+      <Rule Id="CA2153" Action="Warning" />
+      <Rule Id="CA2229" Action="Warning" />
+      <Rule Id="CA2235" Action="Warning" />
+      <Rule Id="CA2237" Action="Warning" />
+      <Rule Id="CA3075" Action="Warning" />
+      <Rule Id="CA3147" Action="Warning" />
+      <Rule Id="CA9999" Action="Warning" />
+   </Rules>
+
+   <!--Microsoft.NetFramework.CSharp.Analyzers From "Microsoft.NetFramework.Analyzers" Version="2.6.3" -->
+   <Rules AnalyzerId="Microsoft.NetFramework.CSharp.Analyzers" RuleNamespace="Microsoft.NetFramework.CSharp.Analyzers">
+      <Rule Id="CA1300" Action="Warning" />
+      <Rule Id="CA1301" Action="Warning" />
+      <Rule Id="CA1306" Action="Warning" />
+      <Rule Id="CA2212" Action="Warning" />
+      <Rule Id="CA2232" Action="Warning" />
+      <Rule Id="CA2236" Action="Warning" />
+      <Rule Id="CA2239" Action="Warning" />
+      <Rule Id="CA3076" Action="Warning" />
+      <Rule Id="CA3077" Action="Warning" />
+      <!--Duplicates Microsoft.NetCore.CSharp.Analyzers
+      <Rule Id="CA5350" Action="Warning" />
+      -->
+      <!--Duplicates Microsoft.NetCore.CSharp.Analyzers
+      <Rule Id="CA5351" Action="Warning" />
+      -->
+   </Rules>
+
    <!--Text.CSharp.Analyzers From "Text.Analyzers" Version="2.6.3" -->
    <Rules AnalyzerId="Text.CSharp.Analyzers" RuleNamespace="Text.CSharp.Analyzers">
       <!-- ************************* -->
@@ -294,7 +334,6 @@
       <Rule Id="S101" Action="Warning" />
       <!--S4056: Overloads with a "CultureInfo" or an "IFormatProvider" parameter should be used-->
       <Rule Id="S4056" Action="Warning" />
-
 
       <!-- Remaining Rules-->
       <Rule Id="S100" Action="Warning" />

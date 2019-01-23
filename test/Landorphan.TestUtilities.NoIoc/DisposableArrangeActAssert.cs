@@ -31,8 +31,10 @@
    /// </para>
    /// </remarks>
    [TestClass]
-   [SuppressMessage("Microsoft.", "CA1063: Implement IDisposable Correctly", Justification = "Reviewed (MWP)")]
+   [SuppressMessage("Microsoft.", "CA1063: Implement IDisposable Correctly", Justification = "Reviewed, deviates to be thread-safe and handle mutiple disposals (MWP)")]
+   [SuppressMessage("SonarLint.CodeSmell", "S3881: IDisposable should be implemented correctly", Justification = "Reviewed, deviates to be thread-safe and handle mutiple disposals (MWP)")]
    public abstract class DisposableArrangeActAssert : ArrangeActAssert, INotifyingQueryDisposable
+#pragma warning restore S3881 // "IDisposable" should be implemented correctly
    {
       // eases maintenance
       private static readonly Type t_stopAtImplementationInheritanceType = typeof(DisposableArrangeActAssert);
@@ -236,8 +238,8 @@
       private String BackingFieldNameToAutoPropertyName(String fieldName)
       {
          // pattern:  <AutoPropertyName>k__BackingField
-         var idxStart = fieldName.IndexOf('<', StringComparison.Ordinal);
-         var idxEnd = fieldName.IndexOf('>', StringComparison.Ordinal);
+         var idxStart = fieldName.IndexOf('<');
+         var idxEnd = fieldName.IndexOf('>');
          var propertyName = fieldName.Substring(idxStart + 1, idxEnd - idxStart - 1);
          return propertyName;
       }
