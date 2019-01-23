@@ -670,6 +670,8 @@
       <Rule Id="CA1011" Action="None" />
       <!--CA1020: Avoid namespaces with few types -->
       <Rule Id="CA1020" Action="None" />
+      <!--CA1021: Avoid out parameters-->
+      <Rule Id="CA1021" Action="None" />
       <!--CA2202: Do not dispose objects multiple times -->
       <Rule Id="CA2202" Action="None" />
       <!--CA2210: Assemblies should have valid strong names -->
@@ -740,7 +742,6 @@
       <!--Duplicates Microsoft.CodeQuality.CSharp.Analyzers
       <Rule Id="CA1019" Action="Warning" />
       -->
-      <Rule Id="CA1021" Action="Warning" />
       <Rule Id="CA1023" Action="Warning" />
       <!--Duplicates Microsoft.CodeQuality.Analyzers
       <Rule Id="CA1024" Action="Warning" />
