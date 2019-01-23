@@ -1,3 +1,4 @@
+// ReSharper disable once CheckNamespace
 namespace Landorphan.TestUtilities
 {
    using System;
@@ -17,7 +18,6 @@ namespace Landorphan.TestUtilities
    public abstract class TestBase
    {
       private readonly String _originalCurrentDirectory;
-      private Lazy<EventMonitor> _eventMonitor = new Lazy<EventMonitor>(() => new EventMonitor());
 
       /// <summary>
       /// Initializes a new instance of the <see cref="TestBase" /> class.
@@ -33,14 +33,6 @@ namespace Landorphan.TestUtilities
       /// Gets or sets the test context which provides information about and functionality for the current test run.
       /// </summary>
       public TestContext TestContext { get; protected set; }
-
-      /// <summary>
-      /// Gets the monitored events.
-      /// </summary>
-      /// <value>
-      /// The monitored events.
-      /// </value>
-      protected EventMonitor MonitoredEvents => _eventMonitor.Value;
 
       /// <summary>
       /// Code that executes before any of the tests methods in the test class are executed.
@@ -84,10 +76,7 @@ namespace Landorphan.TestUtilities
       /// </summary>
       protected virtual void TeardownTestMethod()
       {
-         if (_eventMonitor.IsValueCreated)
-         {
-            _eventMonitor = new Lazy<EventMonitor>(() => new EventMonitor());
-         }
+         // nothing to dispose
       }
 
       /// <summary>

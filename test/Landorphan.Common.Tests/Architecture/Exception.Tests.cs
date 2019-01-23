@@ -8,6 +8,8 @@
    using Landorphan.TestUtilities.ReusableTestImplementations;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+   // ReSharper disable InconsistentNaming
+
    [TestClass]
    public class Exception_Tests : ExceptionValidityRequirements
    {
