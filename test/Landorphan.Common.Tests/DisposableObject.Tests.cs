@@ -24,6 +24,20 @@
    {
       [TestMethod]
       [TestCategory(TestTiming.CheckIn)]
+      [TestCategory(WellKnownTestCategories.PreventRegressionBug)]
+      public void It_should_be_able_to_inspect_a_dictionary_with_the_same_type_for_both_key_and_value()
+      {
+         // The implementation of disposable object was assuming a dictionary had 2 type arguments,
+         // when the dictionary is say IDictionary<String,String> the TypeArguments array has only 1 element
+         // this was causing an index our of range error.
+         var target = new DisposableClassWithDictionaryStringString();
+         target.Dispose();
+
+         target.IsDisposed.Should().BeTrue();
+      }
+
+      [TestMethod]
+      [TestCategory(TestTiming.CheckIn)]
       public void It_should_dispose_of_all_contained_disposables_in_an_enumerable()
       {
          var targetEnumerable = DisposableHelper.SafeCreate<DisposableEnumerable>();
@@ -250,6 +264,16 @@
             {
                return _field;
             }
+         }
+      }
+
+      private class DisposableClassWithDictionaryStringString : DisposableObject
+      {
+         private readonly Dictionary<String, String> _myDictionary;
+
+         public DisposableClassWithDictionaryStringString()
+         {
+            _myDictionary = new Dictionary<String, String> {{"A Key", "A Value"}};
          }
       }
 

@@ -131,9 +131,9 @@
                }
 
                var fieldType = value.GetType();
-               if (fieldType.IsValueType)
+               if (fieldType.IsValueType || fieldType == typeof(String))
                {
-                  // can ignore value type fields in this context.
+                  // can ignore value type and string fields in this context.
                   continue;
                }
 
@@ -282,6 +282,8 @@
          "S3776:Cognitive Complexity of methods should not be too high",
          Justification = "This method addresses the general problem of disposing, reviewed as acceptable (MWP)")]
       [SuppressMessage("SonarLint.CodeSmell", "S4056: Overloads with a CultureInfo or an IFormatProvider parameter should be used", Justification = "Not displaying")]
+      [SuppressMessage("SonarLint.CodeSmell", "S138: Functions should not have too many lines of code")]
+      [SuppressMessage("SonarLint.CodeSmell", "S109: Magic numbers should not be used", Justification = "2 is not a magic number for dictionary type arguments.")]
       private Boolean TryHandleDictionaryOfDisposables(Object fieldValue)
       {
          // Handles:
@@ -301,82 +303,101 @@
          if (fieldType.IsGenericType)
          {
             var genericType = fieldType.GetGenericTypeDefinition();
-            var genericImplementsIDictionary = (
+            var q =
                from i in genericType.GetInterfaces()
-               where i.IsAssignableFrom(typeof(IDictionary<,>))
-               select i).Any();
+               where typeof(IDictionary<,>).IsAssignableFrom(i)
+               select i;
+            var genericImplementsIDictionary = q.Any();
             if (genericImplementsIDictionary)
             {
-               var typeArguments = fieldType.GetGenericArguments();
-               var keyType = typeArguments[0];
-               var valueType = typeArguments[1];
-
-               IEnumerable keysCollection = null;
-               if (typeof(IDisposable).IsAssignableFrom(keyType) || typeof(IEnumerable<IDisposable>).IsAssignableFrom(keyType))
+               var genericDictionaryType = q.FirstOrDefault();
+               if (genericDictionaryType != null)
                {
-                  try
+                  var typeArguments = genericDictionaryType.GetGenericArguments();
+                  Type keyType;
+                  Type valueType;
+                  if (typeArguments.Length == 2)
                   {
-                     var keysProperty = fieldType.GetProperty("Keys");
-                     // ReSharper disable once PossibleNullReferenceException
-                     keysCollection = keysProperty.GetValue(fieldValue) as IEnumerable;
+                     keyType = typeArguments[0];
+                     valueType = typeArguments[1];
                   }
-                  catch (Exception)
+                  else if (typeArguments.Length == 1)
                   {
-                     // eat the exception.
-                     // made best effort to capture the keys collection, there is no telling what the implementation of IDictionary<,> actually is in this code.
-                     keysCollection = null;
+                     keyType = typeArguments[0];
+                     valueType = typeArguments[0];
                   }
-               }
-
-               IEnumerable valuesCollection = null;
-               if (typeof(IDisposable).IsAssignableFrom(valueType) || typeof(IEnumerable<IDisposable>).IsAssignableFrom(valueType))
-               {
-                  try
+                  else
                   {
-                     var valuesProperty = fieldType.GetProperty("Values");
-                     // ReSharper disable once PossibleNullReferenceException
-                     valuesCollection = valuesProperty.GetValue(fieldValue) as IEnumerable;
+                     throw new NotSupportedException($"Expected 1 or 2 type arguments but found {typeArguments.Length} type arguments");
                   }
-                  catch (Exception)
+
+                  IEnumerable keysCollection = null;
+                  if (typeof(IDisposable).IsAssignableFrom(keyType) || typeof(IEnumerable<IDisposable>).IsAssignableFrom(keyType))
                   {
-                     // eat the exception.
-                     // made best effort to capture the keys collection, there is no telling what the implementation of IDictionary<,> actually is in this code.
-                     valuesCollection = null;
-                  }
-               }
-
-               var collections = new List<IEnumerable>();
-               if (valuesCollection != null)
-               {
-                  collections.Add(valuesCollection);
-               }
-
-               if (keysCollection != null)
-               {
-                  collections.Add(keysCollection);
-               }
-
-               foreach (var col in collections)
-               {
-                  foreach (var val in col)
-                  {
-                     if (val == null)
+                     try
                      {
-                        continue;
+                        var keysProperty = fieldType.GetProperty("Keys");
+                        // ReSharper disable once PossibleNullReferenceException
+                        keysCollection = keysProperty.GetValue(fieldValue) as IEnumerable;
                      }
-
-                     if (TryHandleSimpleDisposable(val))
+                     catch (Exception)
                      {
-                        // disposed
-                        rv = true;
+                        // eat the exception.
+                        // made best effort to capture the keys collection, there is no telling what the implementation of IDictionary<,> actually is in this code.
+                        keysCollection = null;
                      }
-                     else if (TryHandleEnumerableOfDisposables(val))
-                     {
-                        // disposed
-                        rv = true;
-                     }
+                  }
 
-                     // stop going down the rabbit hole....
+                  IEnumerable valuesCollection = null;
+                  if (typeof(IDisposable).IsAssignableFrom(valueType) || typeof(IEnumerable<IDisposable>).IsAssignableFrom(valueType))
+                  {
+                     try
+                     {
+                        var valuesProperty = fieldType.GetProperty("Values");
+                        // ReSharper disable once PossibleNullReferenceException
+                        valuesCollection = valuesProperty.GetValue(fieldValue) as IEnumerable;
+                     }
+                     catch (Exception)
+                     {
+                        // eat the exception.
+                        // made best effort to capture the keys collection, there is no telling what the implementation of IDictionary<,> actually is in this code.
+                        valuesCollection = null;
+                     }
+                  }
+
+                  var collections = new List<IEnumerable>();
+                  if (valuesCollection != null)
+                  {
+                     collections.Add(valuesCollection);
+                  }
+
+                  if (keysCollection != null)
+                  {
+                     collections.Add(keysCollection);
+                  }
+
+                  foreach (var col in collections)
+                  {
+                     foreach (var val in col)
+                     {
+                        if (val == null)
+                        {
+                           continue;
+                        }
+
+                        if (TryHandleSimpleDisposable(val))
+                        {
+                           // disposed
+                           rv = true;
+                        }
+                        else if (TryHandleEnumerableOfDisposables(val))
+                        {
+                           // disposed
+                           rv = true;
+                        }
+
+                        // stop going down the rabbit hole....
+                     }
                   }
                }
             }
