@@ -5,15 +5,12 @@
       <id>Landorphan.Common</id>
       <version>$version$</version>
       <description>Utilities for use in all landorphan projects.</description>
-      <!-- Need additional nuget.org profile names, mprochaska links to mprochaska@landorphan.org-->
       <authors>Landorphan LLC, Michael Prochaska, Timothy Stockstill</authors>
 
       <!-- Optional elements -->
       <title>Landorphan.Common</title>
-      <!-- Need additional nuget.org profile names, mprochaska links to mprochaska@landorphan.org-->
       <owners>landorphan, mprochaska, tstockstill</owners>
       <projectUrl>https://github.com/landorphan/common</projectUrl>
-      <!--verify this is the desired SPDX/license:  see https://spdx.org/licenses/-->
       <license type="expression">MIT</license>
       <!-- Not deployed yet
         <iconUrl>https://github.com/landorphan/common/raw/master/logo.png</iconUrl>
@@ -25,7 +22,7 @@
       <copyright>Copyright © 2019 - Landorphan, LLC.</copyright>
       <language></language>
       <tags>common, utility</tags>
-      <repository type="git" url="https://github.com/landorphan/common"></repository>
+      <repository type="git" url="https://github.com/landorphan/common"/>
       <packageTypes>
          <packageType name="Dependency" />
       </packageTypes>
@@ -36,10 +33,5 @@
             <dependency id="System.Collections.Immutable" version="1.5.0" exclude="Build,Analyzers" />
          </group>
       </dependencies>
-      <!-- Not Required:
-      <files>
-      </files>
-      -->
    </metadata>
-   <!-- Optional 'files' node -->
 </package>

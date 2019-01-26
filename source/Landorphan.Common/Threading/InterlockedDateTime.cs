@@ -454,13 +454,25 @@
          ExchangeValue(value.ToUtc());
       }
 
-      /// <inheritdoc cref="DateTime.ToString()"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedDateTime"/> object to its equivalent string representation.
+      /// </summary>
       public override String ToString()
       {
          return GetValue().ToRoundtripString();
       }
 
-      /// <inheritdoc cref="DateTime.ToString(String)"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedDateTime"/> object to its equivalent string representation using the specified format and the formatting conventions of the
+      /// current culture.
+      /// </summary>
+      /// <param name="format">
+      /// A standard or custom date and time format string.
+      /// </param>
+      /// <returns>
+      /// <see cref="String"/>
+      /// A string representation of value of the current <see cref="InterlockedDateTime"/> object as specified by <paramref name="format"/>.
+      /// </returns>
       [SuppressMessage(
          "Microsoft.Globalization",
          "CA1305:SpecifyIFormatProvider",
@@ -474,13 +486,34 @@
          return GetValue().ToString(format);
       }
 
-      /// <inheritdoc cref="DateTime.ToString(IFormatProvider)"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedDateTime"/> object to its equivalent string representation using the specified culture-specific format information.
+      /// </summary>
+      /// <param name="provider">
+      /// An object that supplies culture-specific formatting information.
+      /// </param>
+      /// <returns>
+      /// <see cref="String"/>
+      /// A string representation of value of the current <see cref="InterlockedDateTime"/> object as specified by <paramref name="provider"/>.
+      /// </returns>
       public String ToString(IFormatProvider provider)
       {
          return GetValue().ToString(provider);
       }
 
-      /// <inheritdoc cref="DateTime.ToString(String, IFormatProvider)"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedDateTime"/> object to its equivalent string representation using the specified format and culture-specific format information.
+      /// </summary>
+      /// <param name="format">
+      /// A standard or custom date and time format string.
+      /// </param>
+      /// <param name="provider">
+      /// An object that supplies culture-specific formatting information.
+      /// </param>
+      /// <returns>
+      /// <see cref="String"/>
+      /// A string representation of value of the current <see cref="InterlockedDateTime"/> object as specified by <paramref name="format"/> and <paramref name="provider"/>.
+      /// </returns>
       public String ToString(String format, IFormatProvider provider)
       {
          return GetValue().ToString(format, provider);

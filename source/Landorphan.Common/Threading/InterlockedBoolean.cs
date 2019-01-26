@@ -469,13 +469,24 @@
          ExchangeValue(value);
       }
 
-      /// <inheritdoc cref="Boolean.ToString()"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedBoolean"/> object to its equivalent string representation.
+      /// </summary>
       public override String ToString()
       {
          return GetValue().ToString(CultureInfo.InvariantCulture);
       }
 
-      /// <inheritdoc cref="Boolean.ToString(IFormatProvider)"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedBoolean"/> object to its equivalent string representation using the specified culture-specific format information.
+      /// </summary>
+      /// <param name="provider">
+      /// An object that supplies culture-specific formatting information.
+      /// </param>
+      /// <returns>
+      /// <see cref="String"/>
+      /// A string representation of value of the current <see cref="InterlockedBoolean"/> object as specified by <paramref name="provider"/>.
+      /// </returns>
       public String ToString(IFormatProvider provider)
       {
          return GetValue().ToString(provider);

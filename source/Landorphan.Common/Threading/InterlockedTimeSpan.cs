@@ -444,7 +444,9 @@
          ExchangeValue(value);
       }
 
-      /// <inheritdoc cref="TimeSpan.ToString()"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedTimeSpan"/> object to its equivalent string representation.
+      /// </summary>
       [SuppressMessage(
          "Microsoft.Globalization",
          "CA1305:SpecifyIFormatProvider",
@@ -458,7 +460,17 @@
          return GetValue().ToString();
       }
 
-      /// <inheritdoc cref="TimeSpan.ToString(String)"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedTimeSpan"/> object to its equivalent string representation using the specified format and the formatting conventions of the
+      /// current culture.
+      /// </summary>
+      /// <param name="format">
+      /// A standard or custom date and time format string.
+      /// </param>
+      /// <returns>
+      /// <see cref="String"/>
+      /// A string representation of value of the current <see cref="InterlockedTimeSpan"/> object as specified by <paramref name="format"/>.
+      /// </returns>
       [SuppressMessage(
          "Microsoft.Globalization",
          "CA1305:SpecifyIFormatProvider",
@@ -472,10 +484,22 @@
          return GetValue().ToString(format);
       }
 
-      /// <inheritdoc cref="TimeSpan.ToString(String, IFormatProvider)"/>
-      public String ToString(String format, IFormatProvider formatProvider)
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedTimeSpan"/> object to its equivalent string representation using the specified format and culture-specific format information.
+      /// </summary>
+      /// <param name="format">
+      /// A standard or custom date and time format string.
+      /// </param>
+      /// <param name="provider">
+      /// An object that supplies culture-specific formatting information.
+      /// </param>
+      /// <returns>
+      /// <see cref="String"/>
+      /// A string representation of value of the current <see cref="InterlockedTimeSpan"/> object as specified by <paramref name="format"/> and <paramref name="provider"/>.
+      /// </returns>
+      public String ToString(String format, IFormatProvider provider)
       {
-         return GetValue().ToString(format, formatProvider);
+         return GetValue().ToString(format, provider);
       }
 
       /// <inheritdoc/>

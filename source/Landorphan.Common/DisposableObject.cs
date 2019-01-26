@@ -7,6 +7,7 @@
    using System.Linq;
    using System.Reflection;
    using System.Runtime.CompilerServices;
+   using System.Threading;
    using Landorphan.Common.Threading;
 
    /// <summary>
@@ -14,29 +15,65 @@
    /// </summary>
    /// <remarks>
    /// <para>
-   /// This class uses reflection to dispose of all fields and Auto-Properties in descendant classes provided those fields or auto-properties match the following requirements:
+   /// This class disposes of all fields and Auto-Properties in descendant classes provided those fields or auto-properties match the following requirements:
    ///   NOT decorated with [DoNotDispose]
-   ///   Implements IDisposable or implements IEnumerable{IDisposable}
-   ///   Implements IDictionary{TKey, TValue} where
-   ///      TKey implements IDisposable or implements IEnumerable{IDisposable}, AND/OR
-   ///      TValue implements IDisposable or implements IEnumerable{IDisposable}, AND/OR
+   /// <list type="table">  
+   ///   <listheader>  
+   ///      <term>field</term>  
+   ///      <description>requirement</description>  
+   /// </listheader>  
+   /// <item>  
+   ///   <term>field</term>  
+   ///   <description>Implements <see cref="IDisposable"/></description>  
+   /// </item>
+   /// <item>  
+   ///   <term>field</term>  
+   ///   <description>Implements <see cref="IEnumerable{T}"/>  where T implements <see cref="IDisposable"/></description>  
+   /// </item>
+   /// <item>  
+   ///   <term>field</term>  
+   ///   <description>Implements <see cref="IDictionary{TKey, TValue}"/> where TKey and/or TValue are themselves implement <see cref="IDisposable"/> or
+   /// implement <see cref="IEnumerable{T}"/>  where T implements <see cref="IDisposable"/></description>  
+   /// </item>
+   /// </list>  
    /// </para>
    /// <para>
-   /// When defining a class that owns IDisposable resources that do not match the above requirements, override the <see cref="DisposableObject.ReleaseManagedResources"/> method, and dispose
-   /// those resource "manually", calling the base implementation at the end of the override implementation.
+   /// When defining a class that owns <see cref="IDisposable"/> resources that do not match the above requirements, override the <see cref="ReleaseManagedResources"/>
+   /// method, and dispose those resource in the usual manner, calling the base implementation at the end of the override implementation.
    /// </para>
    /// <remarks>
-   /// Only the declared type in the descendant class is evaluated.  a field of type Mutex will be disposed, a field of type Object referencing a Mutex will not be disposed.
+   /// Only the declared types are evaluated.  (Run-time type information is not considered).  A field of type <see cref="Mutex"/> will be disposed.  However, a field of type <see cref="Object"/>
+   /// referencing a <see cref="Mutex"/> will not be disposed.
    /// </remarks>
    /// <para>
-   /// Call <see cref="DisposableObject.ThrowIfDisposed"/> on member access as appropriate.
+   /// Call <see cref="DisposableObject.ThrowIfDisposed"/> on member access, as appropriate.
    /// </para>
    /// <para>
-   /// The implementation of <see cref="IDisposable.Dispose"/> has been altered from the recommended pattern to make it thread-safe to call.
+   /// The implementation of <see cref="IDisposable.Dispose"/> has been altered from the recommended pattern to make it thread-safe to call; and handle re-entrant calls to <see cref="Dispose()"/>.
    /// </para>
+   /// <example>
+   /// <code>
+   /// public class HierarchicalObject : DisposableObject
+   /// {
+   ///      // parents own children, children do not own parents.
+   ///      // parent will not be disposed, children will be disposed.
+   ///      [DoNotDispose]
+   ///      private HierarchicalObject parent = null;
+   ///      private IEnumerable{HierarchicalObject} children;
+   ///
+   ///      // The compiler generated backing field for this auto-property will be disposed.
+   ///      IDisposable OwnedAutoProperty{get;}
+   ///
+   ///      // The compiler generated backing field for this auto-property will NOT be disposed.
+   ///      [DoNotDispose]
+   ///      IDisposable OwnedAutoProperty{get;}
+   ///
+   ///      // ...
+   /// </code>
+   /// </example>
    /// </remarks>
    [SuppressMessage("Microsoft.", "CA1063: Implement IDisposable Correctly", Justification = "Reviewed (MWP)")]
-   public abstract class DisposableObject : INotifyingQueryDisposable
+   public abstract class DisposableObject : INotifyingQueryDisposable, IQueryThreadSafe
    {
       // eases maintenance
       private static readonly Type t_stopAtImplementationInheritanceType = typeof(DisposableObject);
@@ -90,8 +127,19 @@
       }
 
       /// <summary>
-      /// Finds and releases all managed resources.
+      /// Releases unmanaged resources.
       /// </summary>
+      /// <remarks>
+      /// <para>
+      /// Finds all disposable fields descendant classes that implement <see cref="IDisposable"/>, <see cref="IEnumerable{T}"/> where T implements <see cref="IDisposable"/>
+      /// or <see cref="IDictionary{TKey,TValue}"/> where the TKey or TValue themselves implement <see cref="IDisposable"/> or <see cref="IEnumerable{T}"/>
+      /// where T implements <see cref="IDisposable"/>.
+      /// </para>
+      /// <para>
+      /// Descendant classes should override this method calling the base implementation at the end; when the descendant class owns a <see cref="IDisposable"/> resources that do not match
+      /// this pattern.
+      /// </para>
+      /// </remarks>
       [SuppressMessage(
          "SonarLint.CodeSmell",
          "S134: Control flow statements ... should not be nested too deeply",
@@ -110,9 +158,7 @@
          Justification = "I see no value in applying a culture to a null value (MWP).")]
       protected virtual void ReleaseManagedResources()
       {
-         // use reflection to find fields and AutoProperties that implement IDisposable, or are IEnumerable<IDisposable>
-         // and not decorated with [DoNotDispose]
-         // ..
+         // use reflection to find fields and AutoProperties that implement IDisposable, or are IEnumerable<IDisposable> and not decorated with [DoNotDispose]
          // dispose of the same and set the value to null.
          var derivedType = GetType();
 
@@ -144,7 +190,7 @@
 
                if (fieldAttributeTypes.Contains(typeof(DoNotDisposeAttribute)))
                {
-                  // class designer expressly excluded this field from disposal
+                  // designer of the class expressly excluded this field from disposal
                   continue;
                }
 
@@ -215,6 +261,9 @@
 
       /// <inheritdoc/>
       public Boolean IsDisposing => _isDisposing;
+
+      /// <inheritdoc/>
+      public virtual Boolean IsThreadSafe => true;
 
       /// <summary>
       /// Notifies all listeners that this instance is being disposed.

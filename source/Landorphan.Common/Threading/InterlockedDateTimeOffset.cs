@@ -438,7 +438,9 @@
          ExchangeValue(value);
       }
 
-      /// <inheritdoc cref="DateTimeOffset.ToString()"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedDateTimeOffset"/> object to its equivalent string representation.
+      /// </summary>
       [SuppressMessage(
          "Microsoft.Globalization",
          "CA1305:SpecifyIFormatProvider",
@@ -452,7 +454,17 @@
          return GetValue().ToString(CultureInfo.InvariantCulture);
       }
 
-      /// <inheritdoc cref="DateTimeOffset.ToString(String)"/>
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedDateTimeOffset"/> object to its equivalent string representation using the specified format and the formatting conventions of the
+      /// current culture.
+      /// </summary>
+      /// <param name="format">
+      /// A standard or custom date and time format string.
+      /// </param>
+      /// <returns>
+      /// <see cref="String"/>
+      /// A string representation of value of the current <see cref="InterlockedDateTimeOffset"/> object as specified by <paramref name="format"/>.
+      /// </returns>
       [SuppressMessage(
          "Microsoft.Globalization",
          "CA1305:SpecifyIFormatProvider",
@@ -466,16 +478,37 @@
          return GetValue().ToString(format);
       }
 
-      /// <inheritdoc cref="DateTimeOffset.ToString(IFormatProvider)"/>
-      public String ToString(IFormatProvider formatProvider)
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedDateTimeOffset"/> object to its equivalent string representation using the specified culture-specific format information.
+      /// </summary>
+      /// <param name="provider">
+      /// An object that supplies culture-specific formatting information.
+      /// </param>
+      /// <returns>
+      /// <see cref="String"/>
+      /// A string representation of value of the current <see cref="InterlockedDateTimeOffset"/> object as specified by <paramref name="provider"/>.
+      /// </returns>
+      public String ToString(IFormatProvider provider)
       {
-         return GetValue().ToString(formatProvider);
+         return GetValue().ToString(provider);
       }
 
-      /// <inheritdoc cref="DateTimeOffset.ToString(String, IFormatProvider)"/>
-      public String ToString(String format, IFormatProvider formatProvider)
+      /// <summary>
+      /// Converts the value of the current <see cref="InterlockedDateTimeOffset"/> object to its equivalent string representation using the specified format and culture-specific format information.
+      /// </summary>
+      /// <param name="format">
+      /// A standard or custom date and time format string.
+      /// </param>
+      /// <param name="provider">
+      /// An object that supplies culture-specific formatting information.
+      /// </param>
+      /// <returns>
+      /// <see cref="String"/>
+      /// A string representation of value of the current <see cref="InterlockedDateTimeOffset"/> object as specified by <paramref name="format"/> and <paramref name="provider"/>.
+      /// </returns>
+      public String ToString(String format, IFormatProvider provider)
       {
-         return GetValue().ToString(format, formatProvider);
+         return GetValue().ToString(format, provider);
       }
 
       /// <inheritdoc/>

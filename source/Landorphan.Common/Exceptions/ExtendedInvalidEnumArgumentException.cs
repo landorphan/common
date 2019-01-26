@@ -12,8 +12,7 @@
    /// The exception thrown when using invalid arguments that are enumerators.
    /// </summary>
    /// <remarks>
-   /// Redo of <see cref="InvalidEnumArgumentException" /> which only provides 32 bits of storage for the invalid value and
-   /// does not expose it.
+   /// Redo of <see cref="InvalidEnumArgumentException" /> which only provides 32 bits of storage for the invalid value and does not expose it.
    /// </remarks>
    public sealed class ExtendedInvalidEnumArgumentException : LandorphanArgumentException
    {
@@ -35,9 +34,7 @@
       }
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="ExtendedInvalidEnumArgumentException" /> class with the inner exception
-      /// that gave rise to
-      /// this exception.
+      /// Initializes a new instance of the <see cref="ExtendedInvalidEnumArgumentException" /> class with the inner exception that gave rise to this exception.
       /// </summary>
       /// <param name="innerException">
       /// The exception that is the cause of the current exception, or a null reference if no inner exception is specified.
@@ -69,7 +66,7 @@
       /// The invalid value that gave rise to this exception, or zero if not supplied.
       /// </param>
       /// <param name="enumType">
-      /// The enumeration type, or <see cref="System.Object" /> type if not supplied.
+      /// The enumeration type, or <see cref="Object" /> type if not supplied.
       /// </param>
       public ExtendedInvalidEnumArgumentException(String paramName, Int64 invalidValue, Type enumType)
          : this(paramName, invalidValue, enumType, null, null)
@@ -83,7 +80,7 @@
       /// The invalid value that gave rise to this exception, or zero if not supplied.
       /// </param>
       /// <param name="enumType">
-      /// The enumeration type, or <see cref="System.Object" /> type if not supplied.
+      /// The enumeration type, or <see cref="Object" /> type if not supplied.
       /// </param>
       public ExtendedInvalidEnumArgumentException(Int64 invalidValue, Type enumType) : this(null, invalidValue, enumType, null, null)
       {
