@@ -1,5 +1,20 @@
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Continue'
 
-Copy-Item -Path .\build\BuildFiles\Default.Production.NetStd.FxCop.15.0.WithSonarLint.ruleset -Destination .\source\Landorphan.Common\Landorphan.Common.NetStd.ruleset
- 
+[String] $sourceRulesetPath = ".\build\BuildFiles\Default.Production.NetStd.FxCop.15.0.WithSonarLint.ruleset"
+if(Test-Path $sourceRulesetPath)
+{
+  [String] $dirPath = ".\source\Landorphan.Common"
+  if(Test-Path $dirPath)
+  {
+    Copy-Item -Path $sourceRulesetPath -Destination "$dirPath\Landorphan.Common.NetStd.ruleset"
+  }
+  else
+  {
+    Write-Error "Could not find directory $dirPath"
+  }
+}
+else
+{
+  Write-Error "Could not find file $sourceRulesetPath"
+}

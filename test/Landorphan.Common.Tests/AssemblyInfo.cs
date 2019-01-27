@@ -7,9 +7,3 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(false)]
 [assembly: NeutralResourcesLanguage("en-US")]
-
-// Version now moved to commin file for build
-//#if (NETCOREAPP2_2 || NETSTANDARD2_0)
-//#else
-//[assembly: AssemblyVersion("1.0.0.0")]
-//#endif
