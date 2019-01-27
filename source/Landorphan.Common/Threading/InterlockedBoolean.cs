@@ -5,7 +5,7 @@
    using System.Threading;
 
    /// <summary>
-   /// An interlocked <see cref="bool"/>.
+   ///    An interlocked <see cref="bool" />.
    /// </summary>
    public struct InterlockedBoolean
       : IComparable<Boolean>, IComparable<InterlockedBoolean>, IComparable, IEquatable<Boolean>, IEquatable<InterlockedBoolean>
@@ -13,10 +13,10 @@
       private Int32 _value;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="InterlockedBoolean"/> structure.
+      ///    Initializes a new instance of the <see cref="InterlockedBoolean" /> structure.
       /// </summary>
       /// <param name="value">
-      /// The initial value of the instance.
+      ///    The initial value of the instance.
       /// </param>
       public InterlockedBoolean(Boolean value)
       {
@@ -24,16 +24,16 @@
       }
 
       /// <summary>
-      /// Equality operator overload.
+      ///    Equality operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the instances are equal, otherwise <c> false </c> .
+      ///    <c> true </c> when the instances are equal, otherwise <c> false </c> .
       /// </returns>
       public static Boolean operator ==(Boolean left, InterlockedBoolean right)
       {
@@ -41,16 +41,16 @@
       }
 
       /// <summary>
-      /// Equality operator overload.
+      ///    Equality operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the instances are equal, otherwise <c> false </c> .
+      ///    <c> true </c> when the instances are equal, otherwise <c> false </c> .
       /// </returns>
       public static Boolean operator ==(InterlockedBoolean left, Boolean right)
       {
@@ -58,16 +58,16 @@
       }
 
       /// <summary>
-      /// Equality operator overload.
+      ///    Equality operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the instances are equal, otherwise <c> false </c> .
+      ///    <c> true </c> when the instances are equal, otherwise <c> false </c> .
       /// </returns>
       public static Boolean operator ==(InterlockedBoolean left, InterlockedBoolean right)
       {
@@ -75,16 +75,17 @@
       }
 
       /// <summary>
-      /// Greater-than operator overload.
+      ///    Greater-than operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is greater-than <paramref name="right"/> , otherwise <c> false </c> .
+      ///    <c> true </c> when the <paramref name="left" /> is greater-than <paramref name="right" /> , otherwise <c> false </c>
+      ///    .
       /// </returns>
       public static Boolean operator >(Boolean left, InterlockedBoolean right)
       {
@@ -92,16 +93,17 @@
       }
 
       /// <summary>
-      /// Greater-than operator overload.
+      ///    Greater-than operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is greater-than <paramref name="right"/> , otherwise <c> false </c> .
+      ///    <c> true </c> when the <paramref name="left" /> is greater-than <paramref name="right" /> , otherwise <c> false </c>
+      ///    .
       /// </returns>
       public static Boolean operator >(InterlockedBoolean left, Boolean right)
       {
@@ -109,16 +111,17 @@
       }
 
       /// <summary>
-      /// Greater-than operator overload.
+      ///    Greater-than operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is greater-than <paramref name="right"/> , otherwise <c> false </c> .
+      ///    <c> true </c> when the <paramref name="left" /> is greater-than <paramref name="right" /> , otherwise <c> false </c>
+      ///    .
       /// </returns>
       public static Boolean operator >(InterlockedBoolean left, InterlockedBoolean right)
       {
@@ -126,16 +129,17 @@
       }
 
       /// <summary>
-      /// Greater-than-or-equal-to operator overload.
+      ///    Greater-than-or-equal-to operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is Greater-than-or-equal-to <paramref name="right"/> , otherwise <c> false </c> .
+      ///    <c> true </c> when the <paramref name="left" /> is Greater-than-or-equal-to <paramref name="right" /> , otherwise
+      ///    <c> false </c> .
       /// </returns>
       public static Boolean operator >=(Boolean left, InterlockedBoolean right)
       {
@@ -143,16 +147,17 @@
       }
 
       /// <summary>
-      /// Greater-than-or-equal-to operator overload.
+      ///    Greater-than-or-equal-to operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is Greater-than-or-equal-to <paramref name="right"/> , otherwise <c> false </c> .
+      ///    <c> true </c> when the <paramref name="left" /> is Greater-than-or-equal-to <paramref name="right" /> , otherwise
+      ///    <c> false </c> .
       /// </returns>
       public static Boolean operator >=(InterlockedBoolean left, Boolean right)
       {
@@ -160,16 +165,17 @@
       }
 
       /// <summary>
-      /// Greater-than-or-equal-to operator overload.
+      ///    Greater-than-or-equal-to operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is Greater-than-or-equal-to <paramref name="right"/> , otherwise <c> false </c> .
+      ///    <c> true </c> when the <paramref name="left" /> is Greater-than-or-equal-to <paramref name="right" /> , otherwise
+      ///    <c> false </c> .
       /// </returns>
       public static Boolean operator >=(InterlockedBoolean left, InterlockedBoolean right)
       {
@@ -177,13 +183,13 @@
       }
 
       /// <summary>
-      /// Performs an implicit conversion from <see cref="InterlockedBoolean"/> to <see cref="Boolean"/>.
+      ///    Performs an implicit conversion from <see cref="InterlockedBoolean" /> to <see cref="Boolean" />.
       /// </summary>
       /// <param name="value">
-      /// The value to convert.
+      ///    The value to convert.
       /// </param>
       /// <returns>
-      /// The <see cref="Boolean"/> representation of the current instance.
+      ///    The <see cref="Boolean" /> representation of the current instance.
       /// </returns>
       public static implicit operator Boolean(InterlockedBoolean value)
       {
@@ -191,13 +197,13 @@
       }
 
       /// <summary>
-      /// Converts the given <paramref name="value"/> instance to a <see cref="Boolean"/>.
+      ///    Converts the given <paramref name="value" /> instance to a <see cref="Boolean" />.
       /// </summary>
       /// <param name="value">
-      /// The value to convert.
+      ///    The value to convert.
       /// </param>
       /// <returns>
-      /// The <see cref="Boolean"/> representation of <paramref name="value"/>.
+      ///    The <see cref="Boolean" /> representation of <paramref name="value" />.
       /// </returns>
       public static Boolean ToBoolean(InterlockedBoolean value)
       {
@@ -205,13 +211,13 @@
       }
 
       /// <summary>
-      /// Performs an implicit conversion from <see cref="Boolean"/> to <see cref="InterlockedBoolean"/>.
+      ///    Performs an implicit conversion from <see cref="Boolean" /> to <see cref="InterlockedBoolean" />.
       /// </summary>
       /// <param name="value">
-      /// The value to convert.
+      ///    The value to convert.
       /// </param>
       /// <returns>
-      /// The <see cref="InterlockedBoolean"/> representation of <paramref name="value"/>.
+      ///    The <see cref="InterlockedBoolean" /> representation of <paramref name="value" />.
       /// </returns>
       public static implicit operator InterlockedBoolean(Boolean value)
       {
@@ -219,13 +225,13 @@
       }
 
       /// <summary>
-      /// Converts the given <paramref name="value"/> instance to a <see cref="Boolean"/>.
+      ///    Converts the given <paramref name="value" /> instance to a <see cref="Boolean" />.
       /// </summary>
       /// <param name="value">
-      /// The value to convert.
+      ///    The value to convert.
       /// </param>
       /// <returns>
-      /// The <see cref="Boolean"/> representation of this instance.
+      ///    The <see cref="Boolean" /> representation of this instance.
       /// </returns>
       public static InterlockedBoolean ToInterlockedBoolean(Boolean value)
       {
@@ -233,16 +239,16 @@
       }
 
       /// <summary>
-      /// Inequality operator overload.
+      ///    Inequality operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the instances are not equal, otherwise <c> false </c>.
+      ///    <c> true </c> when the instances are not equal, otherwise <c> false </c>.
       /// </returns>
       public static Boolean operator !=(Boolean left, InterlockedBoolean right)
       {
@@ -250,16 +256,16 @@
       }
 
       /// <summary>
-      /// Inequality operator overload.
+      ///    Inequality operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the instances are not equal, otherwise <c> false </c>.
+      ///    <c> true </c> when the instances are not equal, otherwise <c> false </c>.
       /// </returns>
       public static Boolean operator !=(InterlockedBoolean left, Boolean right)
       {
@@ -267,16 +273,16 @@
       }
 
       /// <summary>
-      /// Inequality operator overload.
+      ///    Inequality operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the instances are not equal, otherwise <c> false </c>.
+      ///    <c> true </c> when the instances are not equal, otherwise <c> false </c>.
       /// </returns>
       public static Boolean operator !=(InterlockedBoolean left, InterlockedBoolean right)
       {
@@ -284,16 +290,16 @@
       }
 
       /// <summary>
-      /// Less-than operator overload.
+      ///    Less-than operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is less-than <paramref name="right"/> , otherwise <c> false </c>.
+      ///    <c> true </c> when the <paramref name="left" /> is less-than <paramref name="right" /> , otherwise <c> false </c>.
       /// </returns>
       public static Boolean operator <(Boolean left, InterlockedBoolean right)
       {
@@ -301,16 +307,16 @@
       }
 
       /// <summary>
-      /// Less-than operator overload.
+      ///    Less-than operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is less-than <paramref name="right"/> , otherwise <c> false </c>.
+      ///    <c> true </c> when the <paramref name="left" /> is less-than <paramref name="right" /> , otherwise <c> false </c>.
       /// </returns>
       public static Boolean operator <(InterlockedBoolean left, Boolean right)
       {
@@ -318,16 +324,16 @@
       }
 
       /// <summary>
-      /// Less-than operator overload.
+      ///    Less-than operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is less-than <paramref name="right"/> , otherwise <c> false </c>.
+      ///    <c> true </c> when the <paramref name="left" /> is less-than <paramref name="right" /> , otherwise <c> false </c>.
       /// </returns>
       public static Boolean operator <(InterlockedBoolean left, InterlockedBoolean right)
       {
@@ -335,16 +341,17 @@
       }
 
       /// <summary>
-      /// Less-than-or-equal-to operator overload.
+      ///    Less-than-or-equal-to operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is Less-than-or-equal-to <paramref name="right"/> , otherwise <c> false </c>.
+      ///    <c> true </c> when the <paramref name="left" /> is Less-than-or-equal-to <paramref name="right" /> , otherwise
+      ///    <c> false </c>.
       /// </returns>
       public static Boolean operator <=(Boolean left, InterlockedBoolean right)
       {
@@ -352,16 +359,17 @@
       }
 
       /// <summary>
-      /// Less-than-or-equal-to operator overload.
+      ///    Less-than-or-equal-to operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is Less-than-or-equal-to <paramref name="right"/> , otherwise <c> false </c>.
+      ///    <c> true </c> when the <paramref name="left" /> is Less-than-or-equal-to <paramref name="right" /> , otherwise
+      ///    <c> false </c>.
       /// </returns>
       public static Boolean operator <=(InterlockedBoolean left, Boolean right)
       {
@@ -369,47 +377,48 @@
       }
 
       /// <summary>
-      /// Less-than-or-equal-to operator overload.
+      ///    Less-than-or-equal-to operator overload.
       /// </summary>
       /// <param name="left">
-      /// The left value.
+      ///    The left value.
       /// </param>
       /// <param name="right">
-      /// The right value.
+      ///    The right value.
       /// </param>
       /// <returns>
-      /// <c> true </c> when the <paramref name="left"/> is Less-than-or-equal-to <paramref name="right"/> , otherwise <c> false </c>.
+      ///    <c> true </c> when the <paramref name="left" /> is Less-than-or-equal-to <paramref name="right" /> , otherwise
+      ///    <c> false </c>.
       /// </returns>
       public static Boolean operator <=(InterlockedBoolean left, InterlockedBoolean right)
       {
          return left.CompareTo(right) <= 0;
       }
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public Int32 CompareTo(Boolean other)
       {
          return GetValue().CompareTo(other);
       }
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public Int32 CompareTo(InterlockedBoolean other)
       {
          return GetValue().CompareTo(other.GetValue());
       }
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public Boolean Equals(Boolean other)
       {
          return other.Equals(GetValue());
       }
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public Boolean Equals(InterlockedBoolean other)
       {
          return Equals(other.GetValue());
       }
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public override Boolean Equals(Object obj)
       {
          if (obj is InterlockedBoolean ibValue)
@@ -426,13 +435,13 @@
       }
 
       /// <summary>
-      /// Exchanges the value.
+      ///    Exchanges the value.
       /// </summary>
       /// <param name="value">
-      /// The value to which the instance is set.
+      ///    The value to which the instance is set.
       /// </param>
       /// <returns>
-      /// The original value.
+      ///    The original value.
       /// </returns>
       public Boolean ExchangeValue(Boolean value)
       {
@@ -441,17 +450,17 @@
          return was == 1;
       }
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       public override Int32 GetHashCode()
       {
          return Thread.VolatileRead(ref _value);
       }
 
       /// <summary>
-      /// Gets the value.
+      ///    Gets the value.
       /// </summary>
       /// <returns>
-      /// The current value.
+      ///    The current value.
       /// </returns>
       public Boolean GetValue()
       {
@@ -459,10 +468,10 @@
       }
 
       /// <summary>
-      /// Sets the value.
+      ///    Sets the value.
       /// </summary>
       /// <param name="value">
-      /// The value to which the instance is set.
+      ///    The value to which the instance is set.
       /// </param>
       public void SetValue(Boolean value)
       {
@@ -470,7 +479,7 @@
       }
 
       /// <summary>
-      /// Converts the value of the current <see cref="InterlockedBoolean"/> object to its equivalent string representation.
+      ///    Converts the value of the current <see cref="InterlockedBoolean" /> object to its equivalent string representation.
       /// </summary>
       public override String ToString()
       {
@@ -478,21 +487,23 @@
       }
 
       /// <summary>
-      /// Converts the value of the current <see cref="InterlockedBoolean"/> object to its equivalent string representation using the specified culture-specific format information.
+      ///    Converts the value of the current <see cref="InterlockedBoolean" /> object to its equivalent string representation
+      ///    using the specified culture-specific format information.
       /// </summary>
       /// <param name="provider">
-      /// An object that supplies culture-specific formatting information.
+      ///    An object that supplies culture-specific formatting information.
       /// </param>
       /// <returns>
-      /// <see cref="String"/>
-      /// A string representation of value of the current <see cref="InterlockedBoolean"/> object as specified by <paramref name="provider"/>.
+      ///    <see cref="String" />
+      ///    A string representation of value of the current <see cref="InterlockedBoolean" /> object as specified by
+      ///    <paramref name="provider" />.
       /// </returns>
       public String ToString(IFormatProvider provider)
       {
          return GetValue().ToString(provider);
       }
 
-      /// <inheritdoc/>
+      /// <inheritdoc />
       Int32 IComparable.CompareTo(Object obj)
       {
          if (ReferenceEquals(obj, null))

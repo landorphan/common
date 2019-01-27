@@ -5,6 +5,7 @@
    using System.Threading;
    using FluentAssertions;
    using Landorphan.Common.Threading;
+   using Landorphan.Common.Threading.Interfaces;
    using Landorphan.TestUtilities;
    using Landorphan.TestUtilities.TestFacilities;
    using Microsoft.VisualStudio.TestTools.UnitTesting;

@@ -1,20 +1,17 @@
 apiRules:
-# this block is not working for inherited members     
+# OMG: 2 spaces required, 0 spaces, fails, 1 space fails, 3 spaces fails; all silently.
 - exclude:
-  uidRegex: ^System\.Object
-  type: Type
-# this block is not working for inherited members   
+    uidRegex:  ^System\.Object
+    type:  Type
 - exclude:
-  uidRegex: ^System\.Attribute
-  type: Type  
-# this block is not working for inherited members   
+    uidRegex:  ^System\.Attribute
+    type:  Type
 - exclude:
-  uidRegex: ^System\.Exception
-  type: Type    
-# this block is not working for inherited members   
+    uidRegex:  ^System\.Exception
+    type:  Type
 - exclude:
-  uidRegex: ^System\.ArgumentException
-  type: Type      
+    uidRegex:  ^System\.ArgumentException
+    type:  Type
   
 - exclude:
     hasAttribute:

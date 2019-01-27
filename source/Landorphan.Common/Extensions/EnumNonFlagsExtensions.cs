@@ -4,6 +4,7 @@
    using System.Collections.Generic;
    using System.Diagnostics.CodeAnalysis;
    using System.Globalization;
+   using Landorphan.Common.Exceptions;
 
    /// <summary>
    /// Extension methods for working with <see cref="Enum"/> instances that do not have the <see cref="FlagsAttribute"/>.

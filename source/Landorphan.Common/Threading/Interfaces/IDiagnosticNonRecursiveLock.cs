@@ -1,4 +1,4 @@
-﻿namespace Landorphan.Common.Threading
+﻿namespace Landorphan.Common.Threading.Interfaces
 {
    using System;
 

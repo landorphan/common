@@ -1,16 +1,22 @@
-﻿namespace Landorphan.Common.Threading
+﻿namespace Landorphan.Common.Threading.Interfaces
 {
    using System;
    using System.Threading;
+   using Landorphan.Common.Interfaces;
+   using Landorphan.Common.Threading.Exceptions;
 
    /// <summary>
    /// Represents a lock that is used to manage access to a resource, allowing multiple threads for reading or exclusive access for writing.
    /// </summary>
    /// <remarks>
-   /// Use INonRecursiveLock instances to protect a resource that is read by multiple threads and written to by one thread at a time.
-   /// INonRecursiveLock instances allows multiple threads to be in read mode, allows one thread to be in write mode with exclusive ownership of
-   /// the lock, and allows one thread that has read access to be in upgradeable read mode, from which the thread can upgrade to write mode without
-   /// having to relinquish its read access to the resource.
+   /// <para>
+   /// Use <see cref="INonRecursiveLock"/> instances to protect a resource that is read by multiple threads and written to by one thread at a time.
+   /// <see cref="INonRecursiveLock"/> instances allow multiple threads to be in read mode, allows one thread to be in write mode with exclusive ownership of
+   /// the lock, and allows one thread that to be in upgradeable read mode, from which the thread can upgrade to write mode without having to relinquish its read access to the resource.
+   /// </para>
+   /// <para>
+   /// The default implementation of <see cref="INonRecursiveLock"/> guards against "writer starvation", but not "upgradeable reader starvation".
+   /// </para>
    /// </remarks>
    public interface INonRecursiveLock : IQueryDisposable, IQueryAllowsRecursion
    {

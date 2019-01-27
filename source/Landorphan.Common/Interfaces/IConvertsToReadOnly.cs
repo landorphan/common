@@ -1,4 +1,4 @@
-﻿namespace Landorphan.Common
+﻿namespace Landorphan.Common.Interfaces
 {
    /// <summary>
    /// Denotes an instance that can be converted to a read-only instance.

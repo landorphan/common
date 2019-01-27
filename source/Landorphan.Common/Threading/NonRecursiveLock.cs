@@ -5,6 +5,8 @@
    using System.Runtime.Serialization;
    using System.Threading;
    using Landorphan.Common.Resources;
+   using Landorphan.Common.Threading.Exceptions;
+   using Landorphan.Common.Threading.Interfaces;
 
    /// <summary>
    /// Represents a lock that is used to manage access to a resource, allowing multiple threads for reading or exclusive access for writing.

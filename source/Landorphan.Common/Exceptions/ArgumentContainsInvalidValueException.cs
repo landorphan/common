@@ -1,4 +1,4 @@
-﻿namespace Landorphan.Common
+﻿namespace Landorphan.Common.Exceptions
 {
    using System;
    using System.Runtime.Serialization;

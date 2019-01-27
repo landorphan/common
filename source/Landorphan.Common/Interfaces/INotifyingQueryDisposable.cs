@@ -1,4 +1,4 @@
-﻿namespace Landorphan.Common
+﻿namespace Landorphan.Common.Interfaces
 {
    using System;
 

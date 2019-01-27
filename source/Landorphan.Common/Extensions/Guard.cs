@@ -7,6 +7,7 @@
    using System.Diagnostics.CodeAnalysis;
    using System.Globalization;
    using System.Linq;
+   using Landorphan.Common.Exceptions;
    using Landorphan.Common.Resources;
 
    /// <summary>

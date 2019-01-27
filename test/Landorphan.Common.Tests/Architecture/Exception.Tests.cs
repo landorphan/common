@@ -3,6 +3,7 @@
    using System;
    using System.Collections.Immutable;
    using System.Reflection;
+   using Landorphan.Common.Exceptions;
    using Landorphan.Common.Tests.TestFacilities;
    using Landorphan.TestUtilities;
    using Landorphan.TestUtilities.ReusableTestImplementations;

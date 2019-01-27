@@ -1,5 +1,7 @@
 ﻿namespace Landorphan.Common
 {
+   using Landorphan.Common.Interfaces;
+
    /// <summary>
    /// Extension methods for working with <see cref="IConvertsToReadOnly"/> instances.
    /// </summary>

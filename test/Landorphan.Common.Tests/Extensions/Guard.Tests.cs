@@ -4,6 +4,7 @@
    using System.Collections.Generic;
    using System.Globalization;
    using FluentAssertions;
+   using Landorphan.Common.Exceptions;
    using Landorphan.TestUtilities;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 

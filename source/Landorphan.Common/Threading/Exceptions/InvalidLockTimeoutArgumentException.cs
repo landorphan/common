@@ -1,9 +1,10 @@
-﻿namespace Landorphan.Common.Threading
+﻿namespace Landorphan.Common.Threading.Exceptions
 {
    using System;
    using System.Globalization;
    using System.Runtime.Serialization;
    using System.Security;
+   using Landorphan.Common.Exceptions;
    using Landorphan.Common.Resources;
 
    /// <summary>
