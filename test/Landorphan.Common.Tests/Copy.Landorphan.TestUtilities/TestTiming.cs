@@ -22,7 +22,7 @@ namespace Landorphan.TestUtilities
       /// <remarks>
       /// Tests must pass before check-in, but are excluded from IDE test runs.
       /// </remarks>
-      public const String CheckInNonIde = "Check-In(Non-Ide)";
+      public const String CheckInNonIde = "Check-In-Non-Ide";
 
       /// <summary>
       /// IDE only test category.
