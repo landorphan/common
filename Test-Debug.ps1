@@ -14,7 +14,7 @@ $results = Join-Path $scriptDirectory TestResults
 
 # TODO: switch to dotnet test implementation
 # TODO: figure out while the trx file is not being written
-vstest.console.exe $commonTests /logger:trx /ResultsDirectory:$results /Parallel /TestCaseFilter:"TestCategory!=Nightly&TestCategory!=Manual&TestCategory!=IDE-Only"
+vstest.console.exe $commonTests /logger:trx /ResultsDirectory:$results /Parallel /TestCaseFilter:"(TestCategory=Check-In|Check-In-Non-Ide)"
 
 $completed = [DateTime]::UtcNow
 $elapsed = $completed - $started
