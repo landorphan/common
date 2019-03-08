@@ -27,7 +27,7 @@ namespace Landorphan.TestUtilities.ReusableTestImplementations
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Default_Production_Ruleset_NetCore_should_not_have_duplicate_rule_ids_implementation()
       {
-         var rulesetPath = "..\\..\\..\\..\\build\\BuildFiles\\Default.Production.NetCore.FxCop.15.0.WithSonarLint.ruleset";
+         var rulesetPath = "../../../../build/BuildFiles/Default.Production.NetCore.FxCop.15.0.WithSonarLint.ruleset";
          Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
       }
 
@@ -37,7 +37,7 @@ namespace Landorphan.TestUtilities.ReusableTestImplementations
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Default_Production_Ruleset_NetFx_should_not_have_duplicate_rule_ids_implementation()
       {
-         var rulesetPath = "..\\..\\..\\..\\build\\BuildFiles\\Default.Production.NetFx.FxCop.15.0.WithSonarLint.ruleset";
+         var rulesetPath = "../../../../build/BuildFiles/Default.Production.NetFx.FxCop.15.0.WithSonarLint.ruleset";
          Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
       }
 
@@ -47,7 +47,7 @@ namespace Landorphan.TestUtilities.ReusableTestImplementations
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Default_Production_Ruleset_NetStd_should_not_have_duplicate_rule_ids_implementation()
       {
-         var rulesetPath = "..\\..\\..\\..\\build\\BuildFiles\\Default.Production.NetStd.FxCop.15.0.WithSonarLint.ruleset";
+         var rulesetPath = "../../../../build/BuildFiles/Default.Production.NetStd.FxCop.15.0.WithSonarLint.ruleset";
          Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
       }
 
@@ -57,7 +57,7 @@ namespace Landorphan.TestUtilities.ReusableTestImplementations
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Default_Test_Ruleset_NetCore_should_not_have_duplicate_rule_ids_implementation()
       {
-         var rulesetPath = "..\\..\\..\\..\\build\\BuildFiles\\Default.Test.NetCore.FxCop.15.0.WithSonarLint.ruleset";
+         var rulesetPath = "../../../../build/BuildFiles/Default.Test.NetCore.FxCop.15.0.WithSonarLint.ruleset";
          Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
       }
 
@@ -67,7 +67,7 @@ namespace Landorphan.TestUtilities.ReusableTestImplementations
       [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
       protected void Default_Test_Ruleset_NetFx_should_not_have_duplicate_rule_ids_implementation()
       {
-         var rulesetPath = "..\\..\\..\\..\\build\\BuildFiles\\Default.Test.NetFx.FxCop.15.0.WithSonarLint.ruleset";
+         var rulesetPath = "../../../../build/BuildFiles/Default.Test.NetFx.FxCop.15.0.WithSonarLint.ruleset";
          Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
       }
 
