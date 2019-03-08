@@ -14,7 +14,7 @@
       public void All_ruleset_should_not_have_duplicate_rule_ids()
       {
          // ReSharper disable once StringLiteralTypo
-         var rulesetPath = "..\\..\\..\\..\\build\\BuildFiles\\All.NetFx.15.0.WithSonarLint.ruleset";
+         var rulesetPath = "../../../../build/BuildFiles/All.NetFx.15.0.WithSonarLint.ruleset";
          Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
       }
 
@@ -22,7 +22,7 @@
       [TestCategory(TestTiming.IdeOnly)]
       public void Common_ruleset_should_not_have_duplicate_rule_ids()
       {
-         Rulesets_should_not_have_duplicate_rule_ids_implementation("..\\..\\..\\..\\source\\Landorphan.Common\\Landorphan.Common.NetStd.ruleset");
+         Rulesets_should_not_have_duplicate_rule_ids_implementation("../../../../source/Landorphan.Common/Landorphan.Common.NetStd.ruleset");
       }
 
       [TestMethod]
