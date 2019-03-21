@@ -192,7 +192,7 @@ namespace Landorphan.Common.Tests.Extensions
 
                // here be the rub:
                _unspecified.ToString("o").Should().Match("0001-02-03T04:05:06.0000000-??:00");
-               _unspecified.ToString("u").Should().Be("0001-02-03 11:05:06Z");
+               _unspecified.ToString("u").Should().Be(   "0001-02-03 11:05:06Z");
             }
 
             [TestMethod]
