@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
    <PropertyGroup>
-      <TargetFramework>netstandard2.0</TargetFramework>
+      <TargetFramework Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0</TargetFramework>
+      <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;net451</TargetFrameworks>
       <LangVersion>7.2</LangVersion>
       <CodeAnalysisRuleSet>Landorphan.Common.NetStd.ruleset</CodeAnalysisRuleSet>
       <RootNamespace>Landorphan.Common</RootNamespace>
