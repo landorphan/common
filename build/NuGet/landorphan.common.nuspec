@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata>
+      <!-- Required elements-->
+      <id>Landorphan.Common</id>
+      <version>$version$</version>
+      <description>Utilities for use in all landorphan projects.</description>
+      <authors>Landorphan LLC, Michael Prochaska, Timothy Stockstill</authors>
+
+      <!-- Optional elements -->
+      <title>Landorphan.Common</title>
+      <owners>landorphan, mprochaska, tstockstill</owners>
+      <projectUrl>https://github.com/landorphan/common</projectUrl>
+      <license type="expression">MIT</license>
+      <!-- Not deployed yet
+        <iconUrl>https://github.com/landorphan/common/raw/master/logo.png</iconUrl>
+        -->
+      <requireLicenseAcceptance>false</requireLicenseAcceptance>
+      <developmentDependency>false</developmentDependency>
+      <summary>Utilities for use in all landorphan projects.</summary>
+      <releaseNotes>Initial public release.</releaseNotes>
+      <copyright>Copyright © 2019 - Landorphan, LLC.</copyright>
+      <language></language>
+      <tags>common, utility</tags>
+      <repository type="git" url="https://github.com/landorphan/common"/>
+      <packageTypes>
+         <packageType name="Dependency" />
+      </packageTypes>
+      <dependencies>
+         <group targetFramework=".NETStandard2.0">
+            <dependency id="Microsoft.Extensions.Configuration" version="2.2.0" exclude="Build,Analyzers" />
+            <dependency id="Microsoft.Extensions.Logging" version="2.2.0" exclude="Build,Analyzers" />
+            <dependency id="System.Collections.Immutable" version="1.5.0" exclude="Build,Analyzers" />
+         </group>
+      </dependencies>
+   </metadata>
+</package>
