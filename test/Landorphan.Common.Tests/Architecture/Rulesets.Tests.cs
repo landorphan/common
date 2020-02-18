@@ -1,6 +1,9 @@
 ﻿namespace Landorphan.Common.Tests.Architecture
 {
-   using Landorphan.TestUtilities;
+    using System;
+    using System.Diagnostics;
+    using System.IO;
+    using Landorphan.TestUtilities;
    using Landorphan.TestUtilities.ReusableTestImplementations;
    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -14,7 +17,7 @@
       public void All_ruleset_should_not_have_duplicate_rule_ids()
       {
          // ReSharper disable once StringLiteralTypo
-         var rulesetPath = "..\\..\\..\\..\\build\\BuildFiles\\All.NetFx.15.0.WithSonarLint.ruleset";
+         var rulesetPath = "..\\..\\..\\..\\build\\CodeAnalysis\\All.NetFx.15.0.WithSonarLint.ruleset";
          Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
       }
 
