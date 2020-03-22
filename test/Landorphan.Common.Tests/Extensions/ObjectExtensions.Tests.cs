@@ -173,7 +173,7 @@
          {
             const Int64 value0 = -1;
             var actual0 = value0.UncheckedUnboxValueType<UInt64>();
-            actual0.Should().Be(18446744073709551615ul);
+            actual0.Should().Be(18_446_744_073_709_551_615ul);
 
             var value1 = UInt64.MaxValue;
             var actual1 = value1.UncheckedUnboxValueType<Int64>();
