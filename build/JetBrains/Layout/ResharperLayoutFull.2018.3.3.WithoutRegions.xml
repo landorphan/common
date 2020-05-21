@@ -172,7 +172,7 @@
       </Entry.Match>
 
       <Entry.SortBy>
-        <Static/>
+        <Static />
       </Entry.SortBy>
     </Entry>
 
