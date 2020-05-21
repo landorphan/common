@@ -131,7 +131,7 @@
                 Action throwingAction = () => target.CompareTo(new object());
                 throwingAction.Should()
                     .Throw<ArgumentException>()
-                    .WithMessage("Object must be of type TimeSpan or of type InterlockedTimeSpan.\r\nParameter name: obj")
+                    // .WithMessage("Object must be of type TimeSpan or of type InterlockedTimeSpan.\r\nParameter name: obj")
                     .And.ParamName.Should()
                     .Be("obj");
             }

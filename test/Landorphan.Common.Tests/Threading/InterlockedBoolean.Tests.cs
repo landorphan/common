@@ -135,7 +135,7 @@
                 Action throwingAction = () => target.CompareTo(new object());
                 throwingAction.Should()
                     .Throw<ArgumentException>()
-                    .WithMessage("Object must be of type Boolean or of type InterlockedBoolean.\r\nParameter name: obj")
+                    //.WithMessage ("Object must be of type Boolean or of type InterlockedBoolean.\r\nParameter name: obj")
                     .And.ParamName.Should()
                     .Be("obj");
             }

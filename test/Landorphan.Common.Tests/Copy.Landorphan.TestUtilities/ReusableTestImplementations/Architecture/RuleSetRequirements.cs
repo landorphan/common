@@ -20,55 +20,31 @@ namespace Landorphan.TestUtilities.ReusableTestImplementations
     /// </summary>
     public class RulesetRequirements : TestBase
     {
+        public void All_ruleset_should_not_have_duplicate_rule_ids_implementation()
+        {
+            // ReSharper disable once StringLiteralTypo
+            var rulesetPath = "..\\..\\..\\..\\build\\CodeAnalysis\\AllRules.16.5.WithSonarLint.ruleset";
+            Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
+        }
         // there is no such thing as .Net Standard Test project
 
         /// <summary>
-        /// Asserts the default production ruleset for .Net Core analyzers contains no duplicate rule id values.
+        /// Asserts the default source ruleset contains no duplicate rule id values.
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
-        protected void Default_Production_Ruleset_NetCore_should_not_have_duplicate_rule_ids_implementation()
+        protected void Default_Source_Ruleset_should_not_have_duplicate_rule_ids_implementation()
         {
-            var rulesetPath = "..\\..\\..\\..\\build\\CodeAnalysis\\Default.Production.NetCore.FxCop.15.0.WithSonarLint.ruleset";
+            var rulesetPath = "..\\..\\..\\..\\build\\CodeAnalysis\\Default.Source.16.5.WithSonarLint.ruleset";
             Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
         }
 
         /// <summary>
-        /// Asserts the default production ruleset for .Net Framework analyzers contains no duplicate rule id values.
+        /// Asserts the default test ruleset contains no duplicate rule id values.
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
-        protected void Default_Production_Ruleset_NetFx_should_not_have_duplicate_rule_ids_implementation()
+        protected void Default_Test_Ruleset_should_not_have_duplicate_rule_ids_implementation()
         {
-            var rulesetPath = "..\\..\\..\\..\\build\\CodeAnalysis\\Default.Production.NetFx.FxCop.15.0.WithSonarLint.ruleset";
-            Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
-        }
-
-        /// <summary>
-        /// Asserts the default production ruleset for .Net Standard analyzers contains no duplicate rule id values.
-        /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
-        protected void Default_Production_Ruleset_NetStd_should_not_have_duplicate_rule_ids_implementation()
-        {
-            var rulesetPath = "..\\..\\..\\..\\build\\CodeAnalysis\\Default.Production.NetStd.FxCop.15.0.WithSonarLint.ruleset";
-            Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
-        }
-
-        /// <summary>
-        /// Asserts the default test ruleset for .Net Core analyzers contains no duplicate rule id values.
-        /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
-        protected void Default_Test_Ruleset_NetCore_should_not_have_duplicate_rule_ids_implementation()
-        {
-            var rulesetPath = "..\\..\\..\\..\\build\\CodeAnalysis\\Default.Test.NetCore.FxCop.15.0.WithSonarLint.ruleset";
-            Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
-        }
-
-        /// <summary>
-        /// Asserts the default test ruleset for .Net Framework analyzers contains no duplicate rule id values.
-        /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
-        protected void Default_Test_Ruleset_NetFx_should_not_have_duplicate_rule_ids_implementation()
-        {
-            var rulesetPath = "..\\..\\..\\..\\build\\CodeAnalysis\\Default.Test.NetFx.FxCop.15.0.WithSonarLint.ruleset";
+            var rulesetPath = "..\\..\\..\\..\\build\\CodeAnalysis\\Default.Test.16.5.WithSonarLint.ruleset";
             Rulesets_should_not_have_duplicate_rule_ids_implementation(rulesetPath);
         }
 

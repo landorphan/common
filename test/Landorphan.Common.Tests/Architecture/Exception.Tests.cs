@@ -16,13 +16,6 @@
     {
         [TestMethod]
         [TestCategory(TestTiming.CheckIn)]
-        public void Exceptions_In_DotNet_Core_Should_Not_Be_Marked_As_Serializable()
-        {
-            Exceptions_In_DotNet_Core_Should_Not_Be_Marked_As_Serializable_Implementation();
-        }
-
-        [TestMethod]
-        [TestCategory(TestTiming.CheckIn)]
         public void Exceptions_Should_Be_Abstract_Or_Sealed()
         {
             Exceptions_Should_Be_Abstract_Or_Sealed_Implementation();
