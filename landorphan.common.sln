@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{65807C31-348B-4BC0-95E0-7D7F8938A547}"
 EndProject
@@ -11,14 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{2B05C482
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildFiles", "BuildFiles", "{F4EC09B2-5F75-407D-AD71-4527BE778A49}"
 	ProjectSection(SolutionItems) = preProject
-		build\BuildFiles\All.NetFx.15.0.WithSonarLint.ruleset = build\BuildFiles\All.NetFx.15.0.WithSonarLint.ruleset
-		build\BuildFiles\CustomDictionary.xml = build\BuildFiles\CustomDictionary.xml
-		build\BuildFiles\Default.Production.NetCore.FxCop.15.0.WithSonarLint.ruleset = build\BuildFiles\Default.Production.NetCore.FxCop.15.0.WithSonarLint.ruleset
-		build\BuildFiles\Default.Production.NetFx.FxCop.15.0.WithSonarLint.ruleset = build\BuildFiles\Default.Production.NetFx.FxCop.15.0.WithSonarLint.ruleset
-		build\BuildFiles\Default.Production.NetStd.FxCop.15.0.WithSonarLint.ruleset = build\BuildFiles\Default.Production.NetStd.FxCop.15.0.WithSonarLint.ruleset
-		build\BuildFiles\Default.Test.NetCore.FxCop.15.0.WithSonarLint.ruleset = build\BuildFiles\Default.Test.NetCore.FxCop.15.0.WithSonarLint.ruleset
-		build\BuildFiles\Default.Test.NetFx.FxCop.15.0.WithSonarLint.ruleset = build\BuildFiles\Default.Test.NetFx.FxCop.15.0.WithSonarLint.ruleset
-		build\BuildFiles\No Standard Test Ruleset File.txt = build\BuildFiles\No Standard Test Ruleset File.txt
+		build\CodeAnalysis\AllRules.16.5.WithSonarLint.ruleset = build\CodeAnalysis\AllRules.16.5.WithSonarLint.ruleset
+		build\CodeAnalysis\CustomDictionary.xml = build\CodeAnalysis\CustomDictionary.xml
+		build\CodeAnalysis\Default.Source.16.5.WithSonarLint.ruleset = build\CodeAnalysis\Default.Source.16.5.WithSonarLint.ruleset
+		build\CodeAnalysis\Default.Test.16.5.WithSonarLint.ruleset = build\CodeAnalysis\Default.Test.16.5.WithSonarLint.ruleset
+		build\CodeAnalysis\README.md = build\CodeAnalysis\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResharperLayout", "ResharperLayout", "{982D60AF-AA0E-4BAF-A541-0BB9F80D385D}"
@@ -36,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResharperLayout", "Resharpe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DF33A87D-5CD8-4335-A032-3D4638C23FE2}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		Build-Clean.ps1 = Build-Clean.ps1
 		Build-Debug.ps1 = Build-Debug.ps1
@@ -46,7 +45,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Copy-DefaultTestRuleset-NetCore-ToProjects.ps1 = Copy-DefaultTestRuleset-NetCore-ToProjects.ps1
 		Copy-DefaultTestRuleset-NetFx-ToProjects.ps1 = Copy-DefaultTestRuleset-NetFx-ToProjects.ps1
 		Copy-FxCop-Rulesets.ps1 = Copy-FxCop-Rulesets.ps1
+		DevOps.Build.props = DevOps.Build.props
+		Directory.Build.Props = Directory.Build.Props
+		KnownTags.txt = KnownTags.txt
 		LICENSE = LICENSE
+		nuget.config = nuget.config
 		PowerShell.ReadMe.md = PowerShell.ReadMe.md
 		README.md = README.md
 		Test-Debug.ps1 = Test-Debug.ps1
