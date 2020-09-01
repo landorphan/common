@@ -10,9 +10,12 @@
         /// <summary>
         /// Creates a new object that is a copy of the current instance.
         /// </summary>
+        /// <remarks>
+        /// This method is intended to create a deep copy.
+        /// </remarks>
         /// <returns>
         /// A new object that is a copy of this instance.
         /// </returns>
-        T CloneTyped();
+        T DeepClone();
     }
 }
