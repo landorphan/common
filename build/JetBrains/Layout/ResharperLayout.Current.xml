@@ -985,7 +985,6 @@
       <Region.GroupBy>
         <Name />
       </Region.GroupBy>-->
-
     <Entry Priority="145" DisplayName="All Enumerations">
       <Entry.Match>
         <Kind Is="Enum" />
@@ -1001,7 +1000,6 @@
       <Region.GroupBy>
         <Name />
       </Region.GroupBy>-->
-
     <Entry Priority="140" DisplayName="All Fields And Constants">
       <Entry.Match>
         <Or>
@@ -1023,7 +1021,6 @@
       <Region.GroupBy>
         <Name />
       </Region.GroupBy>-->
-
     <Entry Priority="135" DisplayName="Constructors">
       <Entry.Match>
         <Kind Is="Constructor" />
@@ -1039,7 +1036,6 @@
       <Region.GroupBy>
         <Name />
       </Region.GroupBy>-->
-
     <Entry Priority="130" DisplayName="Dispose">
       <Entry.Match>
         <And>
@@ -1142,17 +1138,20 @@
       <Region.GroupBy>
         <Name />
       </Region.GroupBy>-->
-
     <Entry Priority="100" DisplayName="Clone">
       <Entry.Match>
         <And>
           <Kind Is="Method" />
-          <Name Is="^Clone$" />
+          <Or>
+            <Name Is="^Clone$" />
+            <Name Is="^DeepClone$" />
+          </Or>
         </And>
       </Entry.Match>
       <Entry.SortBy>
-        <Static />
         <Access Order="Public Internal ProtectedInternal Protected Private" />
+        <Static />
+        <Name />
       </Entry.SortBy>
     </Entry>
     <!--</Region>-->

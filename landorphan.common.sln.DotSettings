@@ -729,7 +729,8 @@
         &lt;Or&gt;&#xD;
           &lt;And&gt;&#xD;
             &lt;Kind Is="Method" /&gt;&#xD;
-            &lt;HasAttribute Name="Microsoft.VisualStudio.TestTools.UnitTesting.AssemblyInitializeAttribute" Inherited="True" /&gt;&#xD;
+            &lt;HasAttribute Name="Microsoft.VisualStudio.TestTools.UnitTesting.AssemblyInitializeAttribute"&#xD;
+                          Inherited="True" /&gt;&#xD;
           &lt;/And&gt;&#xD;
           &lt;And&gt;&#xD;
             &lt;!-- could improve this to check for no namespace --&gt;&#xD;
@@ -902,7 +903,7 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-    &lt;Entry Priority ="57" DisplayName="Test Methods"&gt;&#xD;
+    &lt;Entry Priority="57" DisplayName="Test Methods"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;Or&gt;&#xD;
           &lt;And&gt;&#xD;
@@ -931,7 +932,7 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-    &lt;Entry Priority="50" DisplayName="Interface Implementations" &gt;&#xD;
+    &lt;Entry Priority="50" DisplayName="Interface Implementations"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Kind Is="Member" /&gt;&#xD;
@@ -949,7 +950,7 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-    &lt;Entry Priority ="45" DisplayName="Non Test/Non Interface Methods"&gt;&#xD;
+    &lt;Entry Priority="45" DisplayName="Non Test/Non Interface Methods"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Kind Is="Method" /&gt;&#xD;
@@ -976,7 +977,7 @@
     &lt;Entry Priority="40" DisplayName="Event Handlers"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;Or&gt;&#xD;
-          &lt;HandlesEvent/&gt;&#xD;
+          &lt;HandlesEvent /&gt;&#xD;
         &lt;/Or&gt;&#xD;
       &lt;/Entry.Match&gt;&#xD;
       &lt;Entry.SortBy&gt;&#xD;
@@ -1015,7 +1016,7 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-    &lt;Entry Priority="30" DisplayName="All Test Hooks" &gt;&#xD;
+    &lt;Entry Priority="30" DisplayName="All Test Hooks"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Kind Is="Method" /&gt;&#xD;
@@ -1078,7 +1079,6 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-&#xD;
     &lt;Entry Priority="145" DisplayName="All Enumerations"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;Kind Is="Enum" /&gt;&#xD;
@@ -1094,7 +1094,6 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-&#xD;
     &lt;Entry Priority="140" DisplayName="All Fields And Constants"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;Or&gt;&#xD;
@@ -1116,7 +1115,6 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-&#xD;
     &lt;Entry Priority="135" DisplayName="Constructors"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;Kind Is="Constructor" /&gt;&#xD;
@@ -1132,7 +1130,6 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-&#xD;
     &lt;Entry Priority="130" DisplayName="Dispose"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
@@ -1144,7 +1141,7 @@
                      as if they were dispose methods, ignoring the Name constraint above.&#xD;
                      This kludge fixes the problem.&#xD;
                      --&gt;&#xD;
-            &lt;HandlesEvent/&gt;&#xD;
+            &lt;HandlesEvent /&gt;&#xD;
           &lt;/Not&gt;&#xD;
         &lt;/And&gt;&#xD;
       &lt;/Entry.Match&gt;&#xD;
@@ -1235,17 +1232,20 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-&#xD;
     &lt;Entry Priority="100" DisplayName="Clone"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Kind Is="Method" /&gt;&#xD;
-          &lt;Name Is="^Clone$" /&gt;&#xD;
+          &lt;Or&gt;&#xD;
+            &lt;Name Is="^Clone$" /&gt;&#xD;
+            &lt;Name Is="^DeepClone$" /&gt;&#xD;
+          &lt;/Or&gt;&#xD;
         &lt;/And&gt;&#xD;
       &lt;/Entry.Match&gt;&#xD;
       &lt;Entry.SortBy&gt;&#xD;
-        &lt;Static /&gt;&#xD;
         &lt;Access Order="Public Internal ProtectedInternal Protected Private" /&gt;&#xD;
+        &lt;Static /&gt;&#xD;
+        &lt;Name /&gt;&#xD;
       &lt;/Entry.SortBy&gt;&#xD;
     &lt;/Entry&gt;&#xD;
     &lt;!--&lt;/Region&gt;--&gt;&#xD;
@@ -1337,7 +1337,7 @@
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
 &#xD;
-    &lt;Entry Priority="55" DisplayName="Interface Implementations" &gt;&#xD;
+    &lt;Entry Priority="55" DisplayName="Interface Implementations"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Kind Is="Member" /&gt;&#xD;
@@ -1355,7 +1355,7 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-    &lt;Entry Priority ="11" DisplayName="Methods"&gt;&#xD;
+    &lt;Entry Priority="11" DisplayName="Methods"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Kind Is="Method" /&gt;&#xD;
@@ -1383,7 +1383,7 @@
     &lt;Entry Priority="50" DisplayName="Event Handlers"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;Or&gt;&#xD;
-          &lt;HandlesEvent/&gt;&#xD;
+          &lt;HandlesEvent /&gt;&#xD;
         &lt;/Or&gt;&#xD;
       &lt;/Entry.Match&gt;&#xD;
       &lt;Entry.SortBy&gt;&#xD;
@@ -1422,7 +1422,7 @@
       &lt;Region.GroupBy&gt;&#xD;
         &lt;Name /&gt;&#xD;
       &lt;/Region.GroupBy&gt;--&gt;&#xD;
-    &lt;Entry Priority="40" DisplayName="All Test Hooks" &gt;&#xD;
+    &lt;Entry Priority="40" DisplayName="All Test Hooks"&gt;&#xD;
       &lt;Entry.Match&gt;&#xD;
         &lt;And&gt;&#xD;
           &lt;Kind Is="Method" /&gt;&#xD;
@@ -1463,8 +1463,7 @@
     &lt;/Entry&gt;&#xD;
     &lt;!--&lt;/Region&gt;--&gt;&#xD;
   &lt;/TypePattern&gt;&#xD;
-&lt;/Patterns&gt;&#xD;
-</s:String>
+&lt;/Patterns&gt;</s:String>
 	<s:Boolean x:Key="/Default/CodeStyle/CSharpUsing/AddImportsToDeepestScope/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeStyle/CSharpUsing/QualifiedUsingAtNestedScope/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeStyle/EditorConfig/ShowEditorConfigStatusBarIndicator/@EntryValue">True</s:Boolean>
