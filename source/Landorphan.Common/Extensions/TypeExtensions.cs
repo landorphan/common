@@ -40,7 +40,7 @@
         {
             type.ArgumentNotNull(nameof(type));
 
-            var wellKnownImmutableTypes = new List<Type> {typeof(string)};
+            var wellKnownImmutableTypes = new List<Type> { typeof(string) };
 
             return type.IsValueType || wellKnownImmutableTypes.Contains(type);
         }

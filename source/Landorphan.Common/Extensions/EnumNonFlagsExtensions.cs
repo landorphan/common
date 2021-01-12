@@ -49,7 +49,7 @@
         }
 
         /// <summary>
-        /// Determines whether a the given value is a valid combination of flag values.
+        /// Determines whether a given value is a valid enumeration value.
         /// </summary>
         /// <typeparam name="T">
         /// The flags enumeration type.
