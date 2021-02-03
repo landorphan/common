@@ -159,6 +159,7 @@
         /// <param name="e">
         /// The event information.
         /// </param>
+        [SuppressMessage("Microsoft.Security", "CA2109: Review visible event handlers", Justification = "Reviewed (MWP)")]
         public void Invoke(object sender, TEventArgs e)
         {
             // ReSharper disable once InconsistentlySynchronizedField
@@ -226,7 +227,7 @@
                     var wet = typeof(WeakEventHandler<>).MakeGenericType(typeof(TEventArgs), handler.Method.DeclaringType);
                     var eht = typeof(EventHandler<TEventArgs>);
 
-                    var ctor = wet.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, new[] {eht}, null);
+                    var ctor = wet.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, new[] { eht }, null);
 
                     if (ctor == null)
                     {
@@ -238,7 +239,7 @@
                                 eht.Name));
                     }
 
-                    _weakEventHandler = (IWeakEventHandler)ctor.Invoke(new object[] {handler});
+                    _weakEventHandler = (IWeakEventHandler)ctor.Invoke(new object[] { handler });
                 }
             }
 
