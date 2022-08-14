@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{65807C31-348B-4BC0-95E0-7D7F8938A547}"
 EndProject
@@ -9,51 +9,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F10433A2-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{2B05C482-3783-4E78-B382-561792F5197B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildFiles", "BuildFiles", "{F4EC09B2-5F75-407D-AD71-4527BE778A49}"
-	ProjectSection(SolutionItems) = preProject
-		build\CodeAnalysis\AllRules.16.5.WithSonarLint.ruleset = build\CodeAnalysis\AllRules.16.5.WithSonarLint.ruleset
-		build\CodeAnalysis\CustomDictionary.xml = build\CodeAnalysis\CustomDictionary.xml
-		build\CodeAnalysis\Default.Source.16.5.WithSonarLint.ruleset = build\CodeAnalysis\Default.Source.16.5.WithSonarLint.ruleset
-		build\CodeAnalysis\Default.Test.16.5.WithSonarLint.ruleset = build\CodeAnalysis\Default.Test.16.5.WithSonarLint.ruleset
-		build\CodeAnalysis\README.md = build\CodeAnalysis\README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResharperLayout", "ResharperLayout", "{982D60AF-AA0E-4BAF-A541-0BB9F80D385D}"
-	ProjectSection(SolutionItems) = preProject
-		build\ResharperLayout\ResharperLayout.Current.xml = build\ResharperLayout\ResharperLayout.Current.xml
-		build\ResharperLayout\ResharperLayout.Editing.xml = build\ResharperLayout\ResharperLayout.Editing.xml
-		build\ResharperLayout\ResharperLayout_1_NonReorderableTypes.xml = build\ResharperLayout\ResharperLayout_1_NonReorderableTypes.xml
-		build\ResharperLayout\ResharperLayout_2_SpecFlow.xml = build\ResharperLayout\ResharperLayout_2_SpecFlow.xml
-		build\ResharperLayout\ResharperLayout_3_MSTestBDD.xml = build\ResharperLayout\ResharperLayout_3_MSTestBDD.xml
-		build\ResharperLayout\ResharperLayout_9999_Default.xml = build\ResharperLayout\ResharperLayout_9999_Default.xml
-		build\ResharperLayout\ResharperLayoutCSharp.xml = build\ResharperLayout\ResharperLayoutCSharp.xml
-		build\ResharperLayout\ResharperLayoutFull.2018.1.4.WithoutRegions.xml = build\ResharperLayout\ResharperLayoutFull.2018.1.4.WithoutRegions.xml
-		build\ResharperLayout\ResharperLayoutFull.2018.2.3.WithoutRegions.xml = build\ResharperLayout\ResharperLayoutFull.2018.2.3.WithoutRegions.xml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DF33A87D-5CD8-4335-A032-3D4638C23FE2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectRootFiles", "ProjectRootFiles", "{DF33A87D-5CD8-4335-A032-3D4638C23FE2}"
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
-		Build-Clean.ps1 = Build-Clean.ps1
-		Build-Debug.ps1 = Build-Debug.ps1
-		Build-Release.ps1 = Build-Release.ps1
-		Copy-DefaultProductionRuleset-NetCore-ToProjects.ps1 = Copy-DefaultProductionRuleset-NetCore-ToProjects.ps1
-		Copy-DefaultProductionRuleset-NetFx-ToProjects.ps1 = Copy-DefaultProductionRuleset-NetFx-ToProjects.ps1
-		Copy-DefaultProductionRuleset-NetStd-ToProjects.ps1 = Copy-DefaultProductionRuleset-NetStd-ToProjects.ps1
-		Copy-DefaultTestRuleset-NetCore-ToProjects.ps1 = Copy-DefaultTestRuleset-NetCore-ToProjects.ps1
-		Copy-DefaultTestRuleset-NetFx-ToProjects.ps1 = Copy-DefaultTestRuleset-NetFx-ToProjects.ps1
-		Copy-FxCop-Rulesets.ps1 = Copy-FxCop-Rulesets.ps1
+		AssemblyVersion.cs = AssemblyVersion.cs
 		DevOps.Build.props = DevOps.Build.props
 		Directory.Build.Props = Directory.Build.Props
 		KnownTags.txt = KnownTags.txt
 		LICENSE = LICENSE
 		nuget.config = nuget.config
-		PowerShell.ReadMe.md = PowerShell.ReadMe.md
 		README.md = README.md
-		Test-Debug.ps1 = Test-Debug.ps1
-		Test-Release.ps1 = Test-Release.ps1
 		TODO.md = TODO.md
 	EndProjectSection
 EndProject
@@ -61,44 +28,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Landorphan.Common", "source
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Landorphan.Common.Tests", "test\Landorphan.Common.Tests\Landorphan.Common.Tests.csproj", "{B8A9CD3C-B9DB-4A95-BC63-D12A999966A2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "help.projects", "help.projects", "{E3AF39DD-6C0E-4734-9C7A-CB20816F0C7A}"
-	ProjectSection(SolutionItems) = preProject
-		help.projects\Build-Serve.ps1 = help.projects\Build-Serve.ps1
-		help.projects\readme.md = help.projects\readme.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelpInstall", "HelpInstall", "{9B49852E-D4AE-4BA8-97A5-D8DF37D549CB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doxygen", "doxygen", "{19C0081A-1027-4793-9344-E0025183310F}"
-	ProjectSection(SolutionItems) = preProject
-		build\HelpInstall\doxygen\doxygen-1.8.15-setup.exe = build\HelpInstall\doxygen\doxygen-1.8.15-setup.exe
-		build\HelpInstall\doxygen\Doxygen.Install.md = build\HelpInstall\doxygen\Doxygen.Install.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shfb", "shfb", "{5CEB9E7F-5E69-4A65-A948-E9DB4E567714}"
-	ProjectSection(SolutionItems) = preProject
-		build\HelpInstall\shfb\shfb.install.MD = build\HelpInstall\shfb\shfb.install.MD
-		build\HelpInstall\shfb\SHFBInstaller_v2018.12.10.0.zip = build\HelpInstall\shfb\SHFBInstaller_v2018.12.10.0.zip
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docfx", "docfx", "{D46C4593-D5A5-4DFF-A72A-829F5F8002B7}"
-	ProjectSection(SolutionItems) = preProject
-		build\HelpInstall\docfx\docfx.Install.md = build\HelpInstall\docfx\docfx.Install.md
-		build\HelpInstall\docfx\docfx.zip = build\HelpInstall\docfx\docfx.zip
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{C135F68D-7F32-431D-B746-6CDBFF7FAFD0}"
 	ProjectSection(SolutionItems) = preProject
 		build\NuGet\landorphan.common.nuspec = build\NuGet\landorphan.common.nuspec
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docfx_project", "docfx_project", "{545CA487-7C7C-4AF7-BF2B-163A5607DCA7}"
-	ProjectSection(SolutionItems) = preProject
-		help.projects\docfx_project\.gitignore = help.projects\docfx_project\.gitignore
-		help.projects\docfx_project\docfx.json = help.projects\docfx_project\docfx.json
-		help.projects\docfx_project\filterConfig.yml = help.projects\docfx_project\filterConfig.yml
-		help.projects\docfx_project\index.md = help.projects\docfx_project\index.md
-		help.projects\docfx_project\toc.yml = help.projects\docfx_project\toc.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JetBrains", "JetBrains", "{480222C7-C150-444E-B2B2-EE970A36CEF3}"
@@ -117,6 +49,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rider", "Rider", "{B1574189
 	ProjectSection(SolutionItems) = preProject
 		build\JetBrains\Rider\JetBrains.Rider.Settings.FromLinux.zip = build\JetBrains\Rider\JetBrains.Rider.Settings.FromLinux.zip
 		build\JetBrains\Rider\JetBrains.Rider.Settings.FromWindows.jar = build\JetBrains\Rider\JetBrains.Rider.Settings.FromWindows.jar
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildScripts", "BuildScripts", "{661DCD87-C470-4F56-A1F0-91C689D0A853}"
+	ProjectSection(SolutionItems) = preProject
+		build\BuildScripts\Build-Clean.ps1 = build\BuildScripts\Build-Clean.ps1
+		build\BuildScripts\Build-Debug.ps1 = build\BuildScripts\Build-Debug.ps1
+		build\BuildScripts\Build-Release.ps1 = build\BuildScripts\Build-Release.ps1
+		build\BuildScripts\Get-TestBinaryDebug.ps1 = build\BuildScripts\Get-TestBinaryDebug.ps1
+		build\BuildScripts\Get-TestBinaryRelease.ps1 = build\BuildScripts\Get-TestBinaryRelease.ps1
+		build\BuildScripts\README.md = build\BuildScripts\README.md
+		build\BuildScripts\Test-Debug.ps1 = build\BuildScripts\Test-Debug.ps1
+		build\BuildScripts\Test-Release.ps1 = build\BuildScripts\Test-Release.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{43F0BAA5-DF51-48B5-B448-578C7719F5B2}"
+	ProjectSection(SolutionItems) = preProject
+		build\CodeAnalysis\AllRules.16.5.WithSonarLint.ruleset = build\CodeAnalysis\AllRules.16.5.WithSonarLint.ruleset
+		build\CodeAnalysis\AllRules.MS.Sonar.Tools_v17.0.ruleset = build\CodeAnalysis\AllRules.MS.Sonar.Tools_v17.0.ruleset
+		build\CodeAnalysis\CustomDictionary.xml = build\CodeAnalysis\CustomDictionary.xml
+		build\CodeAnalysis\Default..Landorphan.Source.Tools_v17.0.ruleset = build\CodeAnalysis\Default..Landorphan.Source.Tools_v17.0.ruleset
+		build\CodeAnalysis\Default..Landorphan.Test.Tools_v17.0.ruleset = build\CodeAnalysis\Default..Landorphan.Test.Tools_v17.0.ruleset
+		build\CodeAnalysis\Default.Source.16.5.WithSonarLint.ruleset = build\CodeAnalysis\Default.Source.16.5.WithSonarLint.ruleset
+		build\CodeAnalysis\Default.Test.16.5.WithSonarLint.ruleset = build\CodeAnalysis\Default.Test.16.5.WithSonarLint.ruleset
+		build\CodeAnalysis\README.md = build\CodeAnalysis\README.md
 	EndProjectSection
 EndProject
 Global
@@ -138,18 +94,14 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F4EC09B2-5F75-407D-AD71-4527BE778A49} = {2B05C482-3783-4E78-B382-561792F5197B}
-		{982D60AF-AA0E-4BAF-A541-0BB9F80D385D} = {2B05C482-3783-4E78-B382-561792F5197B}
 		{FE5437AB-EDC3-4CEB-A337-BF87A5A27A5E} = {65807C31-348B-4BC0-95E0-7D7F8938A547}
 		{B8A9CD3C-B9DB-4A95-BC63-D12A999966A2} = {F10433A2-DCDF-476B-98D2-F3D9939EB5A0}
-		{9B49852E-D4AE-4BA8-97A5-D8DF37D549CB} = {2B05C482-3783-4E78-B382-561792F5197B}
-		{19C0081A-1027-4793-9344-E0025183310F} = {9B49852E-D4AE-4BA8-97A5-D8DF37D549CB}
-		{5CEB9E7F-5E69-4A65-A948-E9DB4E567714} = {9B49852E-D4AE-4BA8-97A5-D8DF37D549CB}
-		{D46C4593-D5A5-4DFF-A72A-829F5F8002B7} = {9B49852E-D4AE-4BA8-97A5-D8DF37D549CB}
 		{C135F68D-7F32-431D-B746-6CDBFF7FAFD0} = {2B05C482-3783-4E78-B382-561792F5197B}
-		{545CA487-7C7C-4AF7-BF2B-163A5607DCA7} = {E3AF39DD-6C0E-4734-9C7A-CB20816F0C7A}
+		{480222C7-C150-444E-B2B2-EE970A36CEF3} = {2B05C482-3783-4E78-B382-561792F5197B}
 		{4E54505A-6EF9-42B9-A002-A90505FCA161} = {480222C7-C150-444E-B2B2-EE970A36CEF3}
 		{B1574189-DDB1-4C59-8C02-A295809504CB} = {480222C7-C150-444E-B2B2-EE970A36CEF3}
+		{661DCD87-C470-4F56-A1F0-91C689D0A853} = {2B05C482-3783-4E78-B382-561792F5197B}
+		{43F0BAA5-DF51-48B5-B448-578C7719F5B2} = {2B05C482-3783-4E78-B382-561792F5197B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D7A10B5-2F3A-4084-B607-852B4FB0500D}

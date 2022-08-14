@@ -157,6 +157,7 @@
             "SonarLint.CodeSmell",
             "S4056:Overloads with a 'CultureInfo' or an 'IFormatProvider' parameter should be used",
             Justification = "I see no value in applying a culture to a null value (MWP).")]
+        [SuppressMessage("SonarLint.CodeSmell", "S3011:Reflection should not be used to increase accessibility of classes, methods, or fields", Justification = "By design (MWP).")]
         protected virtual void ReleaseManagedResources()
         {
             // use reflection to find fields and AutoProperties that implement IDisposable, or are IEnumerable<IDisposable> and not decorated with [DoNotDispose]
