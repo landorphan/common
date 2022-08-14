@@ -26,7 +26,7 @@ dotnet_diagnostic.CA1002.severity = warning
 dotnet_diagnostic.CA1003.severity = warning
 
 # CA1005: Avoid excessive parameters on generic types
-dotnet_diagnostic.CA1005.severity = warning
+dotnet_diagnostic.CA1005.severity = none
 
 # CA1008: Enums should have zero value
 dotnet_diagnostic.CA1008.severity = warning
@@ -38,7 +38,7 @@ dotnet_diagnostic.CA1010.severity = warning
 dotnet_diagnostic.CA1012.severity = warning
 
 # CA1014: Mark assemblies with CLSCompliant
-dotnet_diagnostic.CA1014.severity = warning
+dotnet_diagnostic.CA1014.severity = none
 
 # CA1016: Mark assemblies with assembly version
 dotnet_diagnostic.CA1016.severity = warning
@@ -71,7 +71,7 @@ dotnet_diagnostic.CA1028.severity = warning
 dotnet_diagnostic.CA1030.severity = warning
 
 # CA1031: Do not catch general exception types
-dotnet_diagnostic.CA1031.severity = warning
+dotnet_diagnostic.CA1031.severity = none
 
 # CA1032: Implement standard exception constructors
 dotnet_diagnostic.CA1032.severity = warning
@@ -80,7 +80,7 @@ dotnet_diagnostic.CA1032.severity = warning
 dotnet_diagnostic.CA1033.severity = warning
 
 # CA1034: Nested types should not be visible
-dotnet_diagnostic.CA1034.severity = warning
+dotnet_diagnostic.CA1034.severity = none
 
 # CA1036: Override methods on comparable types
 dotnet_diagnostic.CA1036.severity = warning
@@ -111,7 +111,7 @@ dotnet_diagnostic.CA1047.severity = warning
 dotnet_diagnostic.CA1050.severity = warning
 
 # CA1051: Do not declare visible instance fields
-dotnet_diagnostic.CA1051.severity = warning
+dotnet_diagnostic.CA1051.severity = none
 
 # CA1052: Static holder types should be Static or NotInheritable
 dotnet_diagnostic.CA1052.severity = warning
@@ -135,7 +135,7 @@ dotnet_diagnostic.CA1060.severity = warning
 dotnet_diagnostic.CA1061.severity = warning
 
 # CA1062: Validate arguments of public methods
-dotnet_diagnostic.CA1062.severity = warning
+dotnet_diagnostic.CA1062.severity = none
 
 # CA1063: Implement IDisposable Correctly
 dotnet_diagnostic.CA1063.severity = warning
@@ -165,16 +165,16 @@ dotnet_diagnostic.CA1070.severity = warning
 dotnet_diagnostic.CA1200.severity = warning
 
 # CA1303: Do not pass literals as localized parameters
-dotnet_diagnostic.CA1303.severity = warning
+dotnet_diagnostic.CA1303.severity = none
 
 # CA1304: Specify CultureInfo
 dotnet_diagnostic.CA1304.severity = warning
 
 # CA1305: Specify IFormatProvider
-dotnet_diagnostic.CA1305.severity = warning
+dotnet_diagnostic.CA1305.severity = none
 
 # CA1307: Specify StringComparison for clarity
-dotnet_diagnostic.CA1307.severity = warning
+dotnet_diagnostic.CA1307.severity = none
 
 # CA1308: Normalize strings to uppercase
 dotnet_diagnostic.CA1308.severity = warning
@@ -201,7 +201,7 @@ dotnet_diagnostic.CA1418.severity = warning
 dotnet_diagnostic.CA1419.severity = warning
 
 # CA1501: Avoid excessive inheritance
-dotnet_diagnostic.CA1501.severity = warning
+dotnet_diagnostic.CA1501.severity = none
 
 # CA1502: Avoid excessive complexity
 dotnet_diagnostic.CA1502.severity = warning
@@ -210,7 +210,7 @@ dotnet_diagnostic.CA1502.severity = warning
 dotnet_diagnostic.CA1505.severity = warning
 
 # CA1506: Avoid excessive class coupling
-dotnet_diagnostic.CA1506.severity = warning
+dotnet_diagnostic.CA1506.severity = none
 
 # CA1507: Use nameof to express symbol names
 dotnet_diagnostic.CA1507.severity = warning
@@ -225,7 +225,7 @@ dotnet_diagnostic.CA1509.severity = warning
 dotnet_diagnostic.CA1700.severity = warning
 
 # CA1707: Identifiers should not contain underscores
-dotnet_diagnostic.CA1707.severity = warning
+dotnet_diagnostic.CA1707.severity = none
 
 # CA1708: Identifiers should differ by more than case
 dotnet_diagnostic.CA1708.severity = warning
@@ -234,7 +234,7 @@ dotnet_diagnostic.CA1708.severity = warning
 dotnet_diagnostic.CA1710.severity = warning
 
 # CA1711: Identifiers should not have incorrect suffix
-dotnet_diagnostic.CA1711.severity = warning
+dotnet_diagnostic.CA1711.severity = none
 
 # CA1712: Do not prefix enum values with type name
 dotnet_diagnostic.CA1712.severity = warning
@@ -249,7 +249,7 @@ dotnet_diagnostic.CA1715.severity = warning
 dotnet_diagnostic.CA1716.severity = warning
 
 # CA1720: Identifier contains type name
-dotnet_diagnostic.CA1720.severity = warning
+dotnet_diagnostic.CA1720.severity = none
 
 # CA1721: Property names should not match get methods
 dotnet_diagnostic.CA1721.severity = warning
@@ -270,13 +270,13 @@ dotnet_diagnostic.CA1802.severity = warning
 dotnet_diagnostic.CA1805.severity = warning
 
 # CA1806: Do not ignore method results
-dotnet_diagnostic.CA1806.severity = warning
+dotnet_diagnostic.CA1806.severity = none
 
 # CA1810: Initialize reference type static fields in-line
 dotnet_diagnostic.CA1810.severity = warning
 
 # CA1812: Avoid uninstantiated internal classes
-dotnet_diagnostic.CA1812.severity = warning
+dotnet_diagnostic.CA1812.severity = none
 
 # CA1813: Avoid unsealed attributes
 dotnet_diagnostic.CA1813.severity = warning
@@ -304,7 +304,7 @@ dotnet_diagnostic.CA1821.severity = warning
 dotnet_diagnostic.CA1822.severity = none
 
 # CA1823: Avoid unused private fields
-dotnet_diagnostic.CA1823.severity = warning
+dotnet_diagnostic.CA1823.severity = none
 
 # CA1824: Mark assemblies with NeutralResourcesLanguageAttribute
 dotnet_diagnostic.CA1824.severity = warning
@@ -451,7 +451,7 @@ dotnet_diagnostic.CA2207.severity = warning
 dotnet_diagnostic.CA2208.severity = warning
 
 # CA2211: Non-constant fields should not be visible
-dotnet_diagnostic.CA2211.severity = warning
+dotnet_diagnostic.CA2211.severity = none
 
 # CA2213: Disposable fields should be disposed
 dotnet_diagnostic.CA2213.severity = warning
