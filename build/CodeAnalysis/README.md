@@ -1,23 +1,29 @@
-## Static Code Analysis support scripts:
+## Static Code Analysis strategy
 
-| Script                                                 | Description                                                                                                              |
-|:------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------ |
-| Copy-DefaultProductionRuleset-NetCore-ToProjects.ps1   | ​Copies the default production rule set, for .Net Core projects, to each known .Net Core source project folder.          |
-| Copy-DefaultProductionRuleset-NetFx-ToProjects.ps1     | Copies the default production rule set, for .Net Framework projects, to each known .Net Framework source project folder. |
-| Copy-DefaultProductionRuleset-NetStd-ToProjects.ps1    | ​Copies the default production rule set, for .Net Standard projects, to each known .Net Standard source project folder.  |
-| Copy-DefaultTestRuleset-NetCore-ToProjects.ps1         | ​Copies the default test rule set, for .Net Core projects, to each known .Net Core test project folder.                  |
-| Copy-DefaultTestRuleset-NetFx-ToProjects.ps1           | ​Copies the default test rule set, for .Net Framework projects, to each known .Net Framework test project folder.        |
-|                                                        | (there is no such thing as a .Net Standard MSTest project)                                                               |
-|                                                        |                                                                                                                          |
-| Copy-FxCop-Rulesets.ps1                                | Executes all of the above as a batch.                                                                                    |
+We are moving away from *.ruleset analyzer configuration to global analyzer configuration files.  Requirements:  1) support xplat, 2) support CI/CD command line builds, 3) be editor agnostic.
 
+Global analyzer files were chosen despite having to be specifically referenced in each project file because *.editorconfig is overloaded with concerns, we only have 2 templates "source" and "test",
+and we switching from *ruleset msbuild projects which already require specifying the same in the project file.  Additionally, as templates, copy and paste from global analyzer config files to editor 
+config files is an easy operation for teams choosing to so do.
 
-### Suggestion:
-Do not edit project *.ruleset files.  Pick the scope of impact and edit the *.ruleset files located in *build* directory, then execute Copy-FxCop-Rulesets.ps1
+The prior ruleset files are maintained.  See Default.Source.16.5.WithSonarLint.ruleset and Default.Test.16.5.WithSonarLint.ruleset.
 
+### Implementation details
 
-Note: Merging rulesets was possible, I have no idea if it is now.  I suggest this pattern until we find a rule Action specific to an individual project.
+Configuration for each rule is XOR set to "warning" or "none".  Because we rely on command line builds we treat warnings as errors on CI/CD builds, so we eschew "error" statuses because we want 
+the developer to be able to see all of the issues in an IDE environment.  That leaves:
+   * "Hidden" - The violation is not visible to the user. The IDE is notified of the violation, however.
+   * "Info" - The violation generates a message in the Error List.
 
-#### CustomDictionary.xml
-This is a custom dictionary for .Net Framework projects
-Add it as a link to .Net Framework projects and set the BuildAction=CodeAnalysisDictionary
+Neither are in use because we have gated check-ins.  Our goal is to show the developer what the CI/CD gate will see with an eye toward showing all, rather than failing on first error.  This also 
+assists with xplat and local command line builds.
+
+###
+Our global suppression strategy is bifurcated into source and test strategies.  We believe test should be at the same coding standard as source, but there are common testing scenarios that run afoul
+of what would be expected in source files.
+
+Suppressions are pragmatic, and suggestions for teams grabbing these files based on our experience.  Your mileage may vary.  For example (going deep), S2328 do not reference mutable fields in 
+<code>GetHashCode()</code> implementations is based on the implementations of unique collections (they only check for uniqueness when items are inserted -- mutable objects allow for duplicates in 
+sets of the same after mutation).  If .Net had been built from the ground up with this notion of "const correctness" for collections, all would be good, but application years (decades) after 
+<code>GetHashCode()</code> was put in every .Net class is  simply too noisy in our opinion.  Teams that need "const correctness" in their collections already know this behavior whereas teams that are
+using plain old class objects for short-lived web display purposes receive no benefit from this rule.  If you disagree, just update the rule behavior in your project.

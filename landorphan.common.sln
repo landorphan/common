@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F10433A2-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{2B05C482-3783-4E78-B382-561792F5197B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectRootFiles", "ProjectRootFiles", "{DF33A87D-5CD8-4335-A032-3D4638C23FE2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RootSolutionFiles", "RootSolutionFiles", "{DF33A87D-5CD8-4335-A032-3D4638C23FE2}"
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
 		.editorconfig = .editorconfig
@@ -68,10 +68,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysi
 		build\CodeAnalysis\AllRules.16.5.WithSonarLint.ruleset = build\CodeAnalysis\AllRules.16.5.WithSonarLint.ruleset
 		build\CodeAnalysis\AllRules.MS.Sonar.Tools_v17.0.ruleset = build\CodeAnalysis\AllRules.MS.Sonar.Tools_v17.0.ruleset
 		build\CodeAnalysis\CustomDictionary.xml = build\CodeAnalysis\CustomDictionary.xml
-		build\CodeAnalysis\Default..Landorphan.Source.Tools_v17.0.ruleset = build\CodeAnalysis\Default..Landorphan.Source.Tools_v17.0.ruleset
-		build\CodeAnalysis\Default..Landorphan.Test.Tools_v17.0.ruleset = build\CodeAnalysis\Default..Landorphan.Test.Tools_v17.0.ruleset
 		build\CodeAnalysis\Default.Source.16.5.WithSonarLint.ruleset = build\CodeAnalysis\Default.Source.16.5.WithSonarLint.ruleset
 		build\CodeAnalysis\Default.Test.16.5.WithSonarLint.ruleset = build\CodeAnalysis\Default.Test.16.5.WithSonarLint.ruleset
+		build\CodeAnalysis\Landorphan.Source.Default.Analyzer.globalconfig = build\CodeAnalysis\Landorphan.Source.Default.Analyzer.globalconfig
+		build\CodeAnalysis\Landorphan.Test.Default.Analyzer.globalconfig = build\CodeAnalysis\Landorphan.Test.Default.Analyzer.globalconfig
 		build\CodeAnalysis\README.md = build\CodeAnalysis\README.md
 	EndProjectSection
 EndProject

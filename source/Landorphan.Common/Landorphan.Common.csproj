@@ -9,6 +9,11 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+  <PropertyGroup>
+    <!--TODO: How are we going to manage this on a cloud CI/CD build?-->
+    <GlobalAnalyzerConfigFiles Include="..\..\build\CodeAnalysis\Landorphan.Source.Default.Analyzer.globalconfig" />
+    <CodeAnalysisDictionary Include="..\..\build\CodeAnalysis\CustomDictionary.xml" Link="CustomDictionary.xml" />
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
@@ -28,7 +33,6 @@
     <DocumentationFile>..\..\bin\release\$(AssemblyName)\$(AssemblyName).XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <CodeAnalysisDictionary Include="..\..\build\CodeAnalysis\CustomDictionary.xml" Link="CustomDictionary.xml" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
