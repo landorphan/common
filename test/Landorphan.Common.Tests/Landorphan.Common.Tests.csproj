@@ -2,18 +2,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>7.3</LangVersion>
-    <!--<LangVersion>7.2</LangVersion> this is causing fluentassertions ambigous binding cs0121 issues, do not know why yet.  To view issue reset this property and rebuild
+    <!--<LangVersion>7.2</LangVersion> this is causing fluentassertions ambiguous binding cs0121 issues, do not know why yet.  To view issue reset this property and rebuild
      {SourceWeakEventHandlerSet.Tests.cs will fail to compile, possibly others}  (MWP)-->
     <RootNamespace>Landorphan.Common.Tests</RootNamespace>
     <NoWarn>1701;1702</NoWarn>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-  </PropertyGroup>
-  <PropertyGroup>
-    <!--TODO: How are we going to manage this on a cloud CI/CD build?-->
-    <GlobalAnalyzerConfigFiles Include="..\..\build\CodeAnalysis\Landorphan.Test.Default.Analyzer.globalconfig" />
-    <CodeAnalysisDictionary Include="..\..\build\CodeAnalysis\CustomDictionary.xml" Link="CustomDictionary.xml" />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -31,6 +26,10 @@
     <IntermediateOutputPath>..\..\obj\release\$(AssemblyName)\</IntermediateOutputPath>
     <OutputPath>..\..\bin\release\$(AssemblyName)</OutputPath>
   </PropertyGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\..\build\CodeAnalysis\CustomDictionary.xml" Link="CustomDictionary.xml" />
+    <GlobalAnalyzerConfigFiles Include="..\..\build\CodeAnalysis\Landorphan.Test.Default.Analyzer.globalconfig" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.7.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">

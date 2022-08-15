@@ -2,8 +2,8 @@
 
 We are moving away from *.ruleset analyzer configuration to global analyzer configuration files.  Requirements:  1) support xplat, 2) support CI/CD command line builds, 3) be editor agnostic.
 
-Global analyzer files were chosen despite having to be specifically referenced in each project file because *.editorconfig is overloaded with concerns, we only have 2 templates "source" and "test",
-and we switching from *ruleset msbuild projects which already require specifying the same in the project file.  Additionally, as templates, copy and paste from global analyzer config files to editor 
+Global analyzer files were chosen despite having to be specifically referenced in each project file because *.editorconfig is overloaded with concerns, and we only have 2 templates "source" and "test",
+and because we switching from *ruleset msbuild projects which already require specifying the same in the project file.  Additionally, as templates, copy and paste from global analyzer config files to editor 
 config files is an easy operation for teams choosing to so do.
 
 The prior ruleset files are maintained.  See Default.Source.16.5.WithSonarLint.ruleset and Default.Test.16.5.WithSonarLint.ruleset.
@@ -20,7 +20,8 @@ assists with xplat and local command line builds.
 
 ###
 Our global suppression strategy is bifurcated into source and test strategies.  We believe test should be at the same coding standard as source, but there are common testing scenarios that run afoul
-of what would be expected in source files.
+of what would be expected in source files. For example, tests often check for ANY exception being thrown, and thus lack specificty expected in source for exception handling.  We exclude the rule 
+against catching all exceptions in test projects as a consequence.
 
 Suppressions are pragmatic, and suggestions for teams grabbing these files based on our experience.  Your mileage may vary.  For example (going deep), S2328 do not reference mutable fields in 
 <code>GetHashCode()</code> implementations is based on the implementations of unique collections (they only check for uniqueness when items are inserted -- mutable objects allow for duplicates in 
