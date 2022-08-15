@@ -15,7 +15,7 @@
     public static class EnumExtensionsNonFlags_Tests
     {
         [SuppressMessage("SonarLint.Naming", "S2344:Enumeration type names should not have 'Flags' or 'Enum' suffixes", Justification = "Test target (MWP)")]
-        [SuppressMessage("SonarLint.CodeSmell", "S2342: Enumeration types should comply with a naming convention")]
+        [SuppressMessage("SonarLint.CodeSmell", "S2342: Enumeration types should comply with a naming convention")] // falsely flagged as unnecessary
         [SuppressMessage("SonarLint.CodeSmell", "S4022: Enumerations should have Int32 storage")]
         private enum TestTargetByteEnum : byte
         {
@@ -223,11 +223,12 @@
         }
 
         [SuppressMessage("Microsoft.Naming", "CA1726: Use preferred terms")]
+        [TestClass]
         public class When_I_call_NonFlagsEnumExtensions_IsValidEnumValue : TestBase
         {
             [TestMethod]
             [TestCategory(TestTiming.CheckIn)]
-            public void It_return_true_when_the_enum_value_is_valid()
+            public void It_should_return_true_when_the_enum_value_is_valid()
             {
                 // ensure UInt64.MaxValue does not cause overflow.
                 TestTargetMaxUnsignedEnum.Max.IsValidEnumValue().Should().BeTrue();

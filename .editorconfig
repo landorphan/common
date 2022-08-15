@@ -103,3 +103,8 @@ dotnet_naming_style.pascal_case.required_prefix =
 dotnet_naming_style.pascal_case.required_suffix = 
 dotnet_naming_style.pascal_case.word_separator = 
 dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+#### IDE warnings ####
+[*.{cs,vb}]
+# Initial Justification: this rule is giving false positives (mwp)
+dotnet_diagnostic.IDE0079.severity = none
