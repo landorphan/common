@@ -24,7 +24,8 @@
         /// <returns>
         /// The disposable Object that has been safely created.
         /// </returns>
-        [SuppressMessage("SonarLint.CodeSmell", "S4056:Overloads with a CultureInfo or an IFormatProvider parameter should be used", Justification = "Only available in .Net Core")]
+        //[SuppressMessage("SonarLint.CodeSmell", "S4056:Overloads with a CultureInfo or an IFormatProvider parameter should be used", Justification = "Only available in .Net Core")]
+        [SuppressMessage("SonarLint.CodeSmell", "S3011:Reflection should not be used to increase accessibility of classes, methods, or fields", Justification = "By design (MWP).")]
         public static T SafeCreate<T>() where T : class, IDisposable, new()
         {
             // ReSharper disable PossibleNullReferenceException

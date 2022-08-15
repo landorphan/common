@@ -195,7 +195,7 @@
         /// The wrapper is responsible for deciding between a strong or weak reference implementation.
         /// </remarks>
         [SuppressMessage("SonarLint.CodeSmell", "S4056: Overloads with a CultureInfo or an IFormatProvider parameter should be used", Justification = "reflection (MWP)")]
-        private class EventItem : IEquatable<EventItem>
+        private sealed class EventItem : IEquatable<EventItem>
         {
             private readonly EventHandler<TEventArgs> _strongEventHandler;
             private readonly IWeakEventHandler _weakEventHandler;
@@ -209,6 +209,7 @@
             /// <param name="handler">
             /// The handler.
             /// </param>
+            [SuppressMessage("SonarLint.CodeSmell", "S3011:Reflection should not be used to increase accessibility of classes, methods, or fields", Justification = "By design (MWP).")]
             public EventItem(EventHandler<TEventArgs> handler)
             {
                 handler.ArgumentNotNull(nameof(handler));
@@ -384,7 +385,7 @@
         /// <typeparam name="TTarget">
         /// Type of the target.
         /// </typeparam>
-        private class WeakEventHandler<TTarget> : IWeakEventHandler
+        private sealed class WeakEventHandler<TTarget> : IWeakEventHandler
         {
             private delegate void OpenEventHandler(TTarget target, object sender, TEventArgs eventArgs);
 

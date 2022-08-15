@@ -67,7 +67,7 @@
                 actualRegistered = target.Add(eh);
 
                 expectedSender = this;
-                expectedEventArgs = new EventArgs();
+                expectedEventArgs = EventArgs.Empty;
 
                 duplicateRegistered = target.Add(eh);
 
@@ -120,7 +120,7 @@
                 actualRegistered = target.Add(eh);
 
                 expectedSender = this;
-                expectedEventArgs = new EventArgs();
+                expectedEventArgs = EventArgs.Empty;
 
                 target.Invoke(expectedSender, expectedEventArgs);
             }
@@ -179,7 +179,7 @@
                 actualRegistered = target.Add(eh);
 
                 expectedSender = this;
-                expectedEventArgs = new EventArgs();
+                expectedEventArgs = EventArgs.Empty;
 
                 target.Invoke(expectedSender, expectedEventArgs);
             }
@@ -235,7 +235,7 @@
             protected override void ActMethod()
             {
                 target.Clear();
-                target.Invoke(this, new EventArgs());
+                target.Invoke(this, EventArgs.Empty);
             }
 
             [TestMethod]
@@ -315,7 +315,7 @@
                         rv.Position = 0;
                         return rv;
                     });
-                var streamWriter = new StreamWriter(memoryStream) {AutoFlush = true};
+                var streamWriter = new StreamWriter(memoryStream) { AutoFlush = true };
                 memoryListener = new TextWriterTraceListener(streamWriter);
                 Trace.Listeners.Add(memoryListener);
 
@@ -425,7 +425,7 @@
 
             internal void DoIt()
             {
-                RaiseMyEvent(new EventArgs());
+                RaiseMyEvent(EventArgs.Empty);
             }
 
             private void RaiseMyEvent(EventArgs e)

@@ -6,7 +6,6 @@ namespace Landorphan.TestUtilities.ReusableTestImplementations
     using System.Collections.Generic;
     using System.Collections.Immutable;
     using System.Diagnostics;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Reflection;
     using FluentAssertions;
@@ -46,7 +45,7 @@ namespace Landorphan.TestUtilities.ReusableTestImplementations
         /// <summary>
         /// Asserts <see cref="IQueryReadOnly.IsReadOnly"/> is true.
         /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
+        // [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
         protected void It_Should_Inform_That_It_Is_A_Read_Only_Implementation()
         {
             Target.IsReadOnly.Should().BeTrue();
@@ -55,10 +54,10 @@ namespace Landorphan.TestUtilities.ReusableTestImplementations
         /// <summary>
         /// Asserts all property setters throw <see cref="NotSupportedException"/>.
         /// </summary>
-        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-        [SuppressMessage("Microsoft.Globalization", "CA1305:SpecifyIFormatProvider", MessageId = "System.String.Format(System.String,System.Object)")]
-        [SuppressMessage("SonarLint.CodeSmell", "S4056: Overloads with a CultureInfo or an IFormatProvider parameter should be used", Justification = "reflection")]
-        [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
+        // [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+        // [SuppressMessage("Microsoft.Globalization", "CA1305:SpecifyIFormatProvider", MessageId = "System.String.Format(System.String,System.Object)")]
+        // [SuppressMessage("SonarLint.CodeSmell", "S4056: Overloads with a CultureInfo or an IFormatProvider parameter should be used", Justification = "reflection")]
+        // [SuppressMessage("Microsoft.Naming", "CA1707: Identifiers should not contain underscores")]
         protected void It_Should_Throw_On_All_Property_Setters_Implementation()
         {
             var unprotectedSetters = new List<string>();
