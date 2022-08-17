@@ -135,7 +135,8 @@ dotnet_diagnostic.CA1061.severity = warning
 dotnet_diagnostic.CA1062.severity = warning
 
 # CA1063: Implement IDisposable Correctly
-dotnet_diagnostic.CA1063.severity = warning
+# Initial Justification:  Our reusable implementation DisposableObject violates this rule and has been reviewed. (mwp)
+dotnet_diagnostic.CA1063.severity = none
 
 # CA1064: Exceptions should be public
 dotnet_diagnostic.CA1064.severity = warning
@@ -237,7 +238,7 @@ dotnet_diagnostic.CA1711.severity = warning
 dotnet_diagnostic.CA1712.severity = warning
 
 # CA1713: Events should not have 'Before' or 'After' prefix
-dotnet_diagnostic.CA1713.severity = warning
+dotnet_diagnostic.CA1713.severity = none
 
 # CA1715: Identifiers should have correct prefix
 dotnet_diagnostic.CA1715.severity = warning
@@ -264,7 +265,7 @@ dotnet_diagnostic.CA1727.severity = warning
 dotnet_diagnostic.CA1802.severity = warning
 
 # CA1805: Do not initialize unnecessarily
-dotnet_diagnostic.CA1805.severity = warning
+dotnet_diagnostic.CA1805.severity = none
 
 # CA1806: Do not ignore method results
 dotnet_diagnostic.CA1806.severity = warning
@@ -1090,7 +1091,7 @@ dotnet_diagnostic.S1871.severity = warning
 dotnet_diagnostic.S1905.severity = warning
 
 # S1939: Inheritance list should not be redundant
-dotnet_diagnostic.S1939.severity = warning
+dotnet_diagnostic.S1939.severity = none
 
 # S1940: Boolean checks should not be inverted
 dotnet_diagnostic.S1940.severity = warning
@@ -1379,7 +1380,8 @@ dotnet_diagnostic.S3011.severity = warning
 dotnet_diagnostic.S3052.severity = warning
 
 # S3059: Types should not have members with visibility set higher than the type's visibility
-dotnet_diagnostic.S3059.severity = warning
+# Initial Justification:  There is no point in breaking the build, either. (mwp)
+dotnet_diagnostic.S3059.severity = none
 
 # S3060: "is" should not be used with "this"
 dotnet_diagnostic.S3060.severity = warning
@@ -2023,7 +2025,8 @@ dotnet_diagnostic.S5766.severity = warning
 dotnet_diagnostic.S5773.severity = warning
 
 # S6354: Use a testable date/time provider
-dotnet_diagnostic.S6354.severity = warning
+# Initial Justification:  This rule fires warnings on code that follows the guidance of the rule.  (mwp)
+dotnet_diagnostic.S6354.severity = none
 
 # S6419: Azure Functions should be stateless
 dotnet_diagnostic.S6419.severity = warning
