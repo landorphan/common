@@ -10,4 +10,4 @@ Version | ![https://www.myget.org/feed/landorphan/package/nuget/Landorphan.Commo
 
 Source:
 
-This source code has Sonar Lint rules enabled, to see these in Visual Studio, go to Visual Studio, Tools, Extensions and Update, select Online and search for Sonar Lint for Visual Studio 2017
+This source code has Sonar Lint rules enabled, to see these in Visual Studio, go to Visual Studio, Tools, Extensions and Update, select Online and search for Sonar Lint for Visual Studio 2022

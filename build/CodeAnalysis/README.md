@@ -28,3 +28,5 @@ Suppressions are pragmatic, and suggestions for teams grabbing these files based
 sets of the same after mutation).  If .Net had been built from the ground up with this notion of "const correctness" for collections, all would be good, but application years (decades) after 
 <code>GetHashCode()</code> was put in every .Net class is  simply too noisy in our opinion.  Teams that need "const correctness" in their collections already know this behavior whereas teams that are
 using plain old class objects for short-lived web display purposes receive no benefit from this rule.  If you disagree, just update the rule behavior in your project.
+
+NOTE:  IDE warnings (e.g., IDE0079) are being configured in .editorconfig.

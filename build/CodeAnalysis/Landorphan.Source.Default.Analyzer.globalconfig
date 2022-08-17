@@ -946,8 +946,7 @@ dotnet_diagnostic.S1128.severity = none
 dotnet_diagnostic.S1134.severity = warning
 
 # S1135: Track uses of "TODO" tags
-# Initial justification:  this rule tracks uses of Roundtuit (not the real name) tags,  We treat warnings as errors on build, we have "Roundtuit explorer" and search, thus this rule is not needed
-# Avoiding the real name of the "Roundtuit" tag, because it shows up in "Roundtuit" explorer. (mwp)
+# Initial justification:  this rule tracks uses of TODO tags,  We treat warnings as errors on build, we have "TODO explorer" and search, thus this rule is not needed
 dotnet_diagnostic.S1135.severity = none
 
 # S1144: Unused private types or members should be removed

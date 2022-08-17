@@ -11,15 +11,18 @@ Create a ruleset (ape the existing implementation).
 GOTCHA:  takeaway use /// <inheritdoc/> above any [SuppressMessage] attributes
 
 SYNTAX UNFLAGGED:
+```csharp
       /// <inheritdoc/>
       [SuppressMessage(
          "SonarLint.CodeSmell",
          "S4018: Generic methods should provide type parameters",
          Justification = "This generic method delegates implementation to the non-generic version.  I want one implementation (MWP)")]
-
+```
 SYNTAX FLAGGED:
+```csharp
       [SuppressMessage(
          "SonarLint.CodeSmell",
          "S4018: Generic methods should provide type parameters",
          Justification = "This generic method delegates implementation to the non-generic version.  I want one implementation (MWP)")]
       /// <inheritdoc/>
+```
