@@ -26,7 +26,7 @@ namespace Landorphan.TestUtilities
         protected TestBase()
         {
             // ReSharper disable once AssignNullToNotNullAttribute
-            var uri = new Uri("file://" + Path.GetDirectoryName(GetType().Assembly.GetName().CodeBase));
+            var uri = new Uri(Path.GetDirectoryName(GetType().Assembly.GetName().CodeBase));
             _originalCurrentDirectory = uri.LocalPath;
         }
 
